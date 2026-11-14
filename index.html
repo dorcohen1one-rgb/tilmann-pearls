@@ -15,9 +15,9 @@
 <style>
 /* Layout: phone-first reading column with a thumb bar; the five lungta colors are the only ornament, one per theme */
 :root{
-  --paper:#f7f8fa; --sheet:#ffffff; --ink:#282e36; --muted:#626d7a; --faint:#97a1ad; --line:#dfe4e9; --accent:#416b85; --on-flag:#ffffff;
+  --paper:#f5f3ef; --sheet:#ffffff; --ink:#2a2b2e; --muted:#66645e; --faint:#a39f97; --line:#e7e2da; --accent:#3a6878; --on-flag:#ffffff;
   --flag-blue:#4f7491; --flag-white:#8a95a3; --flag-red:#a5584b; --flag-green:#5e8a72; --flag-yellow:#a8843a;
-  --veil:#141a20; --veil-ink:#e9edf0; --veil-muted:#a5afba; --veil-line:rgba(255,255,255,.16); --scrim:rgba(20,26,32,.42); --glass:rgba(247,248,250,.93);
+  --veil:#141a20; --veil-ink:#e9edf0; --veil-muted:#a5afba; --veil-line:rgba(255,255,255,.16); --scrim:rgba(20,26,32,.42); --glass:rgba(245,243,239,.94);
   --display:"Bellefair","Frank Ruhl Libre","David",serif;
   --body:"Frank Ruhl Libre","David","Times New Roman",serif;
   --ui:"Assistant","Segoe UI",system-ui,sans-serif;
@@ -261,6 +261,13 @@ footer{margin-top:40px;font:14px/1.75 var(--ui);color:var(--muted);text-align:ce
 .tabbar button[aria-current="true"]{color:var(--ink);font-weight:800}
 .tabbar button[aria-current="true"] svg{stroke-width:2.4}
 .meta,.count,.tlist .count,.topbar .yr,.hero .att{font-size:13.5px;line-height:18px}
+.sub{margin:6px 0 0;font:400 15px/1.5 var(--ui);color:var(--muted)}
+.years a{padding:15px 20px}
+.theme .pearl,.list .pearl{background:var(--sheet);border:0;border-radius:16px;padding:20px 20px 8px;margin-top:16px;box-shadow:0 2px 8px rgba(40,35,25,.04)}
+.theme .pearl:first-of-type,.list .pearl:first-child{border:0}
+.acts{margin-top:18px;border-top:1px solid var(--line);padding-top:4px}
+.acts .ic{color:var(--accent)}
+.banner{background:transparent;border:0;padding:0 2px}
 /* ---------- phone ---------- */
 @media (max-width:720px){
   body{font-size:18px}
@@ -282,8 +289,10 @@ footer{margin-top:40px;font:14px/1.75 var(--ui);color:var(--muted);text-align:ce
   section.theme{margin-top:44px}
   h2.tn{font-size:23px}
   .theme-intro{font-size:16px}
-  .pearl{padding:24px 0 22px}
-  .pearl blockquote{font-size:20px;line-height:1.7}
+  .theme .pearl,.list .pearl{padding:20px 20px 8px}
+  .wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  .hero,.theme-head,.theme-intro,header{padding-inline:4px}
+  .pearl blockquote{font-size:20px;line-height:34px}
   .facts b{font-size:26px}
   .para{grid-template-columns:1fr}.para .ts{text-align:right;line-height:1.4;justify-content:flex-start}
   .both .tx{grid-template-columns:1fr;gap:8px}
@@ -316,6 +325,7 @@ body.reading.playing .vnav{padding-bottom:12px}
   <header>
     <div class="eyebrow">ריטריטים של מהאמודרה בישראל · עמותת תובנה</div>
     <h1>פנינים מלאמה טילמן לונדרופ</h1>
+    <p class="sub">קטעים קצרים מתורתו, בעברית · לקרוא, להאזין ולשתף</p>
     <nav class="views" id="views" aria-label="מה להציג" hidden>
       <a href="#pearls" id="navPearls" aria-current="true">הפנינים</a>
       <a href="#talks" id="navTalks" aria-current="false">כל השיחות · תמלול מלא</a>
@@ -323,7 +333,7 @@ body.reading.playing .vnav{padding-bottom:12px}
   </header>
 
   <div id="vTalks" hidden></div>
-  <div id="vPearls">
+  <main id="vPearls">
     <div class="yearbar"><nav class="years" aria-label="בחירת שנה" id="years"></nav></div>
     <div class="hero" id="hero"></div>
 
@@ -341,7 +351,7 @@ body.reading.playing .vnav{padding-bottom:12px}
     </div>
 
     <div id="banner"></div>
-    <main id="main"></main>
+    <div id="main"></div>
 
     <a class="promo" href="#talks" id="promo" hidden>
       <span class="lbl">התמלול המלא</span><span class="pt">הכתוב המלא של כל 72 השיחות</span>
@@ -354,7 +364,7 @@ body.reading.playing .vnav{padding-bottom:12px}
       <p>לאמה טילמן לונדרופ מלמד מהאמודרה במסורת קרמה קגיו של הבודהיזם הטיבטי. הוא היה רופא ומטפל, ומורו היה לאמה גנדון רינפוצ'ה. תחת הדרכתו ישב פעמיים בריטריט של שלוש שנים.</p>
       <p>ביולי 2024 הגיע לישראל לראשונה, בעיצומה של המלחמה, ובמאי 2025 חזר. הקטעים כאן נבחרו מתוך כל השיחות שהוקלטו בשני הריטריטים, תורגמו ונערכו לעברית, וכל אחד מהם מקושר לרגע שבו נאמר.</p>
     </details>
-  </div>
+  </main>
 
   <footer>
     התורות של לאמה טילמן לונדרופ, מתוך הקלטות הריטריטים שקיימה <a href="https://tovana.org.il/audio-dharma/" target="_blank" rel="noopener">עמותת תובנה</a> בשנים 2024–2025.<br>
@@ -363,7 +373,7 @@ body.reading.playing .vnav{padding-bottom:12px}
 </div>
 
 <nav class="tabbar" id="tabbar" aria-label="ניווט">
-  <button data-read><svg class="i"><use href="#i-book"/></svg>קריאה</button>
+  <button data-read><svg class="i"><use href="#i-book"/></svg>קריאה שקטה</button>
   <button id="tabBrowse"><svg class="i"><use href="#i-list"/></svg>נושאים</button>
   <button data-mine><svg class="i"><use href="#i-heart"/></svg><span>שמורות</span></button>
 </nav>
