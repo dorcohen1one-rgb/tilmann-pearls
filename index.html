@@ -342,6 +342,22 @@ h1{font-size:clamp(40px,7vw,60px);margin-top:8px}
 .pearl h3{padding-inline-end:26px}
 .veil{background:linear-gradient(180deg,var(--night-a),var(--night-b))}
 @media (max-width:720px){h1{font-size:38px}.hero blockquote{font-size:24px;line-height:1.6}.sub{font-size:14.5px}}
+/* Fable review 2: calmer card header, centred theme openers, narrower desktop column */
+.pearl h3 .n{display:none}
+.pearl h3{font:700 16px/1.4 var(--ui)}
+.acts .act svg{width:20px;height:20px}
+.acts .ic{color:var(--muted)}
+.acts .ic.kept{color:var(--flag-red)}
+section.theme{margin-top:60px}
+.theme-head{flex-direction:column;gap:10px;text-align:center}
+.theme-head .flag{width:14px;height:20px;border-radius:0;clip-path:polygon(0 0,100% 0,100% 100%,50% 74%,0 100%)}
+.theme-head .count{display:none}
+h2.tn{font-size:28px}
+.theme-intro{text-align:center;max-width:30em;margin:6px auto 4px}
+.wrap{max-width:680px}
+.sheet .close{display:none}
+body.playing{--toast-b:calc(var(--player-h,64px) + 16px)}
+@media (max-width:720px){h2.tn{font-size:26px}section.theme{margin-top:48px}body.playing{--toast-b:calc(var(--bar-h) + var(--player-h,64px) + 16px)}}
 </style>
 
 </head><body><svg width="0" height="0" style="position:absolute" aria-hidden="true">
