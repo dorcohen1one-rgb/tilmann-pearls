@@ -358,6 +358,21 @@ h2.tn{font-size:28px}
 .sheet .close{display:none}
 body.playing{--toast-b:calc(var(--player-h,64px) + 16px)}
 @media (max-width:720px){h2.tn{font-size:26px}section.theme{margin-top:48px}body.playing{--toast-b:calc(var(--bar-h) + var(--player-h,64px) + 16px)}}
+/* Fable review 3: one stream, named actions */
+#vPearls>.yearbar{display:none}
+.hero{margin-top:22px}
+.yr-h{display:flex;align-items:center;gap:14px;margin:56px 0 -20px;font:700 13px/1.4 var(--ui);letter-spacing:.08em;color:var(--muted)}
+.yr-h::before,.yr-h::after{content:"";flex:1;height:1px;background:var(--line)}
+#main>.yr-h:first-child{margin-top:30px}
+#main>.yr-h+section.theme{margin-top:44px}
+.acts{gap:0}
+.acts .act{flex:1;justify-content:center;gap:8px;color:var(--ink);font:600 15px/1.2 var(--ui);padding:0 4px}
+.acts .act:first-child{padding-inline-start:4px}
+.acts .act svg{width:20px;height:20px;color:var(--accent)}
+.acts .act+.act{border-inline-start:1px solid var(--line);border-radius:0}
+.acts .act.kept svg{color:var(--flag-red);fill:currentColor}
+.theme .pearl,.list .pearl{padding-bottom:4px}
+.sheet h4{margin-top:22px}
 </style>
 
 </head><body><svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -381,7 +396,7 @@ body.playing{--toast-b:calc(var(--player-h,64px) + 16px)}
   <header>
     <div class="eyebrow">ריטריטים של מהאמודרה בישראל · עמותת תובנה</div>
     <h1>פנינים מלאמה טילמן לונדרופ</h1>
-    <p class="sub">קטעים קצרים מתורתו, בעברית · לקרוא, להאזין ולשתף</p>
+    <p class="sub">92 קטעים קצרים מתורתו, בעברית · לקרוא, להאזין ולשתף</p>
     <nav class="views" id="views" aria-label="מה להציג" hidden>
       <a href="#pearls" id="navPearls" aria-current="true">הפנינים</a>
       <a href="#talks" id="navTalks" aria-current="false">כל השיחות · תמלול מלא</a>
@@ -429,14 +444,14 @@ body.playing{--toast-b:calc(var(--player-h,64px) + 16px)}
 </div>
 
 <nav class="tabbar" id="tabbar" aria-label="ניווט">
-  <button data-read><svg class="i"><use href="#i-book"/></svg>קריאה שקטה</button>
+  <button data-read><svg class="i"><use href="#i-book"/></svg>אחת־אחת</button>
   <button id="tabBrowse"><svg class="i"><use href="#i-list"/></svg>נושאים</button>
   <button data-mine><svg class="i"><use href="#i-heart"/></svg><span>שמורות</span></button>
 </nav>
 
 <div class="scrim" id="scrim" hidden></div>
 <div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-label="נושאים ואפשרויות">
-  <div class="sheet-head"><span>נושאים ואפשרויות</span><button id="sheetX" aria-label="סגירה"><svg class="i"><use href="#i-x"/></svg></button></div>
+  <div class="sheet-head"><span>נושאים</span><button id="sheetX" aria-label="סגירה"><svg class="i"><use href="#i-x"/></svg></button></div>
   <div id="sheetBody"></div>
 </div>
 
@@ -492,7 +507,7 @@ async function sharePearl(p){
   copyText(shareText(p)+'\n'+pearlUrl(p),'הפנינה והקישור הועתקו – אפשר להדביק בוואטסאפ');
 }
 function toggleKeep(id){kept.has(id)?kept.delete(id):kept.add(id);store.set('pearls-kept',[...kept]);syncKeep(id);updateBadge();toast(kept.has(id)?'נשמרה ב״שמורות״':'הוסרה מהשמורות');if(mode.kind==='mine')renderMain()}
-function syncKeep(id){const on=kept.has(id);document.querySelectorAll(`[data-keep="${id}"]`).forEach(b=>{b.classList.toggle('kept',on);b.setAttribute('aria-pressed',on);b.setAttribute('aria-label',on?'נשמרה':'שמירה')});
+function syncKeep(id){const on=kept.has(id);document.querySelectorAll(`[data-keep="${id}"]`).forEach(b=>{b.classList.toggle('kept',on);b.setAttribute('aria-pressed',on);b.lastChild.textContent=on?'נשמרה':'שמירה'});
   if(veilP()&&veilP().id===id){$('vKeep').classList.toggle('kept',on);$('vKeep').lastChild.textContent=on?'נשמרה':'שמירה'}}
 function updateBadge(){document.querySelectorAll('.tabbar [data-mine] span').forEach(s=>s.textContent=kept.size?`שמורות (${kept.size})`:'שמורות')}
 
@@ -517,7 +532,7 @@ listen.tok=0;
 if('ResizeObserver' in window)new ResizeObserver(()=>document.documentElement.style.setProperty('--player-h',$('player').offsetHeight+'px')).observe($('player'));
 
 /* ---------- sky + prayer flags ---------- */
-function sizeSky(){const tv=!$('vTalks').hidden;const el=tv?document.querySelector('header'):($('hero').hidden?document.querySelector('#vPearls>.yearbar'):$('hero'));
+function sizeSky(){const tv=!$('vTalks').hidden;const el=tv?document.querySelector('header'):($('hero').hidden?document.querySelector('header'):$('hero'));
   let t=el.offsetHeight,e=el;while(e&&e!==document.body){t+=e.offsetTop;e=e.offsetParent}/* layout offsets: ignore the hero's rise transform and scroll locks */
   $('sky').style.height=Math.round(t+(el.id==='hero'?0:24))+'px'}
 (function(){const C=['#5fa3e0','#f4f2ea','#d9533f','#4fa36b','#e9b83a'],W=390,n=11,sag=20;
@@ -535,11 +550,9 @@ function pearlHTML(p,withYear){
     <blockquote data-stay="${p.id}">${esc(p.he)}</blockquote>
     <div class="en" ${showEn?'':'hidden'}><span class="lbl">במקור, באנגלית</span><q lang="en">${esc(p.en)}</q></div>
     <div class="acts">
-      <button class="act" data-stay="${p.id}">${icon('breath')}להישאר עם זה</button>
-      <button class="act" data-listen="${p.id}" aria-label="האזנה מ־${esc(p.ts)}">${icon('play')}<span class="tsn">${esc(p.ts)}</span></button>
-      <span class="sp"></span>
-      <button class="act ic ${k?'kept':''}" data-keep="${p.id}" aria-pressed="${k}" aria-label="${k?'נשמרה':'שמירה'}">${icon('heart')}</button>
-      <button class="act ic" data-share="${p.id}" aria-label="שיתוף">${icon('share')}</button>
+      <button class="act" data-listen="${p.id}">${icon('play')}<span>האזנה</span></button>
+      <button class="act ${k?'kept':''}" data-keep="${p.id}" aria-pressed="${k}">${icon('heart')}<span>${k?'נשמרה':'שמירה'}</span></button>
+      <button class="act" data-share="${p.id}">${icon('share')}<span>שיתוף</span></button>
     </div></article>`;
 }
 function renderHeader(){
@@ -548,19 +561,19 @@ function renderHeader(){
   const h=Y.hero;
   $('hero').innerHTML=`<blockquote>״${esc(h.he)}״</blockquote>
     <div class="att">לאמה טילמן לונדרופ · ${esc(h.date)}</div>
-    <div class="hero-actions"><button class="pri" data-read>${icon('book')}קריאה שקטה</button><button class="sec" data-listen="${h.id}">${icon('play')}לשמוע אותו</button></div>`;
+    <div class="hero-actions"><button class="pri" data-read>${icon('book')}לקרוא אחת־אחת</button><button class="sec" data-listen="${h.id}">${icon('play')}להאזין לפנינה</button></div>`;
   const n=Y.themes.reduce((a,t)=>a+t.p.length,0);
-  $('facts').innerHTML=`<div><b>${Y.days}</b>ימי ריטריט</div><div><b>${Y.talks}</b>הקלטות</div><div><b>${Y.hours}</b>שעות לימוד</div><div><b>${n}</b>פנינים</div>`;
-  $('toc').innerHTML=Y.themes.map((t,i)=>`<li><a href="#y${Y.year}-${t.p[0].n}" style="--theme:var(${FLAGS[i]})"><span class="dot"></span>${esc(t.name)}</a></li>`).join('');
+  $('facts').innerHTML=`<div><b>${D.reduce((a,y)=>a+y.days,0)}</b>ימי ריטריט</div><div><b>${D.reduce((a,y)=>a+y.talks,0)}</b>הקלטות</div><div><b>${D.reduce((a,y)=>a+y.hours,0)}</b>שעות לימוד</div><div><b>${ALL.length}</b>פנינים</div>`;
+  $('toc').innerHTML=D.flatMap(Y=>Y.themes.map((t,i)=>`<li><a href="#y${Y.year}-${t.p[0].n}" style="--theme:var(${FLAGS[i]})"><span class="dot"></span>${esc(t.name)}</a></li>`)).join('');
   $('chipsDesk').innerHTML=chipsHTML();
 }
 const chipsHTML=()=>TAGS.map(t=>`<button data-tag="${esc(t)}" aria-pressed="${mode.kind==='tag'&&mode.tag===t}">${esc(t)}</button>`).join('');
 function currentList(){
   if(mode.kind==='tag')return ALL.filter(p=>(p.tags||[]).includes(mode.tag));
   if(mode.kind==='mine')return ALL.filter(p=>kept.has(p.id));
-  return ALL.filter(p=>p.year===year);
+  return ALL;
 }
-function scopeLabel(){return mode.kind==='tag'?mode.tag:mode.kind==='mine'?'השמורות שלי':`ריטריט ${D.find(x=>x.year===year).label}`}
+function scopeLabel(){return mode.kind==='tag'?mode.tag:mode.kind==='mine'?'השמורות שלי':'כל הפנינים'}
 function renderMain(){
   const Y=D.find(x=>x.year===year);
   $('hero').hidden=mode.kind!=='themes';
@@ -568,9 +581,9 @@ function renderMain(){
   $('tabBrowse').setAttribute('aria-current',mode.kind==='tag');
   if(mode.kind==='themes'){
     $('banner').innerHTML='';
-    $('main').innerHTML=Y.themes.map((t,i)=>`<section class="theme" data-theme="${esc(t.name)}" style="--theme:var(${FLAGS[i]})">
+    $('main').innerHTML=D.map(Y=>`<div class="yr-h"><span>ריטריט ${esc(Y.label)}</span></div>`+Y.themes.map((t,i)=>`<section class="theme" data-theme="${esc(t.name)}" data-yl="${esc(Y.label)}" style="--theme:var(${FLAGS[i]})">
       <div class="theme-head"><span class="flag"></span><h2 class="tn">${esc(t.name)}</h2><span class="count">${t.p.length} פנינים</span></div>
-      <p class="theme-intro">${esc(t.intro)}</p>${t.p.map(p=>pearlHTML(p,false)).join('')}</section>`).join('');
+      <p class="theme-intro">${esc(t.intro)}</p>${t.p.map(p=>pearlHTML(p,false)).join('')}</section>`).join('')).join('');
   } else {
     const L=currentList();
     $('banner').innerHTML=`<div class="banner"><span>${mode.kind==='mine'?'<b>השמורות שלי</b>':'<b>'+esc(mode.tag)+'</b>'} · ${L.length}</span><button data-clear>${icon('x')}חזרה לכל הפנינים</button></div>`;
@@ -586,8 +599,8 @@ function setMode(m){mode=m;renderMain();closeSheet();const el=$('banner').firstC
 function onScroll(){
   const show=isPhone()&&!$('vPearls').hidden&&mode.kind==='themes'&&$('main').getBoundingClientRect().top<40;
   if(show){let cur=null;document.querySelectorAll('section.theme').forEach(s=>{if(s.getBoundingClientRect().top<90)cur=s});
-    if(cur&&cur!==onScroll.cur){onScroll.cur=cur;$('tbName').textContent=cur.dataset.theme;$('tbDot').style.background=getComputedStyle(cur).getPropertyValue('--theme')}}
-  $('topbar').classList.toggle('on',show);$('tbYear').textContent=D.find(x=>x.year===year).label;
+    if(cur&&cur!==onScroll.cur){onScroll.cur=cur;$('tbName').textContent=cur.dataset.theme;$('tbYear').textContent=cur.dataset.yl;$('tbDot').style.background=getComputedStyle(cur).getPropertyValue('--theme')}}
+  $('topbar').classList.toggle('on',show);
   // remember reading position
   if(!$('vPearls').hidden){const a=[...document.querySelectorAll('.pearl')].find(p=>p.getBoundingClientRect().bottom>120);if(a)store.set('pearls-pos',a.id)}
 }
@@ -597,8 +610,7 @@ addEventListener('scroll',()=>{cancelAnimationFrame(onScroll.r);onScroll.r=reque
 function openSheet(){
   const Y=D.find(x=>x.year===year);
   $('sheetBody').innerHTML=`
-    <h4>שנה</h4><div class="row">${D.map(x=>`<button data-year="${x.year}" aria-pressed="${x.year===year}">ריטריט ${esc(x.label)}</button>`).join('')}</div>
-    <h4>נושאים · ${esc(Y.label)}</h4><div class="tlist">${Y.themes.map((t,i)=>`<button data-goto="${Y.year}-${t.p[0].n}" style="--theme:var(${FLAGS[i]})"><span class="dot"></span>${esc(t.name)}<span class="count">${t.p.length}</span></button>`).join('')}</div>
+    ${D.map(Y=>`<h4>ריטריט ${esc(Y.label)}</h4><div class="tlist">${Y.themes.map((t,i)=>`<button data-goto="${Y.year}-${t.p[0].n}" style="--theme:var(${FLAGS[i]})"><span class="dot"></span>${esc(t.name)}<span class="count">${t.p.length}</span></button>`).join('')}</div>`).join('')}
     <h4>מה פוגש אותך היום?</h4><div class="tlist moods">${TAGS.map(t=>`<button data-tag="${esc(t)}" aria-pressed="${mode.kind==='tag'&&mode.tag===t}">${esc(t)}</button>`).join('')}</div>
     <h4>תצוגה</h4><div class="row"><div class="seg" role="group" aria-label="שפה"><button data-lang="he" aria-pressed="${!showEn}">עברית</button><button data-lang="both" aria-pressed="${showEn}">+ המקור באנגלית</button></div></div>
     <div class="row" style="margin-top:12px"><button data-random>פנינה אקראית</button>${FULL?'<button data-talks>כל השיחות המלאות</button>':''}</div>
@@ -654,15 +666,15 @@ document.addEventListener('click',e=>{
   if(e.target.closest('a'))return;
   const b=e.target.closest('button,[data-goto],blockquote[data-stay]');if(!b)return;
   const d=b.dataset;
-  if(d.stay){openReader(d.stay,currentList().some(p=>p.id===d.stay)?null:ALL.filter(p=>p.year===byId(d.stay).year));return}
+  if(d.stay){openReader(d.stay,currentList().some(p=>p.id===d.stay)?null:ALL);return}
   if(d.keep){toggleKeep(d.keep);return}
   if(d.share){sharePearl(byId(d.share));return}
   if(d.listen){listen(byId(d.listen));return}
   if(d.tag!==undefined){setMode(mode.kind==='tag'&&mode.tag===d.tag?{kind:'themes'}:{kind:'tag',tag:d.tag});return}
   if('mine' in d){setMode(mode.kind==='mine'?{kind:'themes'}:{kind:'mine'});return}
   if('clear' in d){setMode({kind:'themes'});return}
-  if('read' in d){let L=currentList();if(!L.length)L=ALL.filter(p=>p.year===year);const pos=store.get('pearls-pos',null);openReader(L.some(p=>p.id===pos)?pos:L[0].id,L);return}
-  if('random' in d){const L=currentList().length?currentList():ALL.filter(p=>p.year===year);openReader(L[Math.floor(Math.random()*L.length)].id,L);return}
+  if('read' in d){let L=currentList();if(!L.length)L=ALL;const pos=store.get('pearls-pos',null);openReader(L.some(p=>p.id===pos)?pos:L[0].id,L);return}
+  if('random' in d){const L=currentList().length?currentList():ALL;openReader(L[Math.floor(Math.random()*L.length)].id,L);return}
   if(d.lang){showEn=d.lang==='both';store.set('pearls-en',showEn);document.querySelectorAll('.en').forEach(x=>x.hidden=!showEn);
     document.querySelectorAll('[data-lang]').forEach(x=>x.setAttribute('aria-pressed',(x.dataset.lang==='both')===showEn));return}
   if(d.year){closeSheet();mode={kind:'themes'};if(location.hash!==`#y${d.year}`){location.hash=`y${d.year}`}else{year=d.year;renderHeader();renderMain()}window.scrollTo(0,0);return}
