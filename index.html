@@ -1,6 +1,6 @@
 <!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f4f5f7" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0e121a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#14365a" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0a1826" media="(prefers-color-scheme: dark)">
 <meta name="description" content="92 פנינים מתורותיו של לאמה טילמן לונדרופ בריטריטי המהאמודרה של תובנה בישראל, 2024–2025, בתרגום לעברית ומקושרות להקלטות המקוריות.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect x=%272%27 y=%278%27 width=%275%27 height=%2712%27 fill=%27%232f6db5%27/%3E%3Crect x=%279%27 y=%278%27 width=%275%27 height=%2712%27 fill=%27%23b9c0cc%27/%3E%3Crect x=%2716%27 y=%278%27 width=%275%27 height=%2712%27 fill=%27%23c2412d%27/%3E%3Crect x=%2723%27 y=%278%27 width=%275%27 height=%2712%27 fill=%27%232f8a5b%27/%3E%3C/svg%3E">
 <meta property="og:type" content="website"><meta property="og:title" content="פנינים מלאמה טילמן לונדרופ">
@@ -303,6 +303,45 @@ body.has-tabbar.playing .wrap{padding-bottom:calc(var(--bar-h) + env(safe-area-i
 body.reading.playing .veil{padding-bottom:var(--player-h,64px)}
 body.reading.playing .vnav{padding-bottom:12px}
 @media (min-width:721px){body.has-tabbar.playing .wrap{padding-bottom:calc(var(--player-h,64px) + 40px)}}
+
+/* ---------- Fable: "the sky after the monsoon" cover; paper cards below; night sky for quiet reading ---------- */
+:root{--sky-a:#14365a;--sky-b:#1d4f7b;--sky-c:#2a6490;--sky-ink:#f4f7fa;--sky-muted:rgba(244,247,250,.8);--sky-line:rgba(255,255,255,.3);--sky-glass:rgba(255,255,255,.12);--night-a:#0b1a2a;--night-b:#14365a;--accent:#1f5683}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--sky-a:#0a1826;--sky-b:#10304e;--sky-c:#17426a;--accent:#8fbfe6}}
+:root[data-theme="dark"]{--sky-a:#0a1826;--sky-b:#10304e;--sky-c:#17426a;--accent:#8fbfe6}
+body{position:relative;overflow-x:clip}
+.sky{position:absolute;top:0;left:0;right:0;height:430px;z-index:0;background:linear-gradient(180deg,var(--sky-a),var(--sky-b) 55%,var(--sky-c));border-radius:0 0 28px 28px}
+.wrap{position:relative;z-index:1}
+.flags{display:block;padding-top:6px}
+.flags::before{display:none}
+.flags svg{display:block;width:min(100%,560px);height:auto;margin:0 auto;overflow:visible}
+.flags .fl{transform-box:fill-box;transform-origin:50% 0;transform:rotate(var(--r));animation:sway 3.4s ease-in-out 2 both}
+@keyframes sway{0%,100%{transform:rotate(var(--r))}50%{transform:rotate(calc(var(--r) + 6deg))}}
+header,#vPearls>.yearbar,.hero{color:var(--sky-ink)}
+header{padding-top:6px}
+header :focus-visible,#vPearls>.yearbar :focus-visible,.hero :focus-visible{outline-color:var(--sky-ink)}
+.eyebrow,.sub{color:var(--sky-muted)}
+h1{font-size:clamp(40px,7vw,60px);margin-top:8px}
+.views a{color:var(--sky-muted)}
+.views a[aria-current="true"]{color:var(--sky-ink);border-bottom-color:var(--sky-ink)}
+#vPearls>.yearbar .years{background:var(--sky-glass);border-color:var(--sky-line)}
+#vPearls>.yearbar .years a{color:var(--sky-ink)}
+#vPearls>.yearbar .years a[aria-current="true"]{background:var(--sky-ink);color:var(--sky-a)}
+.hero{margin-top:28px;padding-bottom:36px}
+.hero .lbl{display:none}
+.hero blockquote{font-weight:400;font-size:clamp(24px,4.4vw,31px);line-height:1.6}
+.hero .att{color:var(--sky-ink);opacity:.9;margin-top:14px}
+.hero-actions{margin-top:22px}
+.hero-actions button{min-height:50px;padding:0 22px;font-size:16px}
+.hero-actions .pri{background:var(--sky-ink);color:var(--sky-a);border-color:var(--sky-ink)}
+.hero-actions .sec{background:var(--sky-glass);color:var(--sky-ink);border-color:var(--sky-line)}
+#main>section.theme:first-child{margin-top:34px}
+.moments{margin-top:40px}
+.theme .pearl,.list .pearl{position:relative}
+.theme .pearl::before,.list .pearl::before{content:"";position:absolute;top:0;inset-inline-end:22px;width:12px;height:18px;background:var(--theme);clip-path:polygon(0 0,100% 0,100% 100%,50% 74%,0 100%)}
+.pearl h3 .n::after{display:none}
+.pearl h3{padding-inline-end:26px}
+.veil{background:linear-gradient(180deg,var(--night-a),var(--night-b))}
+@media (max-width:720px){h1{font-size:38px}.hero blockquote{font-size:24px;line-height:1.6}.sub{font-size:14.5px}}
 </style>
 
 </head><body><svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -318,6 +357,7 @@ body.reading.playing .vnav{padding-bottom:12px}
   <symbol id="i-breath" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></symbol>
 </svg>
 
+<div class="sky" id="sky" aria-hidden="true"></div>
 <div class="topbar" id="topbar" aria-hidden="true"><span class="dot" id="tbDot"></span><span id="tbName"></span><span class="yr" id="tbYear"></span></div>
 
 <div class="wrap">
@@ -460,6 +500,16 @@ $('pClose').onclick=()=>{audio.pause();$('player').hidden=true;playing=null;docu
 listen.tok=0;
 if('ResizeObserver' in window)new ResizeObserver(()=>document.documentElement.style.setProperty('--player-h',$('player').offsetHeight+'px')).observe($('player'));
 
+/* ---------- sky + prayer flags ---------- */
+function sizeSky(){const tv=!$('vTalks').hidden;const el=tv?document.querySelector('header'):($('hero').hidden?document.querySelector('#vPearls>.yearbar'):$('hero'));
+  let t=el.offsetHeight,e=el;while(e&&e!==document.body){t+=e.offsetTop;e=e.offsetParent}/* layout offsets: ignore the hero's rise transform and scroll locks */
+  $('sky').style.height=Math.round(t+(el.id==='hero'?0:24))+'px'}
+(function(){const C=['#5fa3e0','#f4f2ea','#d9533f','#4fa36b','#e9b83a'],W=390,n=11,sag=20;
+  let h=`<svg viewBox="0 0 ${W} 62"><path d="M-12 8 Q ${W/2} ${8+2*sag} ${W+12} 8" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="1"/>`;
+  for(let i=0;i<n;i++){const t=(i+.5)/n,x=-12+(W+24)*t,y=8+4*sag*t*(1-t),a=Math.atan(4*sag*(1-2*t)/(W+24))*57.3;
+    h+=`<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)})"><path class="fl" style="--r:${a.toFixed(1)}deg;animation-delay:${i*80}ms" d="M-12 0H12L10.5 27H-10.5Z" fill="${C[i%5]}"/></g>`}
+  document.querySelector('.flags').innerHTML=h+'</svg>'})();
+addEventListener('resize',sizeSky);addEventListener('load',sizeSky);if(window.ResizeObserver){const ro=new ResizeObserver(()=>sizeSky());['header','#vPearls>.yearbar','#hero'].forEach(q=>{const e=document.querySelector(q);e&&ro.observe(e)})}if(document.fonts&&document.fonts.ready)document.fonts.ready.then(sizeSky);
 /* ---------- rendering ---------- */
 function pearlHTML(p,withYear){
   const k=kept.has(p.id);
@@ -480,9 +530,9 @@ function renderHeader(){
   const Y=D.find(x=>x.year===year);
   $('years').innerHTML=D.map(x=>`<a href="#y${x.year}" aria-current="${x.year===Y.year}">${esc(x.label)}</a>`).join('');
   const h=Y.hero;
-  $('hero').innerHTML=`<div class="lbl">פנינת פתיחה</div><blockquote>״${esc(h.he)}״</blockquote>
+  $('hero').innerHTML=`<blockquote>״${esc(h.he)}״</blockquote>
     <div class="att">לאמה טילמן לונדרופ · ${esc(h.date)}</div>
-    <div class="hero-actions"><button data-stay="${h.id}">${icon('breath')}להישאר עם זה רגע</button><button data-listen="${h.id}">${icon('play')}לשמוע אותו</button></div>`;
+    <div class="hero-actions"><button class="pri" data-read>${icon('book')}קריאה שקטה</button><button class="sec" data-listen="${h.id}">${icon('play')}לשמוע אותו</button></div>`;
   const n=Y.themes.reduce((a,t)=>a+t.p.length,0);
   $('facts').innerHTML=`<div><b>${Y.days}</b>ימי ריטריט</div><div><b>${Y.talks}</b>הקלטות</div><div><b>${Y.hours}</b>שעות לימוד</div><div><b>${n}</b>פנינים</div>`;
   $('toc').innerHTML=Y.themes.map((t,i)=>`<li><a href="#y${Y.year}-${t.p[0].n}" style="--theme:var(${FLAGS[i]})"><span class="dot"></span>${esc(t.name)}</a></li>`).join('');
@@ -511,7 +561,7 @@ function renderMain(){
     $('main').innerHTML=L.length?`<div class="list">${L.map(p=>pearlHTML(p,true)).join('')}</div>`:
       `<p class="empty">${mode.kind==='mine'?'עוד לא שמרתם פנינים. לחצו ״שמירה״ ליד פנינה שנגעה בכם, והיא תחכה לכם כאן.':'אין פנינים ברגע הזה.'}</p>`;
   }
-  $('chipsDesk').innerHTML=chipsHTML();
+  $('chipsDesk').innerHTML=chipsHTML();sizeSky();
   document.querySelectorAll('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',(b.dataset.lang==='both')===showEn));
 }
 function setMode(m){mode=m;renderMain();closeSheet();const el=$('banner').firstChild||$('main');window.scrollTo({top:el.getBoundingClientRect().top+scrollY-20})}
@@ -647,7 +697,7 @@ async function showTalk(id,sec){
   $('vTalks').querySelectorAll('[data-tlisten]').forEach(b=>b.onclick=()=>listen({title:t.title,url:t.url,sec:+b.dataset.tlisten,ts:b.textContent.trim()}));
   if(sec!=null){const ps=[...document.querySelectorAll('.para')];let best=ps[0];for(const p of ps){if(+p.dataset.s<=sec)best=p}if(best){best.scrollIntoView({block:'start'});best.classList.add('flash')}}else window.scrollTo(0,0);
 }
-function setView(v){const tv=v==='talks';$('vTalks').hidden=!tv;$('vPearls').hidden=tv;$('navPearls').setAttribute('aria-current',!tv);$('navTalks').setAttribute('aria-current',tv);$('topbar').classList.remove('on')}
+function setView(v){const tv=v==='talks';$('vTalks').hidden=!tv;$('vPearls').hidden=tv;$('navPearls').setAttribute('aria-current',!tv);$('navTalks').setAttribute('aria-current',tv);$('topbar').classList.remove('on');sizeSky()}
 
 /* ---------- router ---------- */
 let first=true;
