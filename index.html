@@ -15,27 +15,28 @@
 <style>
 /* Layout: phone-first reading column with a thumb bar; the five lungta colors are the only ornament, one per theme */
 :root{
-  --paper:#f4f5f7; --sheet:#ffffff; --ink:#1b2130; --muted:#566070; --faint:#8a93a3; --line:#dde1e8; --accent:#2a54a6; --on-flag:#ffffff;
-  --flag-blue:#2f6db5; --flag-white:#9aa3b2; --flag-red:#c2412d; --flag-green:#2f8a5b; --flag-yellow:#c4860f;
-  --veil:#11151d; --veil-ink:#eef0f4; --veil-muted:#a3abba; --veil-line:rgba(255,255,255,.18); --scrim:rgba(10,13,20,.45); --glass:rgba(244,245,247,.92);
+  --paper:#f7f8fa; --sheet:#ffffff; --ink:#282e36; --muted:#626d7a; --faint:#97a1ad; --line:#dfe4e9; --accent:#416b85; --on-flag:#ffffff;
+  --flag-blue:#4f7491; --flag-white:#8a95a3; --flag-red:#a5584b; --flag-green:#5e8a72; --flag-yellow:#a8843a;
+  --veil:#141a20; --veil-ink:#e9edf0; --veil-muted:#a5afba; --veil-line:rgba(255,255,255,.16); --scrim:rgba(20,26,32,.42); --glass:rgba(247,248,250,.93);
   --display:"Bellefair","Frank Ruhl Libre","David",serif;
   --body:"Frank Ruhl Libre","David","Times New Roman",serif;
   --ui:"Assistant","Segoe UI",system-ui,sans-serif;
   --bar-h:62px;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --paper:#0e121a; --sheet:#161b26; --ink:#e7eaf0; --muted:#a3acbc; --faint:#6f788a; --line:#283041; --accent:#93b3ff; --on-flag:#0e121a;
-  --flag-blue:#6b9fe0; --flag-white:#c9ced8; --flag-red:#e57a63; --flag-green:#5cbd8c; --flag-yellow:#f0b947;
-  --veil:#090c12; --veil-ink:#eef0f4; --veil-muted:#a3abba; --veil-line:rgba(255,255,255,.16); --scrim:rgba(0,0,0,.6); --glass:rgba(14,18,26,.92); color-scheme:dark}}
+  --paper:#141a20; --sheet:#1d252d; --ink:#e3e7ea; --muted:#a5afba; --faint:#6f7b87; --line:#35414c; --accent:#94bbd2; --on-flag:#141a20;
+  --flag-blue:#88acc6; --flag-white:#b3bcc8; --flag-red:#d08a7c; --flag-green:#91b39f; --flag-yellow:#ceb46e;
+  --veil:#0f1418; --veil-ink:#e9edf0; --veil-muted:#a5afba; --veil-line:rgba(255,255,255,.14); --scrim:rgba(0,0,0,.55); --glass:rgba(20,26,32,.93); color-scheme:dark}}
 :root[data-theme="dark"]{
-  --paper:#0e121a; --sheet:#161b26; --ink:#e7eaf0; --muted:#a3acbc; --faint:#6f788a; --line:#283041; --accent:#93b3ff; --on-flag:#0e121a;
-  --flag-blue:#6b9fe0; --flag-white:#c9ced8; --flag-red:#e57a63; --flag-green:#5cbd8c; --flag-yellow:#f0b947;
-  --veil:#090c12; --veil-ink:#eef0f4; --veil-muted:#a3abba; --veil-line:rgba(255,255,255,.16); --scrim:rgba(0,0,0,.6); --glass:rgba(14,18,26,.92); color-scheme:dark}
+  --paper:#141a20; --sheet:#1d252d; --ink:#e3e7ea; --muted:#a5afba; --faint:#6f7b87; --line:#35414c; --accent:#94bbd2; --on-flag:#141a20;
+  --flag-blue:#88acc6; --flag-white:#b3bcc8; --flag-red:#d08a7c; --flag-green:#91b39f; --flag-yellow:#ceb46e;
+  --veil:#0f1418; --veil-ink:#e9edf0; --veil-muted:#a5afba; --veil-line:rgba(255,255,255,.14); --scrim:rgba(0,0,0,.55); --glass:rgba(20,26,32,.93); color-scheme:dark}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:19px;line-height:1.8;direction:rtl;-webkit-tap-highlight-color:transparent}
-.wrap{max-width:760px;margin:0 auto;padding-block:0 60px;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+
+.wrap{max-width:760px;margin:0 auto;padding-block:0 60px;padding-left:max(22px,env(safe-area-inset-left,0px));padding-right:max(22px,env(safe-area-inset-right,0px))}
 a{color:var(--accent)}
 button{font:600 15px/1 var(--ui);color:var(--ink);background:var(--sheet);border:1px solid var(--line);border-radius:999px;padding:0 16px;min-height:44px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px}
 button:hover{border-color:var(--muted)}
@@ -230,6 +231,36 @@ footer{margin-top:40px;font:14px/1.75 var(--ui);color:var(--muted);text-align:ce
 
 .toast{position:fixed;z-index:70;left:50%;transform:translateX(-50%);bottom:calc(var(--toast-b,24px) + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--paper);font:600 14px var(--ui);padding:12px 18px;border-radius:999px;max-width:90vw;text-align:center}
 
+.meta{font:400 13px/1.5 var(--ui);color:var(--muted);margin:-4px 0 10px}
+.meta a{font-weight:600;text-decoration:none}
+.pearl blockquote[data-stay]{cursor:pointer}
+.acts{display:flex!important;align-items:center;gap:4px;margin-top:14px;min-height:44px}
+.acts .act{border:0;background:transparent;color:var(--accent);font:600 14px/1.2 var(--ui);padding:0 10px;min-height:44px;border-radius:10px}
+.acts .act:first-child{padding-inline-start:0}
+.acts .act:hover{background:var(--sheet)}
+.acts .act svg{width:18px;height:18px}
+.acts .ic{min-width:44px;padding:0;color:var(--muted)}
+.acts .ic.kept{color:var(--flag-red)}.acts .ic.kept svg{fill:currentColor}
+.acts .sp{flex:1}
+.tsn{font-variant-numeric:tabular-nums}
+.pearl h3{font:600 15px/1.4 var(--ui);color:var(--ink);margin:0 0 6px}
+.pearl h3 .n{font:500 12px/1.4 var(--ui);color:var(--muted)}
+.pearl h3 .n::after{content:"";display:inline-block;width:6px;height:8px;margin-inline-start:6px;border-radius:0 0 1px 1px;background:var(--theme);vertical-align:0}
+.pearl blockquote{line-height:1.7}
+.theme-head .flag{width:10px;height:13px}
+.moods button{font-weight:500}
+.moods button[aria-pressed="true"]{background:var(--sheet);color:var(--accent);border:0}
+.vacts button{border:0}
+.vnav{gap:12px}.vnav button{min-height:48px}
+.breath{width:8px;height:8px;border:0;background:var(--veil-muted);opacity:.35}
+.vtext{font-size:clamp(21px,5.6vw,28px);line-height:1.65}
+.sheet{border-radius:24px 24px 0 0}
+.tlist button{font-weight:500;min-height:52px}
+.eyebrow{letter-spacing:.06em}
+.tabbar button{font-size:13px}
+.tabbar button[aria-current="true"]{color:var(--ink);font-weight:800}
+.tabbar button[aria-current="true"] svg{stroke-width:2.4}
+.meta,.count,.tlist .count,.topbar .yr,.hero .att{font-size:13.5px;line-height:18px}
 /* ---------- phone ---------- */
 @media (max-width:720px){
   body{font-size:18px}
@@ -243,18 +274,16 @@ footer{margin-top:40px;font:14px/1.75 var(--ui);color:var(--muted);text-align:ce
   .flags i:nth-child(n+11){display:none}
   header{padding-top:14px}
   .eyebrow{font-size:11px}
-  h1{font-size:31px}
+  h1{font-size:28px}
   .years{margin-top:12px}
   .hero{margin-top:22px}
   .hero blockquote{font-size:21px;line-height:1.65}
   .hero .att{font-size:14px}
   section.theme{margin-top:44px}
-  h2.tn{font-size:25px}
+  h2.tn{font-size:23px}
   .theme-intro{font-size:16px}
   .pearl{padding:24px 0 22px}
-  .pearl blockquote{font-size:20px;line-height:1.75}
-  .acts{display:grid;grid-template-columns:1.3fr 1fr 1fr}
-  .acts button{padding:0 8px}
+  .pearl blockquote{font-size:20px;line-height:1.7}
   .facts b{font-size:26px}
   .para{grid-template-columns:1fr}.para .ts{text-align:right;line-height:1.4;justify-content:flex-start}
   .both .tx{grid-template-columns:1fr;gap:8px}
@@ -397,7 +426,7 @@ async function sharePearl(p){
   copyText(shareText(p)+'\n'+pearlUrl(p),'הפנינה והקישור הועתקו – אפשר להדביק בוואטסאפ');
 }
 function toggleKeep(id){kept.has(id)?kept.delete(id):kept.add(id);store.set('pearls-kept',[...kept]);syncKeep(id);updateBadge();toast(kept.has(id)?'נשמרה ב״שמורות״':'הוסרה מהשמורות');if(mode.kind==='mine')renderMain()}
-function syncKeep(id){const on=kept.has(id);document.querySelectorAll(`[data-keep="${id}"]`).forEach(b=>{b.classList.toggle('kept',on);b.setAttribute('aria-pressed',on);b.lastChild.textContent=on?'נשמרה':'שמירה'});
+function syncKeep(id){const on=kept.has(id);document.querySelectorAll(`[data-keep="${id}"]`).forEach(b=>{b.classList.toggle('kept',on);b.setAttribute('aria-pressed',on);b.setAttribute('aria-label',on?'נשמרה':'שמירה')});
   if(veilP()&&veilP().id===id){$('vKeep').classList.toggle('kept',on);$('vKeep').lastChild.textContent=on?'נשמרה':'שמירה'}}
 function updateBadge(){document.querySelectorAll('.tabbar [data-mine] span').forEach(s=>s.textContent=kept.size?`שמורות (${kept.size})`:'שמורות')}
 
@@ -426,15 +455,15 @@ function pearlHTML(p,withYear){
   const k=kept.has(p.id);
   return `<article class="pearl" id="${p.id}" style="--theme:var(${p.flag})">
     <h3><span class="n">${p.n}</span><span>${esc(p.title)}</span></h3>
-    <blockquote>${esc(p.he)}</blockquote>
+    <div class="meta">${withYear?esc(p.label)+' · ':''}${esc(p.date)} · הקלטה ${p.rec}${FULL?` · <a href="#talk-${p.tid}-${p.sec}">בשיחה המלאה</a>`:''}</div>
+    <blockquote data-stay="${p.id}">${esc(p.he)}</blockquote>
     <div class="en" ${showEn?'':'hidden'}><span class="lbl">במקור, באנגלית</span><q lang="en">${esc(p.en)}</q></div>
-    <div class="src"><button class="listen" data-listen="${p.id}">${icon('play')}האזנה מ־${esc(p.ts)}</button>
-      <span>${withYear?esc(p.label)+' · ':''}${esc(p.date)} · הקלטה ${p.rec}</span>
-      ${FULL?`<a href="#talk-${p.tid}-${p.sec}">בשיחה המלאה</a>`:''}</div>
     <div class="acts">
-      <button class="stay" data-stay="${p.id}">${icon('breath')}להישאר עם זה</button>
-      <button data-keep="${p.id}" class="${k?'kept':''}" aria-pressed="${k}">${icon('heart')}<span>${k?'נשמרה':'שמירה'}</span></button>
-      <button data-share="${p.id}">${icon('share')}<span>שיתוף</span></button>
+      <button class="act" data-stay="${p.id}">${icon('breath')}להישאר עם זה</button>
+      <button class="act" data-listen="${p.id}" aria-label="האזנה מ־${esc(p.ts)}">${icon('play')}<span class="tsn">${esc(p.ts)}</span></button>
+      <span class="sp"></span>
+      <button class="act ic ${k?'kept':''}" data-keep="${p.id}" aria-pressed="${k}" aria-label="${k?'נשמרה':'שמירה'}">${icon('heart')}</button>
+      <button class="act ic" data-share="${p.id}" aria-label="שיתוף">${icon('share')}</button>
     </div></article>`;
 }
 function renderHeader(){
@@ -460,6 +489,7 @@ function renderMain(){
   const Y=D.find(x=>x.year===year);
   $('hero').hidden=mode.kind!=='themes';
   document.querySelectorAll('.tabbar [data-mine]').forEach(b=>b.setAttribute('aria-current',mode.kind==='mine'));
+  $('tabBrowse').setAttribute('aria-current',mode.kind==='tag');
   if(mode.kind==='themes'){
     $('banner').innerHTML='';
     $('main').innerHTML=Y.themes.map((t,i)=>`<section class="theme" data-theme="${esc(t.name)}" style="--theme:var(${FLAGS[i]})">
@@ -493,7 +523,7 @@ function openSheet(){
   $('sheetBody').innerHTML=`
     <h4>שנה</h4><div class="row">${D.map(x=>`<button data-year="${x.year}" aria-pressed="${x.year===year}">ריטריט ${esc(x.label)}</button>`).join('')}</div>
     <h4>נושאים · ${esc(Y.label)}</h4><div class="tlist">${Y.themes.map((t,i)=>`<button data-goto="${Y.year}-${t.p[0].n}" style="--theme:var(${FLAGS[i]})"><span class="dot"></span>${esc(t.name)}<span class="count">${t.p.length}</span></button>`).join('')}</div>
-    <h4>מה פוגש אותך היום?</h4><div class="chips">${chipsHTML()}</div>
+    <h4>מה פוגש אותך היום?</h4><div class="tlist moods">${TAGS.map(t=>`<button data-tag="${esc(t)}" aria-pressed="${mode.kind==='tag'&&mode.tag===t}">${esc(t)}</button>`).join('')}</div>
     <h4>תצוגה</h4><div class="row"><div class="seg" role="group" aria-label="שפה"><button data-lang="he" aria-pressed="${!showEn}">עברית</button><button data-lang="both" aria-pressed="${showEn}">+ המקור באנגלית</button></div></div>
     <div class="row" style="margin-top:12px"><button data-random>פנינה אקראית</button>${FULL?'<button data-talks>כל השיחות המלאות</button>':''}</div>
     <button class="close" id="sheetClose">סגירה</button>`;
@@ -545,7 +575,8 @@ $('veil').addEventListener('touchend',e=>{if(tx==null)return;const dx=e.changedT
 
 /* ---------- global clicks ---------- */
 document.addEventListener('click',e=>{
-  const b=e.target.closest('button,[data-goto]');if(!b)return;
+  if(e.target.closest('a'))return;
+  const b=e.target.closest('button,[data-goto],blockquote[data-stay]');if(!b)return;
   const d=b.dataset;
   if(d.stay){openReader(d.stay,currentList().some(p=>p.id===d.stay)?null:ALL.filter(p=>p.year===byId(d.stay).year));return}
   if(d.keep){toggleKeep(d.keep);return}
