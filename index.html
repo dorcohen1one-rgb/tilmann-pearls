@@ -11,7 +11,9 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300..900&family=Assistant:wght@400;500;600;700&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300..900&family=Assistant:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300..900&family=Assistant:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300..900&family=Assistant:wght@400;500;600;700&display=swap"></noscript>
 <style>
 /* ============================================================
    "Two skies, one disc" (redesign, Nov 2026)
@@ -651,6 +653,7 @@ function openSheet(){
     <div class="row" style="margin-top:12px"><button data-random>פנינה אקראית</button>${FULL?'<button data-talks>כל השיחות המלאות</button>':''}</div>
 `;
   $('sheetBody').style.paddingBottom='4px';
+  $('toast').hidden=true;
   if($('sheet').hidden){openSheet.from=document.activeElement;$('scrim').hidden=false;$('sheet').hidden=false;lock()}
   $('sheet').scrollTop=0;$('sheetX').focus({preventScroll:true});
 }
@@ -791,7 +794,8 @@ if(FULL){$('views').hidden=false;$('promo').hidden=false}
 document.body.classList.add('has-tabbar');
 (function(){if(store.get('coach-seen',false))return;const c=$('coach');
   const hide=()=>{c.hidden=true;store.set('coach-seen',true)};
-  setTimeout(()=>{if($('veil').hidden&&$('sheet').hidden){c.hidden=false;setTimeout(hide,9000)}},1600);
+  const show=()=>{if(scrollY<380||!$('veil').hidden||!$('sheet').hidden)return;removeEventListener('scroll',show);c.hidden=false;setTimeout(hide,9000)};
+  addEventListener('scroll',show,{passive:true});
   $('coachX').onclick=hide;$('tabbar').addEventListener('click',hide);})();
 updateBadge();go();
 </script>
