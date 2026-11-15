@@ -374,6 +374,34 @@ body.reading.playing .vnav{padding-bottom:12px}
 .intro .lotus{--lo-back:#1f5a49;--lo-mid:#1c6650;--lo-mid2:#d9e7cf;--lo-front:#e8b247}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .intro .lotus{--lo-back:#2a6e5a;--lo-mid:#4fa486;--lo-mid2:#a8dabf;--lo-front:#e9b95e}}
 :root[data-theme="dark"] .intro .lotus{--lo-back:#2a6e5a;--lo-mid:#4fa486;--lo-mid2:#a8dabf;--lo-front:#e9b95e}
+/* Opus: floating dock (phone) / right-hand rail (wide desktop) + one-time coach bubble */
+:root{--bar-h:76px}
+.tabbar{left:50%;right:auto;bottom:calc(12px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);width:min(360px,calc(100% - 32px));
+  padding:6px;border:1px solid var(--line);border-radius:24px;box-shadow:0 10px 30px rgba(20,25,22,.16),0 2px 6px rgba(20,25,22,.08);gap:4px}
+.tabbar button{min-height:54px;border-radius:18px;font:600 12.5px/16px var(--ui);color:var(--muted);transition:background .2s,color .2s}
+.tabbar button:active{background:var(--line)}
+.tabbar button[aria-current="true"]{background:var(--ink);color:var(--ground)}
+.tabbar button svg{width:23px;height:23px}
+.player{bottom:calc(var(--bar-h) + 8px + env(safe-area-inset-bottom,0px));left:12px;right:12px;border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 24px rgba(20,25,22,.12)}
+body.reading .player{left:0;right:0;border-radius:0;border-width:1px 0 0}
+.coach{position:fixed;z-index:31;left:50%;transform:translateX(-50%);bottom:calc(var(--bar-h) + 14px + env(safe-area-inset-bottom,0px));width:min(340px,calc(100% - 40px));
+  background:var(--ink);color:var(--ground);border-radius:16px;padding:12px 14px;display:flex;gap:10px;align-items:center;font:400 14px/20px var(--ui);box-shadow:0 10px 30px rgba(0,0,0,.2);animation:up .35s ease-out}
+.coach::after{content:"";position:absolute;bottom:-7px;left:50%;margin-left:-7px;border:7px solid transparent;border-bottom:0;border-top-color:var(--ink)}
+.coach b{font-weight:700}
+.coach button{flex:none;min-height:40px;padding:0 12px;background:transparent;color:var(--ground);border-color:rgba(255,255,255,.35);font-size:13px}
+@media (min-width:721px) and (max-width:1099px){
+  .tabbar{display:grid}
+  body.has-tabbar .wrap{padding-bottom:calc(var(--bar-h) + 40px)}
+  :root{--toast-b:calc(var(--bar-h) + 16px)}
+  .player{bottom:calc(var(--bar-h) + 8px);left:50%;right:auto;transform:translateX(-50%);width:min(560px,calc(100% - 32px))}
+}
+@media (min-width:1100px){
+  .tabbar{display:grid;grid-template-columns:1fr;left:auto;right:28px;top:50%;bottom:auto;transform:translateY(-50%);width:96px;border-radius:28px;padding:8px;gap:6px}
+  .tabbar button{min-height:76px;font-size:13px}
+  .coach{left:auto;right:136px;bottom:auto;top:50%;transform:translateY(-50%);width:260px}
+  .coach::after{bottom:auto;top:50%;left:auto;right:-7px;margin:-7px 0 0;border:7px solid transparent;border-right:0;border-left-color:var(--ink)}
+  .player{left:50%;right:auto;transform:translateX(-50%);width:min(560px,calc(100% - 32px));bottom:16px}
+}
 </style>
 
 </head><body><svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -418,13 +446,6 @@ body.reading.playing .vnav{padding-bottom:12px}
       <h2>מי זה לאמה טילמן?</h2>
       <p>לאמה טילמן לונדרופ הוא מורה למדיטציה מהמסורת הטיבטית (קרמה קגיו), שמלמד מהאמודרה – דרך פשוטה ועמוקה להכיר את התודעה. לפני כן היה רופא ומטפל, ופעמיים ישב בריטריט של שלוש שנים אצל מורו, לאמה גנדון רינפוצ'ה.</p>
       <p>ב־2024 וב־2025 לימד בישראל שני ריטריטים של עשרה ימים עם עמותת תובנה, יחד עם לילה קמחי, מורה בתובנה. כאן 92 פנינים מהריטריטים: 90 מדבריו ו־2 מדבריה של לילה, מסומנות בשמה. כל פנינה מקושרת לרגע שבו נאמרה.</p>
-      <h3 class="how-h">שלוש דרכים לקרוא</h3>
-      <div class="ways">
-        <button data-read class="way"><svg class="i"><use href="#i-book"/></svg><span><b>קריאה</b>פנינה אחת על כל המסך, ומחליקים לבאה</span></button>
-        <button class="way" data-sheet><svg class="i"><use href="#i-list"/></svg><span><b>נושאים</b>12 נושאים, ופנינים לפי מה שעובר עליכם</span></button>
-        <button data-mine class="way"><svg class="i"><use href="#i-heart"/></svg><span><b>שמורות</b>הפנינים ששמרתם</span></button>
-      </div>
-      <p class="hint">הכפתורים האלה נמצאים תמיד גם בסרגל התחתון. אפשר גם פשוט לגלול ולקרוא.</p>
     </section>
 
     <div class="moments desk">
@@ -434,8 +455,6 @@ body.reading.playing .vnav{padding-bottom:12px}
     </div>
     <div class="tools desk">
       <div class="seg" role="group" aria-label="שפת התצוגה"><button data-lang="he" aria-pressed="true">עברית</button><button data-lang="both" aria-pressed="false">עברית + המקור באנגלית</button></div>
-      <button data-mine>הפנינים שלי</button>
-      <button data-read>לקרוא אחת אחת</button>
       <button data-random>פנינה אקראית</button>
     </div>
 
@@ -455,6 +474,7 @@ body.reading.playing .vnav{padding-bottom:12px}
   </footer>
 </div>
 
+<div class="coach" id="coach" hidden role="status"><span>כאן תמיד: <b>קריאה</b> פנינה אחר פנינה, <b>נושאים</b> לבחירה, ו<b>שמורות</b> שלכם</span><button id="coachX" aria-label="הבנתי">הבנתי</button></div>
 <nav class="tabbar" id="tabbar" aria-label="ניווט">
   <button data-read><svg class="i"><use href="#i-book"/></svg>קריאה</button>
   <button id="tabBrowse"><svg class="i"><use href="#i-list"/></svg>נושאים</button>
@@ -769,6 +789,10 @@ function go(){
 addEventListener('hashchange',go);
 if(FULL){$('views').hidden=false;$('promo').hidden=false}
 document.body.classList.add('has-tabbar');
+(function(){if(store.get('coach-seen',false))return;const c=$('coach');
+  const hide=()=>{c.hidden=true;store.set('coach-seen',true)};
+  setTimeout(()=>{if($('veil').hidden&&$('sheet').hidden){c.hidden=false;setTimeout(hide,9000)}},1600);
+  $('coachX').onclick=hide;$('tabbar').addEventListener('click',hide);})();
 updateBadge();go();
 </script>
 </body></html>
