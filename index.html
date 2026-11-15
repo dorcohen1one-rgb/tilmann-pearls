@@ -370,6 +370,10 @@ body.reading.playing .vnav{padding-bottom:12px}
   .para{grid-template-columns:64px 1fr}.para .ts{line-height:2.2;justify-content:flex-end}
   .both .tx{grid-template-columns:1fr 1fr;gap:20px}
 }
+.intro .lotus{display:block;width:190px;max-width:62%;height:auto;margin:-4px auto 10px}
+.intro .lotus{--lo-back:#1f5a49;--lo-mid:#1c6650;--lo-mid2:#d9e7cf;--lo-front:#e8b247}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .intro .lotus{--lo-back:#2a6e5a;--lo-mid:#4fa486;--lo-mid2:#a8dabf;--lo-front:#e9b95e}}
+:root[data-theme="dark"] .intro .lotus{--lo-back:#2a6e5a;--lo-mid:#4fa486;--lo-mid2:#a8dabf;--lo-front:#e9b95e}
 </style>
 
 </head><body><svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -403,6 +407,14 @@ body.reading.playing .vnav{padding-bottom:12px}
     <div class="hero" id="hero"></div>
 
     <section class="intro" aria-label="על המורה ועל האתר">
+      <svg class="lotus" viewBox="0 0 240 150" aria-hidden="true" focusable="false">
+        <defs><radialGradient id="lotusPearl" cx="37%" cy="30%" r="75%"><stop offset="0" style="stop-color:var(--orb-hi)"/><stop offset=".45" style="stop-color:var(--orb)"/><stop offset="1" style="stop-color:var(--lo-front)"/></radialGradient></defs>
+        <path d="M30 136Q120 124 210 136" fill="none" style="stroke:var(--line)" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M58 143Q120 135 182 143" fill="none" style="stroke:var(--line)" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M0 0C-15-22-15-54 0-78C15-54 15-22 0 0Z" transform="translate(120 132) rotate(-74) scale(0.92)" style="fill:var(--lo-back);stroke:var(--sheet);stroke-width:1.6"/><path d="M0 0C-15-22-15-54 0-78C15-54 15-22 0 0Z" transform="translate(120 132) rotate(74) scale(0.92)" style="fill:var(--lo-back);stroke:var(--sheet);stroke-width:1.6"/><path d="M0 0C-15-22-15-54 0-78C15-54 15-22 0 0Z" transform="translate(120 132) rotate(-54) scale(0.92)" style="fill:var(--lo-back);stroke:var(--sheet);stroke-width:1.6"/><path d="M0 0C-15-22-15-54 0-78C15-54 15-22 0 0Z" transform="translate(120 132) rotate(54) scale(0.92)" style="fill:var(--lo-back);stroke:var(--sheet);stroke-width:1.6"/><path d="M0 0C-15-22-15-54 0-78C15-54 15-22 0 0Z" transform="translate(120 132) rotate(-34) scale(1)" style="fill:var(--lo-mid);stroke:var(--sheet);stroke-width:1.6"/><path d="M0 0C-15-22-15-54 0-78C15-54 15-22 0 0Z" transform="translate(120 132) rotate(34) scale(1)" style="fill:var(--lo-mid);stroke:var(--sheet);stroke-width:1.6"/><path d="M0 0C-15-22-15-54 0-78C15-54 15-22 0 0Z" transform="translate(120 132) rotate(-16) scale(1.02)" style="fill:var(--lo-mid2);stroke:var(--sheet);stroke-width:1.6"/><path d="M0 0C-15-22-15-54 0-78C15-54 15-22 0 0Z" transform="translate(120 132) rotate(16) scale(1.02)" style="fill:var(--lo-mid2);stroke:var(--sheet);stroke-width:1.6"/>
+        <circle cx="120" cy="88" r="19" fill="url(#lotusPearl)"/>
+        <path d="M0 0C-15-22-15-54 0-78C15-54 15-22 0 0Z" transform="translate(120 132) rotate(-38) scale(0.62)" style="fill:var(--lo-front);stroke:var(--sheet);stroke-width:1.6"/><path d="M0 0C-15-22-15-54 0-78C15-54 15-22 0 0Z" transform="translate(120 132) rotate(38) scale(0.62)" style="fill:var(--lo-front);stroke:var(--sheet);stroke-width:1.6"/><path d="M0 0C-15-22-15-54 0-78C15-54 15-22 0 0Z" transform="translate(120 132) rotate(-14) scale(0.62)" style="fill:var(--lo-front);stroke:var(--sheet);stroke-width:1.6"/><path d="M0 0C-15-22-15-54 0-78C15-54 15-22 0 0Z" transform="translate(120 132) rotate(14) scale(0.62)" style="fill:var(--lo-front);stroke:var(--sheet);stroke-width:1.6"/><path d="M0 0C-15-22-15-54 0-78C15-54 15-22 0 0Z" transform="translate(120 132) rotate(0) scale(0.62)" style="fill:var(--lo-front);stroke:var(--sheet);stroke-width:1.6"/>
+      </svg>
       <h2>מי זה לאמה טילמן?</h2>
       <p>לאמה טילמן לונדרופ הוא מורה למדיטציה מהמסורת הטיבטית (קרמה קגיו), שמלמד מהאמודרה – דרך פשוטה ועמוקה להכיר את התודעה. לפני כן היה רופא ומטפל, ופעמיים ישב בריטריט של שלוש שנים אצל מורו, לאמה גנדון רינפוצ'ה.</p>
       <p>ב־2024 וב־2025 לימד בישראל שני ריטריטים של עשרה ימים עם עמותת תובנה, יחד עם לילה קמחי, מורה בתובנה. כאן 92 פנינים מהריטריטים: 90 מדבריו ו־2 מדבריה של לילה, מסומנות בשמה. כל פנינה מקושרת לרגע שבו נאמרה.</p>
