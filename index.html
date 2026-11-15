@@ -404,6 +404,13 @@ body.reading .player{left:0;right:0;border-radius:0;border-width:1px 0 0}
   .coach::after{bottom:auto;top:50%;left:auto;right:-7px;margin:-7px 0 0;border:7px solid transparent;border-right:0;border-left-color:var(--ink)}
   .player{left:50%;right:auto;transform:translateX(-50%);width:min(560px,calc(100% - 32px));bottom:16px}
 }
+/* real-phone fixes: solid dock + fade under it */
+.tabbar{background:var(--sheet);-webkit-backdrop-filter:none;backdrop-filter:none}
+@media (max-width:1099px){
+  body.has-tabbar::after{content:"";position:fixed;left:0;right:0;bottom:0;z-index:29;pointer-events:none;
+    height:calc(var(--bar-h) + 30px + env(safe-area-inset-bottom,0px));background:linear-gradient(to bottom,transparent,var(--ground) 62%)}
+  body.reading::after{display:none}
+}
 </style>
 
 </head><body><svg width="0" height="0" style="position:absolute" aria-hidden="true">
