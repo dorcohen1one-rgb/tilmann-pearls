@@ -1,8 +1,8 @@
 <!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#14365a" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0a1826" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f3f3ef" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#111413" media="(prefers-color-scheme: dark)">
 <meta name="description" content="92 פנינים מתורותיו של לאמה טילמן לונדרופ בריטריטי המהאמודרה של תובנה בישראל, 2024–2025, בתרגום לעברית ומקושרות להקלטות המקוריות.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect x=%272%27 y=%278%27 width=%275%27 height=%2712%27 fill=%27%232f6db5%27/%3E%3Crect x=%279%27 y=%278%27 width=%275%27 height=%2712%27 fill=%27%23b9c0cc%27/%3E%3Crect x=%2716%27 y=%278%27 width=%275%27 height=%2712%27 fill=%27%23c2412d%27/%3E%3Crect x=%2723%27 y=%278%27 width=%275%27 height=%2712%27 fill=%27%232f8a5b%27/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%23e8b247%27/%3E%3Cpath d=%27M16 0h9a7 7 0 0 1 7 7v18a7 7 0 0 1-7 7h-9z%27 fill=%27%231f5a49%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%277%27 fill=%27%23fff9e6%27/%3E%3C/svg%3E">
 <meta property="og:type" content="website"><meta property="og:title" content="פנינים מלאמה טילמן לונדרופ">
 <meta property="og:description" content="92 פנינים מריטריטי המהאמודרה בישראל, 2024–2025 – בעברית, עם המקור באנגלית ואפשרות להאזין לרגע בהקלטה.">
 <meta property="og:image" content="https://dorcohen1one-rgb.github.io/tilmann-pearls/og.png"><meta property="og:url" content="https://dorcohen1one-rgb.github.io/tilmann-pearls/"><meta name="twitter:card" content="summary_large_image">
@@ -11,439 +11,365 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bellefair&family=Frank+Ruhl+Libre:wght@300;400;500;700&family=Assistant:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300..900&family=Assistant:wght@400;500;600;700&display=swap">
 <style>
-/* Layout: phone-first reading column with a thumb bar; the five lungta colors are the only ornament, one per theme */
+/* ============================================================
+   "Two skies, one disc" (redesign, Nov 2026)
+   Neutral pearl daylight for the site itself; colour belongs only to the two retreats.
+   2024 = high summer (saffron glare over parched umber, sun at its height)
+   2025 = spring morning (pale dawn over deep green, sun rising on the horizon)
+   The same disc is the pearl on the cover, the sun of each chapter and the breathing dot of the reader.
+   Year scope: any element with .y2024 / .y2025 gets that chapter's tokens (--acc, --tint, --sky, --earth, --night ...).
+   ============================================================ */
 :root{
-  --paper:#f5f3ef; --sheet:#ffffff; --ink:#2a2b2e; --muted:#66645e; --faint:#a39f97; --line:#e7e2da; --accent:#3a6878; --on-flag:#ffffff;
-  --flag-blue:#4f7491; --flag-white:#8a95a3; --flag-red:#a5584b; --flag-green:#5e8a72; --flag-yellow:#a8843a;
-  --veil:#141a20; --veil-ink:#e9edf0; --veil-muted:#a5afba; --veil-line:rgba(255,255,255,.16); --scrim:rgba(20,26,32,.42); --glass:rgba(245,243,239,.94);
-  --display:"Bellefair","Frank Ruhl Libre","David",serif;
-  --body:"Frank Ruhl Libre","David","Times New Roman",serif;
+  --ground:#f3f3ef; --sheet:#ffffff; --ink:#1a1d1b; --muted:#5d625e; --line:#dfe0da; --card-line:rgba(26,29,27,.08);
+  --glass:rgba(243,243,239,.92); --scrim:rgba(18,22,20,.48);
+  --orb:#e9e9e2; --orb-hi:#ffffff; --orb-warm:rgba(230,170,60,.42); --orb-cool:rgba(36,110,88,.3); --orb-shadow:rgba(30,40,35,.38);
+  /* 2024 · high summer */
+  --su-sky:#e8b247; --su-sky-ink:#2a1c04; --su-disc:#fff9e6; --su-halo:rgba(255,249,230,.2);
+  --su-earth:#3a290b; --su-earth-ink:#f8ead0; --su-earth-soft:#d9c595; --su-earth-line:rgba(248,234,208,.2);
+  --su-acc:#855608; --su-tint:#f6f0e1; --su-night:#231906; --su-night-ink:#f8eed8; --su-night-soft:#cdbb8f; --su-glow:#efc266;
+  /* 2025 · spring morning */
+  --sp-sky:#d9e7cf; --sp-sky-ink:#123c30; --sp-disc:#f3cf5e; --sp-halo:rgba(243,207,94,.22);
+  --sp-earth:#1f5a49; --sp-earth-ink:#eef6ee; --sp-earth-soft:#bcd8c6; --sp-earth-line:rgba(238,246,238,.2);
+  --sp-acc:#1c6650; --sp-tint:#e7f0ea; --sp-night:#0d2620; --sp-night-ink:#e9f3ec; --sp-night-soft:#a9c8b7; --sp-glow:#a8dabf;
+  /* defaults outside a chapter */
+  --acc:var(--ink); --tint:var(--ground); --night:#161b19; --night-ink:#eceeea; --night-soft:#aab1ab; --glow:#d9dcd5;
+  --display:"Frank Ruhl Libre","David Libre","David","Times New Roman",serif;
+  --body:"Frank Ruhl Libre","David Libre","David","Times New Roman",serif;
   --ui:"Assistant","Segoe UI",system-ui,sans-serif;
-  --bar-h:62px;
+  --bar-h:58px;
+  --gut:max(20px,env(safe-area-inset-left,0px),env(safe-area-inset-right,0px),calc((100vw - 680px)/2));
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --paper:#141a20; --sheet:#1d252d; --ink:#e3e7ea; --muted:#a5afba; --faint:#6f7b87; --line:#35414c; --accent:#94bbd2; --on-flag:#141a20;
-  --flag-blue:#88acc6; --flag-white:#b3bcc8; --flag-red:#d08a7c; --flag-green:#91b39f; --flag-yellow:#ceb46e;
-  --veil:#0f1418; --veil-ink:#e9edf0; --veil-muted:#a5afba; --veil-line:rgba(255,255,255,.14); --scrim:rgba(0,0,0,.55); --glass:rgba(20,26,32,.93); color-scheme:dark}}
+  --ground:#111413; --sheet:#1b1f1d; --ink:#e9ece8; --muted:#a4aba5; --line:#2c322f; --card-line:rgba(255,255,255,.07);
+  --glass:rgba(17,20,19,.92); --scrim:rgba(0,0,0,.6);
+  --orb:#c9ccc4; --orb-hi:#f6f7f2; --orb-warm:rgba(230,170,60,.5); --orb-cool:rgba(36,110,88,.45); --orb-shadow:rgba(0,0,0,.6);
+  --su-sky:#473208; --su-sky-ink:#f6dc98; --su-disc:#f2c458; --su-halo:rgba(242,196,88,.14);
+  --su-earth:#1f1706; --su-earth-ink:#f3e5c2; --su-earth-soft:#cdb987; --su-earth-line:rgba(243,229,194,.18);
+  --su-acc:#e5b65c; --su-tint:#15130d;
+  --sp-sky:#17443a; --sp-sky-ink:#d5ead9; --sp-disc:#ecd98a; --sp-halo:rgba(236,217,138,.14);
+  --sp-earth:#0d241e; --sp-earth-ink:#e0efe5; --sp-earth-soft:#a9c8b7; --sp-earth-line:rgba(224,239,229,.18);
+  --sp-acc:#90d1b2; --sp-tint:#0e1513; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --paper:#141a20; --sheet:#1d252d; --ink:#e3e7ea; --muted:#a5afba; --faint:#6f7b87; --line:#35414c; --accent:#94bbd2; --on-flag:#141a20;
-  --flag-blue:#88acc6; --flag-white:#b3bcc8; --flag-red:#d08a7c; --flag-green:#91b39f; --flag-yellow:#ceb46e;
-  --veil:#0f1418; --veil-ink:#e9edf0; --veil-muted:#a5afba; --veil-line:rgba(255,255,255,.14); --scrim:rgba(0,0,0,.55); --glass:rgba(20,26,32,.93); color-scheme:dark}
+  --ground:#111413; --sheet:#1b1f1d; --ink:#e9ece8; --muted:#a4aba5; --line:#2c322f; --card-line:rgba(255,255,255,.07);
+  --glass:rgba(17,20,19,.92); --scrim:rgba(0,0,0,.6);
+  --orb:#c9ccc4; --orb-hi:#f6f7f2; --orb-warm:rgba(230,170,60,.5); --orb-cool:rgba(36,110,88,.45); --orb-shadow:rgba(0,0,0,.6);
+  --su-sky:#473208; --su-sky-ink:#f6dc98; --su-disc:#f2c458; --su-halo:rgba(242,196,88,.14);
+  --su-earth:#1f1706; --su-earth-ink:#f3e5c2; --su-earth-soft:#cdb987; --su-earth-line:rgba(243,229,194,.18);
+  --su-acc:#e5b65c; --su-tint:#15130d;
+  --sp-sky:#17443a; --sp-sky-ink:#d5ead9; --sp-disc:#ecd98a; --sp-halo:rgba(236,217,138,.14);
+  --sp-earth:#0d241e; --sp-earth-ink:#e0efe5; --sp-earth-soft:#a9c8b7; --sp-earth-line:rgba(224,239,229,.18);
+  --sp-acc:#90d1b2; --sp-tint:#0e1513; color-scheme:dark}
+.y2024{--acc:var(--su-acc);--tint:var(--su-tint);--sky:var(--su-sky);--sky-ink:var(--su-sky-ink);--disc:var(--su-disc);--halo:var(--su-halo);
+  --earth:var(--su-earth);--earth-ink:var(--su-earth-ink);--earth-soft:var(--su-earth-soft);--earth-line:var(--su-earth-line);
+  --night:var(--su-night);--night-ink:var(--su-night-ink);--night-soft:var(--su-night-soft);--glow:var(--su-glow)}
+.y2025{--acc:var(--sp-acc);--tint:var(--sp-tint);--sky:var(--sp-sky);--sky-ink:var(--sp-sky-ink);--disc:var(--sp-disc);--halo:var(--sp-halo);
+  --earth:var(--sp-earth);--earth-ink:var(--sp-earth-ink);--earth-soft:var(--sp-earth-soft);--earth-line:var(--sp-earth-line);
+  --night:var(--sp-night);--night-ink:var(--sp-night-ink);--night-soft:var(--sp-night-soft);--glow:var(--sp-glow)}
+
+/* ---------- base ---------- */
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
-body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:19px;line-height:1.8;direction:rtl;-webkit-tap-highlight-color:transparent}
-
-.wrap{max-width:760px;margin:0 auto;padding-block:0 60px;padding-left:max(22px,env(safe-area-inset-left,0px));padding-right:max(22px,env(safe-area-inset-right,0px))}
-a{color:var(--accent)}
-button{font:600 15px/1 var(--ui);color:var(--ink);background:var(--sheet);border:1px solid var(--line);border-radius:999px;padding:0 16px;min-height:44px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.75;direction:rtl;-webkit-tap-highlight-color:transparent;position:relative;overflow-x:clip}
+.wrap{padding:0 var(--gut) 60px}
+a{color:var(--acc);text-underline-offset:3px;text-decoration-thickness:1px}
+button{font:600 15px/1 var(--ui);color:var(--ink);background:var(--sheet);border:1px solid var(--line);border-radius:999px;padding:0 16px;min-height:44px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px}
 button:hover{border-color:var(--muted)}
-button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.desk{display:block}
-.mob{display:none}
+button[aria-pressed="true"]{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.desk{display:none}
+.lbl,.eyebrow{font:700 12px/16px var(--ui);letter-spacing:.08em;color:var(--muted)}
+.disc{position:absolute;display:block;border-radius:50%;background:var(--disc)}
 
-/* header */
-.flags{display:flex;justify-content:center;gap:9px;padding-top:26px;position:relative}
-.flags::before{content:"";position:absolute;top:27px;left:6%;right:6%;height:1px;background:var(--faint);opacity:.6}
-.flags i{width:22px;height:26px;display:block;border-radius:0 0 2px 2px}
-.flags i:nth-child(5n+1){background:var(--flag-blue)}.flags i:nth-child(5n+2){background:var(--flag-white)}
-.flags i:nth-child(5n+3){background:var(--flag-red)}.flags i:nth-child(5n+4){background:var(--flag-green)}.flags i:nth-child(5n){background:var(--flag-yellow)}
-header{text-align:center;padding:22px 0 0}
-.eyebrow{font:700 12px/1.4 var(--ui);letter-spacing:.12em;color:var(--muted)}
-h1{font-family:var(--display);font-weight:400;font-size:clamp(34px,7vw,58px);line-height:1.12;margin:10px 0 0;text-wrap:balance}
-.views{display:inline-flex;gap:22px;margin-top:14px;font:600 16px/1 var(--ui)}
-.views a{color:var(--muted);text-decoration:none;padding:12px 2px;border-bottom:2px solid transparent}
+/* ---------- cover: the pearl ---------- */
+header{text-align:center;padding:38px 0 0}
+.orb{width:72px;height:72px;margin:0 auto 24px;border-radius:50%;
+  background:radial-gradient(circle at 37% 30%,var(--orb-hi) 0 5%,rgba(255,255,255,0) 44%),radial-gradient(circle at 80% 72%,var(--orb-warm) 0,transparent 54%),radial-gradient(circle at 18% 80%,var(--orb-cool) 0,transparent 56%),var(--orb);
+  box-shadow:0 18px 28px -16px var(--orb-shadow),inset 0 -8px 14px -8px rgba(40,50,45,.3)}
+h1{margin:14px 0 0;font-family:var(--display);font-weight:500}
+h1 .h1-a{display:block;font-size:clamp(76px,23vw,132px);line-height:.92;letter-spacing:-.015em}
+h1 .h1-b{display:block;font-size:clamp(25px,6.6vw,34px);line-height:1.25;font-weight:400;margin-top:12px}
+.sub{margin:14px auto 0;max-width:22em;font:400 15.5px/23px var(--ui);color:var(--muted)}
+.in-talks .orb,.in-talks .sub{display:none}.in-talks header{padding-top:26px}.in-talks h1{margin-top:10px}.in-talks h1 .h1-a{font-size:46px;line-height:1}.in-talks h1 .h1-b{font-size:20px;margin-top:4px}
+.views{display:inline-flex;gap:22px;margin-top:16px;font:600 16px/1 var(--ui)}
+.views a{color:var(--muted);text-decoration:none;padding:14px 2px;border-bottom:2px solid transparent}
 .views a[aria-current="true"]{color:var(--ink);border-bottom-color:var(--ink)}
-.years{display:inline-flex;gap:4px;margin-top:16px;padding:4px;border:1px solid var(--line);border-radius:999px;background:var(--sheet)}
-.years a{font:600 15px/1 var(--ui);color:var(--muted);text-decoration:none;padding:13px 20px;border-radius:999px}
-.years a[aria-current="true"]{background:var(--ink);color:var(--paper)}
-.yearbar{text-align:center}
+.hero{margin:0 auto;max-width:600px;text-align:center}
+.hero blockquote{margin:44px 0 0;padding-top:30px;position:relative;font:400 21px/34px var(--body);text-wrap:pretty}
+.hero blockquote::before{content:"";position:absolute;top:0;left:50%;width:36px;height:1px;margin-left:-18px;background:var(--ink);opacity:.45}
+.hero .att{margin-top:12px;font:400 13.5px/18px var(--ui);color:var(--muted)}
+.hero-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.hero-actions button{min-height:50px;font-size:16px}
+.hero-actions .pri{background:var(--ink);color:var(--ground);border-color:var(--ink);padding:0 26px}
+.hero-actions .sec{background:transparent;padding:0 20px}
+/* the two doors */
+.doors-h{margin:30px 0 12px}
+.doors{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.door{display:block;padding:0;border:0;border-radius:18px;overflow:hidden;text-align:right;background:var(--earth);color:var(--earth-ink);min-height:0;font:inherit}
+.door:focus-visible{outline-offset:3px}
+.d-sky{display:block;position:relative;height:124px;background:var(--sky);color:var(--sky-ink);overflow:hidden}
+.d-m{position:absolute;top:12px;right:14px;font:700 13px/18px var(--ui)}
+.d-y{position:absolute;right:11px;bottom:-9px;font:300 58px/1 var(--display);letter-spacing:-.02em;direction:ltr}
+.y2024 .d-sky .disc{width:30px;height:30px;top:16px;left:18px;box-shadow:0 0 0 8px var(--halo),0 0 0 18px var(--halo)}
+.y2025 .d-sky .disc{width:56px;height:56px;bottom:-28px;left:14px;box-shadow:0 0 0 10px var(--halo)}
+.d-earth{display:block;padding:11px 14px 13px;font:400 13px/18px var(--ui);color:var(--earth-soft)}
+.d-earth b{display:block;font:700 15.5px/22px var(--ui);color:var(--earth-ink)}
 
-/* hero */
-.hero{margin:34px auto 0;text-align:center;max-width:620px;animation:rise 1.2s ease-out both}
-@keyframes rise{from{opacity:.4;transform:translateY(6px)}to{opacity:1;transform:none}}
-.hero .lbl{font:700 12px/1.4 var(--ui);letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
-.hero blockquote{margin:0;font-weight:300;font-size:clamp(22px,4.2vw,30px);line-height:1.65;text-wrap:pretty}
-.hero .att{margin-top:12px;font:15px/1.5 var(--ui);color:var(--muted)}
-.hero-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+/* ---------- intro card ---------- */
+.intro{background:var(--sheet);border:1px solid var(--card-line);border-radius:18px;padding:24px 20px 18px;margin-top:40px}
+.intro h2{font:700 25px/32px var(--display);margin:0 0 12px}
+.intro p{font:400 17px/29px var(--body);margin:0 0 12px}
+.how-h{font:700 12px/16px var(--ui);letter-spacing:.08em;color:var(--muted);margin:22px 0 4px;padding-top:20px;border-top:1px solid var(--line)}
+.way{display:flex;align-items:center;justify-content:flex-start;gap:14px;width:100%;min-height:62px;padding:8px 0;border:0;border-radius:0;background:transparent;text-align:right;white-space:normal}
+.way+.way{border-top:1px solid var(--line)}
+.way svg{width:22px;height:22px;flex:none}
+.way span{font:400 14px/20px var(--ui);color:var(--muted)}
+.way b{display:block;font:700 16px/22px var(--ui);color:var(--ink)}
+.intro .hint{margin:10px 0 0;font:400 13px/20px var(--ui);color:var(--muted)}
 
-/* desktop tools */
-.moments{margin-top:46px;text-align:center}
-.moments h2{font-family:var(--display);font-weight:400;font-size:28px;margin:0 0 4px}
-.moments p{margin:0 0 14px;color:var(--muted);font-size:17px}
+/* ---------- desktop tools ---------- */
+.moments{margin-top:44px;text-align:center}
+.moments h2{font:700 25px/32px var(--display);margin:0 0 4px}
+.moments p{margin:0 0 16px;font:400 15.5px/23px var(--ui);color:var(--muted)}
 .chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
-.toc{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;margin:40px 0 0;padding:0;list-style:none;font:15px/1.4 var(--ui)}
-.toc a{color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:7px;min-height:36px}
-.dot{width:9px;height:11px;border-radius:0 0 2px 2px;display:inline-block;flex:none;background:var(--theme)}
-.tools{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:16px}
+.chips button{font-weight:500}
+.tools{justify-content:center;gap:10px;flex-wrap:wrap;margin-top:22px}
 .seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--sheet);gap:2px}
-.seg button{border:0;min-height:38px}
+.seg button{border:0;min-height:44px}
 
-/* filter banner */
-.banner{margin-top:34px;display:flex;align-items:center;gap:10px;justify-content:space-between;padding:12px 16px;border-radius:12px;background:var(--sheet);border:1px solid var(--line);font:15px/1.4 var(--ui)}
-.banner b{font-weight:700}
+/* ---------- filter banner (mood / saved) ---------- */
+.banner{margin-top:36px;display:flex;align-items:center;gap:10px;justify-content:space-between;font:400 15px/1.4 var(--ui)}
+.banner b{font:700 22px/28px var(--display);display:block}
+.banner span{color:var(--muted)}
+.banner b{color:var(--ink)}
+.list{margin-top:6px}
+.empty{color:var(--muted);text-align:center;padding:36px 0;font:400 16px/26px var(--ui)}
 
-/* themes + pearls */
-section.theme{margin-top:56px;scroll-margin-top:64px}
-.theme-head{display:flex;align-items:center;gap:12px}
-.theme-head .flag{width:16px;height:20px;border-radius:0 0 2px 2px;flex:none;background:var(--theme)}
-h2.tn{font-family:var(--display);font-weight:400;font-size:31px;line-height:1.25;margin:0;text-wrap:balance}
-.count{font:13px var(--ui);color:var(--muted);margin-inline-start:auto;white-space:nowrap}
-.theme-intro{margin:6px 0 0;color:var(--muted);font-size:17px;line-height:1.6}
-.pearl{padding:28px 0 26px;border-top:1px solid var(--line);scroll-margin-top:70px}
-.theme .pearl:first-of-type,.list .pearl:first-child{border-top:0}
-.pearl h3{font:700 15px/1.4 var(--ui);color:var(--muted);margin:0 0 10px;display:flex;gap:10px;align-items:baseline}
-.pearl h3 .n{font-variant-numeric:tabular-nums;color:var(--theme)}
-.pearl blockquote{margin:0;font-size:21px;line-height:1.8}
-.en{direction:ltr;text-align:left;margin:14px 0 0;padding:12px 16px;border-left:3px solid var(--theme,var(--accent));background:var(--sheet);border-radius:0 8px 8px 0}
-.en .lbl{display:block;direction:rtl;text-align:right;font:700 11px/1.4 var(--ui);letter-spacing:.12em;color:var(--muted);margin-bottom:4px}
-.en q{quotes:none;font:17px/1.7 Georgia,"Times New Roman",serif;color:var(--ink)}
-.src{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin-top:14px;font:14px/1.5 var(--ui);color:var(--muted)}
-.listen{font:700 14px var(--ui);color:var(--accent);background:transparent;border:1px solid var(--line);min-height:44px;padding:0 14px}
-body.reading .player{bottom:0;padding-bottom:calc(8px + env(safe-area-inset-bottom,0px))}
-.tabbar button[aria-current="true"]{color:var(--ink)}
-.tabbar button[aria-current="true"] svg{stroke-width:2.4}
-.listen svg{width:16px;height:16px}
-.src a{font-weight:600;text-decoration:none}
-.acts{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
-.acts button{min-height:44px;font-size:14px}
-.acts .stay{background:var(--theme);border-color:var(--theme);color:var(--on-flag)}
-.acts button.kept{border-color:var(--theme);color:var(--theme)}
-.acts button.kept svg{fill:currentColor}
+/* ---------- chapter: a retreat ---------- */
+.chapter{margin:56px calc(-1*var(--gut)) 0;padding:0 var(--gut) 64px;background:var(--tint)}
+.chapter+.chapter{margin-top:0}
+.ch-cover{margin:0 calc(-1*var(--gut));scroll-margin-top:0}
+.ch-sky{position:relative;overflow:hidden;height:268px;background:var(--sky);color:var(--sky-ink)}
+.ch-k{position:absolute;top:26px;right:var(--gut);font:700 12.5px/18px var(--ui);letter-spacing:.08em}
+.ch-m{position:absolute;right:calc(var(--gut) + 4px);bottom:118px;font:500 30px/1 var(--display)}
+.ch-y{position:absolute;right:calc(var(--gut) - 4px);bottom:-19px;font:300 clamp(124px,36vw,172px)/1 var(--display);letter-spacing:-.03em;direction:ltr}
+.y2024 .ch-sky .disc{width:58px;height:58px;top:34px;left:calc(var(--gut) + 22px);box-shadow:0 0 0 16px var(--halo),0 0 0 38px var(--halo),0 0 0 66px var(--halo)}
+.y2025 .ch-sky .disc{width:136px;height:136px;bottom:-68px;left:calc(var(--gut) - 6px);box-shadow:0 0 0 22px var(--halo),0 0 0 50px var(--halo)}
+.ch-earth{background:var(--earth);color:var(--earth-ink);padding:30px var(--gut) 34px}
+.ch-tag{margin:0;font:500 27px/35px var(--display);text-wrap:balance}
+.ch-intro{margin:14px 0 0;font:400 17px/29px var(--body);color:var(--earth-ink);opacity:.94;text-wrap:pretty}
+.ch-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:26px 0 0;padding:18px 0 0;list-style:none;border-top:1px solid var(--earth-line);font:400 13.5px/18px var(--ui);color:var(--earth-soft)}
+.ch-facts b{display:block;font:300 38px/42px var(--display);color:var(--earth-ink);font-variant-numeric:tabular-nums}
+.ch-toc{margin-top:26px;padding-top:6px;border-top:1px solid var(--earth-line)}
+.ch-toc button{width:100%;justify-content:flex-start;gap:14px;min-height:48px;padding:0;border:0;border-radius:0;background:transparent;color:var(--earth-ink);font:500 16px/22px var(--ui);text-align:right}
+.ch-toc button+button{border-top:1px solid var(--earth-line)}
+.ch-toc .num{font:300 20px/1 var(--display);color:var(--earth-soft);font-variant-numeric:tabular-nums;min-width:26px}
+.ch-toc .count{margin-inline-start:auto;font:400 13px/18px var(--ui);color:var(--earth-soft)}
+.ch-earth :focus-visible,.door:focus-visible{outline-color:var(--earth-ink)}
+
+/* ---------- theme + pearl card ---------- */
+section.theme{padding-top:48px;scroll-margin-top:52px}
+.theme-head{display:flex;align-items:baseline;gap:12px;padding-top:20px;border-top:1px solid var(--acc)}
+.t-num{font:300 36px/32px var(--display);color:var(--acc);font-variant-numeric:tabular-nums;flex:none}
+.tn{font:700 25px/32px var(--display);margin:0;text-wrap:balance}
+.theme-intro{margin:8px 0 6px;font:400 15.5px/24px var(--ui);color:var(--muted)}
+.pearl{background:var(--sheet);border:1px solid var(--card-line);border-radius:16px;padding:20px 20px 2px;margin-top:14px;scroll-margin-top:70px}
+.meta{display:flex;align-items:center;flex-wrap:wrap;gap:0 8px;font:500 12.5px/18px var(--ui);color:var(--muted)}
+.meta::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--acc);flex:none}
+.meta a{font-weight:700;text-decoration:none}
+.p-title{font:700 21px/28px var(--display);margin:8px 0 0;text-wrap:balance}
+.who{font:700 13.5px/20px var(--ui);color:var(--acc);margin-top:4px}
+.pearl blockquote{margin:10px 0 18px;font:400 19.5px/33px var(--body);cursor:pointer;text-wrap:pretty}
+.en{direction:ltr;text-align:left;margin:0 0 18px;padding:2px 0 2px 16px;border-left:2px solid var(--acc)}
+.en .lbl{display:block;direction:rtl;text-align:right;margin-bottom:4px}
+.en q{quotes:none;font:400 16.5px/27px var(--body);color:var(--ink)}
+.acts{display:flex;align-items:center;gap:2px;min-height:54px;border-top:1px solid var(--line)}
+.acts .act{border:0;background:transparent;min-height:44px;padding:0 10px;border-radius:10px;font:500 14px/20px var(--ui);color:var(--muted)}
+.acts .act:first-child{color:var(--acc);font-weight:700;font-size:15px;padding-inline:0 12px;margin-inline-end:auto;gap:10px}
+.acts .act:first-child svg{width:32px;height:32px;padding:9px 8px 9px 10px;border-radius:50%;background:var(--acc);color:var(--sheet);fill:currentColor;stroke-width:1.5}
+.acts .act.kept{color:var(--acc);font-weight:700}
+.acts .act.kept svg{fill:currentColor}
 .pearl.flash{animation:flash 2s ease-out}
-@keyframes flash{0%{background:color-mix(in srgb,var(--theme) 16%,transparent)}100%{background:transparent}}
-.empty{color:var(--muted);text-align:center;padding:30px 0;font-size:17px}
+@keyframes flash{0%{box-shadow:0 0 0 3px var(--acc)}100%{box-shadow:0 0 0 3px transparent}}
 
-/* about (end) */
-details.about{margin-top:64px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-details.about summary{list-style:none;cursor:pointer;padding:18px 0;font:700 16px var(--ui);display:flex;justify-content:space-between;align-items:center;min-height:56px}
-details.about summary::-webkit-details-marker{display:none}
-details.about summary::after{content:"+";font:400 26px/1 var(--ui);color:var(--muted)}
-details.about[open] summary::after{content:"–"}
-.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:6px 0 18px;font:14px/1.3 var(--ui);color:var(--muted);text-align:center}
-.facts b{display:block;font:400 30px/1.1 var(--display);color:var(--ink);font-variant-numeric:tabular-nums}
-.about p{margin:0 0 14px;font-size:18px}
-footer{margin-top:40px;font:14px/1.75 var(--ui);color:var(--muted);text-align:center}
+/* ---------- footer ---------- */
+footer{margin-top:44px;font:400 13.5px/23px var(--ui);color:var(--muted);text-align:center}
+.promo{display:block;margin:48px auto 0;padding:24px 20px;border:1px solid var(--card-line);border-radius:18px;background:var(--sheet);text-decoration:none;color:var(--ink);text-align:center}
+.promo .pt{display:block;font:700 24px/31px var(--display);margin:6px 0}
+.promo .pd{display:block;font:400 15.5px/24px var(--ui);color:var(--muted)}
 
-/* topbar + bottom bar (phone) */
-.topbar{position:fixed;top:0;left:0;right:0;z-index:30;background:var(--glass);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
-  padding:calc(8px + env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) 8px max(20px,env(safe-area-inset-left,0px));
-  font:700 15px/1.3 var(--ui);display:flex;align-items:center;gap:10px;transform:translateY(-110%);transition:transform .25s ease}
+/* ---------- top strip + tab bar ---------- */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:30;background:var(--glass);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
+  padding:calc(9px + env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) 9px max(20px,env(safe-area-inset-left,0px));
+  font:700 15px/22px var(--ui);display:flex;align-items:center;gap:10px;transform:translateY(-110%);transition:transform .25s ease}
 .topbar.on{transform:none}
-.topbar .yr{margin-inline-start:auto;font-weight:600;color:var(--muted);font-size:13px}
-.tabbar{position:fixed;bottom:0;left:0;right:0;z-index:30;background:var(--glass);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid var(--line);
-  padding:0 max(8px,env(safe-area-inset-right,0px)) env(safe-area-inset-bottom,0px) max(8px,env(safe-area-inset-left,0px));display:none;grid-template-columns:repeat(3,1fr)}
-.tabbar button{border:0;background:transparent;border-radius:0;min-height:var(--bar-h);flex-direction:column;gap:3px;font:700 12px/1 var(--ui);color:var(--muted)}
+.topbar::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--acc)}
+.topbar:not(.y2024):not(.y2025)::after{display:none}
+#tbDot{width:9px;height:9px;border-radius:50%;background:var(--acc);flex:none}
+#tbName{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topbar .yr{margin-inline-start:auto;font:700 13px/18px var(--ui);color:var(--acc);white-space:nowrap}
+.tabbar{position:fixed;bottom:0;left:0;right:0;z-index:30;background:var(--glass);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-top:1px solid var(--line);
+  padding:0 max(8px,env(safe-area-inset-right,0px)) env(safe-area-inset-bottom,0px) max(8px,env(safe-area-inset-left,0px));display:grid;grid-template-columns:repeat(3,1fr)}
+.tabbar button{border:0;background:transparent;border-radius:0;min-height:var(--bar-h);flex-direction:column;gap:3px;font:500 12.5px/16px var(--ui);color:var(--muted)}
 .tabbar button svg{width:22px;height:22px}
-.tabbar button:active{color:var(--ink)}
-.tabbar .badge{font:700 10px/1 var(--ui);background:var(--flag-red);color:var(--on-flag);border-radius:999px;padding:2px 5px;margin-top:-2px}
+.tabbar button[aria-current="true"]{color:var(--ink);font-weight:700}
+.tabbar button[aria-current="true"] svg{stroke-width:2.2}
+body.has-tabbar .wrap{padding-bottom:calc(var(--bar-h) + 40px + env(safe-area-inset-bottom,0px))}
+:root{--toast-b:calc(var(--bar-h) + 16px)}
 
-/* bottom sheet */
+/* ---------- topics sheet ---------- */
 .scrim{position:fixed;inset:0;z-index:56;background:var(--scrim)}
-.sheet{position:fixed;left:0;right:0;bottom:0;z-index:57;background:var(--paper);border-radius:18px 18px 0 0;max-height:82vh;max-height:82dvh;overflow-y:auto;overscroll-behavior:contain;
-  padding:0 max(20px,env(safe-area-inset-right,0px)) calc(20px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px));animation:up .25s ease-out}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:57;background:var(--ground);border-radius:24px 24px 0 0;max-height:84vh;max-height:84dvh;overflow-y:auto;overscroll-behavior:contain;
+  padding:0 max(20px,env(safe-area-inset-right,0px)) calc(22px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px));animation:up .25s ease-out}
 @keyframes up{from{transform:translateY(40px);opacity:.6}to{transform:none;opacity:1}}
-.sheet-head{position:sticky;top:0;z-index:2;background:var(--paper);display:flex;align-items:center;justify-content:space-between;padding:12px 0 6px;border-bottom:1px solid var(--line);font:700 17px var(--ui)}
+.sheet-head{position:sticky;top:0;z-index:2;background:var(--ground);display:flex;align-items:center;justify-content:space-between;padding:14px 0 8px;font:700 22px/28px var(--display)}
 .sheet-head button{min-width:44px;padding:0 10px}
-.sheet h4{font:700 12px/1.4 var(--ui);letter-spacing:.12em;color:var(--muted);margin:18px 0 8px}
+.sheet h4{font:700 12px/16px var(--ui);letter-spacing:.08em;color:var(--muted);margin:26px 0 8px}
+.sheet h4.sh-ch{display:flex;align-items:center;gap:12px;margin:14px 0 4px;padding:10px 12px;border-radius:14px;background:var(--earth);color:var(--earth-ink);font:700 16px/22px var(--ui);letter-spacing:0}
+.sheet h4.sh-ch+.tlist+h4.sh-ch{margin-top:20px}
+.sh-ch small{display:block;font:400 13px/18px var(--ui);color:var(--earth-soft)}
+.mini{position:relative;display:block;width:44px;height:44px;border-radius:10px;overflow:hidden;background:var(--sky);flex:none}
+.y2024 .mini .disc{width:12px;height:12px;top:9px;left:9px;box-shadow:0 0 0 5px var(--halo)}
+.y2025 .mini .disc{width:24px;height:24px;bottom:-12px;left:10px;box-shadow:0 0 0 5px var(--halo)}
 .sheet .row{display:flex;gap:8px;flex-wrap:wrap}
-.tlist{display:grid;gap:2px}
-.tlist button{justify-content:flex-start;border:0;border-radius:10px;background:transparent;min-height:50px;padding:0 10px;font:600 16px/1.3 var(--ui);text-align:right}
+.tlist{display:grid}
+.tlist button{justify-content:flex-start;gap:12px;border:0;border-radius:0;background:transparent;min-height:52px;padding:0 12px;font:500 16px/22px var(--ui);text-align:right}
+.tlist button+button{border-top:1px solid var(--line);border-radius:0}
 .tlist button:active{background:var(--sheet)}
-.tlist .count{font-weight:400}
-.sheet .chips{justify-content:flex-start}
-.sheet .close{width:100%;margin-top:18px}
+.tlist .num{font:300 20px/1 var(--display);color:var(--acc);font-variant-numeric:tabular-nums;min-width:24px;flex:none}
+.tlist .count{margin-inline-start:auto;font:400 13px/18px var(--ui);color:var(--muted)}
+.moods button[aria-pressed="true"]{background:var(--sheet);color:var(--ink);font-weight:700;border:0}
 
-/* mini player */
-.player{position:fixed;left:0;right:0;z-index:55;bottom:0;background:var(--sheet);border-top:1px solid var(--line);display:flex;align-items:center;gap:10px;
-  padding:8px max(16px,env(safe-area-inset-right,0px)) calc(8px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));font:14px/1.3 var(--ui)}
+/* ---------- mini player ---------- */
+.player{position:fixed;left:0;right:0;z-index:55;bottom:calc(var(--bar-h) + env(safe-area-inset-bottom,0px));background:var(--sheet);border-top:1px solid var(--line);display:flex;align-items:center;gap:10px;
+  padding:8px max(16px,env(safe-area-inset-right,0px)) 8px max(16px,env(safe-area-inset-left,0px));font:14px/1.3 var(--ui)}
 .player .pt{min-width:0;flex:1}
 .player .pt b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .player .pt span{color:var(--muted);font-variant-numeric:tabular-nums}
 .player button{min-height:44px;min-width:44px;padding:0 12px}
-.player .pp{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.player .pp{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+body.reading .player{bottom:0;padding-bottom:calc(8px + env(safe-area-inset-bottom,0px))}
+body.playing{--toast-b:calc(var(--bar-h) + var(--player-h,64px) + 16px)}
+body.has-tabbar.playing .wrap{padding-bottom:calc(var(--bar-h) + env(safe-area-inset-bottom,0px) + var(--player-h,64px) + 40px)}
+body.reading.playing .veil{padding-bottom:var(--player-h,64px)}
+body.reading.playing .vnav{padding-bottom:12px}
 
-/* reader (stay with it) */
-.veil{position:fixed;top:0;left:0;right:0;height:100vh;height:100dvh;z-index:50;background:var(--veil);color:var(--veil-ink);display:flex;flex-direction:column}
-.vtop{display:flex;align-items:center;gap:10px;padding:calc(10px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 8px max(16px,env(safe-area-inset-left,0px));font:600 14px/1.3 var(--ui);color:var(--veil-muted)}
+/* ---------- reader: one pearl, in its chapter's night ---------- */
+.veil{position:fixed;top:0;left:0;right:0;height:100vh;height:100dvh;z-index:50;background:var(--night);color:var(--night-ink);display:flex;flex-direction:column;overflow:hidden}
+.veil::before{content:"";position:absolute;z-index:0;border-radius:50%;background:var(--glow);opacity:.07;pointer-events:none}
+.veil.y2024::before{width:230px;height:230px;top:-84px;left:-70px;opacity:.1}
+.veil.y2025::before{width:300px;height:300px;bottom:-176px;left:-36px;opacity:.09}
+.veil>*{position:relative;z-index:1}
+.veil :focus-visible{outline-color:var(--night-ink)}
+.vprog{height:2px;background:rgba(255,255,255,.12);margin-top:env(safe-area-inset-top,0px)}
+.vprog i{display:block;height:100%;width:var(--p,0%);background:var(--glow);transition:width .3s ease}
+.vtop{display:flex;align-items:center;gap:12px;padding:10px max(16px,env(safe-area-inset-right,0px)) 8px max(16px,env(safe-area-inset-left,0px));font:600 14px/20px var(--ui);color:var(--night-soft)}
 .vtop .scope{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .vtop .ctr{font-variant-numeric:tabular-nums}
-.veil button{background:transparent;color:var(--veil-ink);border-color:var(--veil-line)}
-.vbody{flex:1;overflow-y:auto;display:flex;padding:10px max(24px,env(safe-area-inset-right,0px)) 10px max(24px,env(safe-area-inset-left,0px))}
+.veil button{background:transparent;color:var(--night-ink);border-color:rgba(255,255,255,.22)}
+.vtop button{min-width:44px;padding:0}
+.vbody{flex:1;overflow-y:auto;display:flex;padding:10px max(26px,env(safe-area-inset-right,0px)) 10px max(26px,env(safe-area-inset-left,0px))}
 .vinner{margin:auto;max-width:620px;width:100%;text-align:center;padding:18px 0}
-.vtheme{display:inline-flex;align-items:center;gap:8px;font:700 13px/1.3 var(--ui);color:var(--veil-muted)}
-.vtheme .dot{background:var(--theme)}
-.vtitle{font:400 26px/1.3 var(--display);margin:10px 0 16px}
-.vtext{margin:0;font:300 clamp(21px,5.4vw,29px)/1.7 var(--body);animation:fade 1.4s ease-out both}
+.vtheme{display:inline-flex;align-items:center;gap:8px;font:700 13px/18px var(--ui);color:var(--glow)}
+.vtheme .dot{width:8px;height:8px;border-radius:50%;background:var(--glow);flex:none}
+.vtitle{font:700 25px/32px var(--display);margin:14px 0 16px;text-wrap:balance}
+.vtext{margin:0;font:400 clamp(21px,5.6vw,27px)/1.66 var(--body);text-wrap:pretty;animation:fade 1.2s ease-out both}
 @keyframes fade{from{opacity:0}to{opacity:1}}
-.ven{direction:ltr;margin:18px 0 0;font:italic 16px/1.65 Georgia,serif;color:var(--veil-muted)}
-.vsrc{margin-top:16px;font:14px var(--ui);color:var(--veil-muted)}
-.breath{width:10px;height:10px;border-radius:50%;border:1px solid currentColor;opacity:.5;animation:breathe 10s ease-in-out infinite;margin:30px auto 8px}
-@keyframes breathe{0%,100%{transform:scale(1);opacity:.3}50%{transform:scale(4.5);opacity:.65}}
-.vhint{font:13px var(--ui);color:var(--veil-muted)}
-.vacts{display:flex;justify-content:center;gap:8px;padding:6px 16px}
+.ven{direction:ltr;margin:18px 0 0;font:italic 400 16px/1.65 var(--body);color:var(--night-soft)}
+.vsrc{margin-top:18px;font:400 13.5px/18px var(--ui);color:var(--night-soft)}
+.breath{width:10px;height:10px;border-radius:50%;background:var(--glow);opacity:.4;animation:breathe 10s ease-in-out infinite;margin:34px auto 12px}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.35}50%{transform:scale(3.6);opacity:.7}}
+.vhint{font:400 13px/18px var(--ui);color:var(--night-soft)}
+.vacts{display:flex;justify-content:center;gap:6px;padding:6px 16px}
+.vacts button{border:0;font-weight:500}
+.vacts button.kept{color:var(--glow)}
 .vacts button.kept svg{fill:currentColor}
-.vnav{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:8px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
-.vnav button{min-height:52px;font-size:16px}
+.vnav{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:8px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.vnav button{min-height:50px;font-size:16px}
 .vnav button:disabled{opacity:.35;cursor:default}
 
-/* talks library (full version) */
-.lib{margin-top:28px}
+/* ---------- talks library (full version) ---------- */
+.yearbar{text-align:center}
+.years{display:inline-flex;gap:4px;margin-top:18px;padding:4px;border:1px solid var(--line);border-radius:999px;background:var(--sheet)}
+.years a{font:600 15px/1 var(--ui);color:var(--muted);text-decoration:none;padding:15px 20px;border-radius:999px}
+.years a[aria-current="true"]{background:var(--acc);color:var(--sheet)}
+.lib{margin-top:34px}
 .lib-head{text-align:center}
-.lib-head .lbl,.promo .lbl{display:block;font:700 11px/1.4 var(--ui);letter-spacing:.14em;color:var(--accent)}
-.lib-head h2{font-family:var(--display);font-weight:400;font-size:clamp(28px,5vw,38px);margin:6px 0 10px;text-wrap:balance}
-.lib-intro{color:var(--muted);font-size:17px;max-width:34em;margin:0 auto}
-.lib-day{margin-top:36px}
-.lib-day h2{font-family:var(--display);font-weight:400;font-size:25px;margin:0 0 4px;display:flex;gap:12px;align-items:baseline}
-.lib-day h2 small{font:14px var(--ui);color:var(--muted)}
+.lib-head h2{font:700 clamp(27px,5vw,36px)/1.25 var(--display);margin:6px 0 10px;text-wrap:balance}
+.lib-intro{color:var(--muted);font:400 15.5px/24px var(--ui);max-width:34em;margin:0 auto}
+.lib-day{margin-top:38px}
+.lib-day h2{font:700 24px/31px var(--display);margin:0 0 4px;display:flex;gap:12px;align-items:baseline;padding-top:16px;border-top:1px solid var(--acc)}
+.lib-day h2 small{font:400 13.5px/18px var(--ui);color:var(--muted)}
 .tcard{display:block;text-decoration:none;color:var(--ink);padding:16px 0;border-top:1px solid var(--line)}
+.lib-day h2+.tcard{border-top:0}
 .tcard .tt{font:700 17px/1.45 var(--ui)}
 .tcard .tm{font:13px/1.5 var(--ui);color:var(--muted);margin-top:2px}
-.tcard .ta{font-size:16px;color:var(--muted);margin-top:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.tbadge{display:inline-block;margin-inline-start:6px;font:600 11px/1 var(--ui);color:var(--accent);border:1px solid currentColor;border-radius:999px;padding:3px 8px}
-.promo{display:block;margin:48px auto 0;padding:22px;border:1px solid var(--line);border-radius:14px;background:var(--sheet);text-decoration:none;color:var(--ink);text-align:center}
-.promo .pt{display:block;font:400 26px/1.3 var(--display);margin:6px 0}
-.promo .pd{display:block;font-size:17px;color:var(--muted)}
-.reader{margin-top:24px}
+.tcard .ta{font:400 15.5px/24px var(--ui);color:var(--muted);margin-top:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tbadge{display:inline-block;margin-inline-start:6px;font:600 11px/1 var(--ui);color:var(--acc);border:1px solid currentColor;border-radius:999px;padding:3px 8px}
+.reader{margin-top:28px}
 .crumbs{font:14px var(--ui);display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between;align-items:center}
-.crumbs a{text-decoration:none;font-weight:600;min-height:40px;display:inline-flex;align-items:center}
-.reader h2{font-family:var(--display);font-weight:400;font-size:clamp(28px,5vw,38px);line-height:1.25;margin:14px 0 6px;text-wrap:balance}
+.crumbs a{text-decoration:none;font-weight:700;min-height:44px;display:inline-flex;align-items:center}
+.reader h2{font:700 clamp(27px,5vw,36px)/1.25 var(--display);margin:14px 0 6px;text-wrap:balance}
 .reader .tm{font:14px var(--ui);color:var(--muted)}
-.summary{margin:20px 0 0;padding:16px 18px;background:var(--sheet);border:1px solid var(--line);border-radius:12px;font-size:17px}
-.summary .lbl,.fullh{font:700 11px/1.4 var(--ui);letter-spacing:.12em;color:var(--muted);display:block;margin-bottom:6px}
+.summary{margin:20px 0 0;padding:18px 20px;background:var(--sheet);border:1px solid var(--card-line);border-radius:16px;font-size:17px}
+.summary .lbl,.fullh{display:block;margin-bottom:6px}
 .summary ul{margin:10px 0 0;padding-inline-start:20px;color:var(--muted)}
-.fullh{margin:30px 0 4px;font-size:13px}
-.fullp{margin:0;color:var(--muted);font-size:16px}
-.rtools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:16px 0 6px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--paper);padding:8px 0;z-index:5;border-bottom:1px solid var(--line)}
-.para{display:grid;grid-template-columns:64px 1fr;gap:4px 14px;padding:12px 0;scroll-margin-top:80px}
-.para .ts{font:700 13px/2.2 var(--ui);font-variant-numeric:tabular-nums;color:var(--accent);text-decoration:none;direction:ltr;text-align:right;background:none;border:0;min-height:0;padding:0;justify-content:flex-end}
+.fullh{font:700 13px/18px var(--ui);letter-spacing:.08em;color:var(--muted);margin:30px 0 4px}
+.fullp{margin:0;color:var(--muted);font:400 15px/23px var(--ui)}
+.rtools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:16px 0 6px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--ground);padding:8px 0;z-index:5;border-bottom:1px solid var(--line)}
+.para{display:grid;grid-template-columns:1fr;gap:4px 14px;padding:12px 0;scroll-margin-top:80px}
+.para .ts{font:700 13px/1.4 var(--ui);font-variant-numeric:tabular-nums;color:var(--acc);direction:ltr;background:none;border:0;min-height:0;padding:0;justify-content:flex-start}
 .para .tx{min-width:0}.para .tx p{margin:0}
-.para .tx .pen{direction:ltr;text-align:left;font:17px/1.75 Georgia,"Times New Roman",serif}
-.both .tx{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.para.flash{animation:flash 2.4s ease-out;--theme:var(--accent)}
+.para .tx .pen{direction:ltr;text-align:left;font:400 17px/1.75 var(--body)}
+.both .tx{display:grid;grid-template-columns:1fr;gap:8px}
+.para.flash{animation:pflash 2.4s ease-out}
+@keyframes pflash{0%{background:var(--tint)}100%{background:transparent}}
 .pager{display:flex;justify-content:space-between;gap:12px;margin-top:36px;font:700 15px var(--ui)}
 .pager a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
 .loading{color:var(--muted);text-align:center;padding:40px 0;font:15px var(--ui)}
 
-.toast{position:fixed;z-index:70;left:50%;transform:translateX(-50%);bottom:calc(var(--toast-b,24px) + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--paper);font:600 14px var(--ui);padding:12px 18px;border-radius:999px;max-width:90vw;text-align:center}
+.toast{position:fixed;z-index:70;left:50%;transform:translateX(-50%);bottom:calc(var(--toast-b,24px) + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--ground);font:600 14px/20px var(--ui);padding:12px 18px;border-radius:999px;max-width:90vw;text-align:center}
 
-.meta{font:400 13px/1.5 var(--ui);color:var(--muted);margin:-4px 0 10px}
-.meta a{font-weight:600;text-decoration:none}
-.pearl blockquote[data-stay]{cursor:pointer}
-.acts{display:flex!important;align-items:center;gap:4px;margin-top:14px;min-height:44px}
-.acts .act{border:0;background:transparent;color:var(--accent);font:600 14px/1.2 var(--ui);padding:0 10px;min-height:44px;border-radius:10px}
-.acts .act:first-child{padding-inline-start:0}
-.acts .act:hover{background:var(--sheet)}
-.acts .act svg{width:18px;height:18px}
-.acts .ic{min-width:44px;padding:0;color:var(--muted)}
-.acts .ic.kept{color:var(--flag-red)}.acts .ic.kept svg{fill:currentColor}
-.acts .sp{flex:1}
-.tsn{font-variant-numeric:tabular-nums}
-.pearl h3{font:600 15px/1.4 var(--ui);color:var(--ink);margin:0 0 6px}
-.pearl h3 .n{font:500 12px/1.4 var(--ui);color:var(--muted)}
-.pearl h3 .n::after{content:"";display:inline-block;width:6px;height:8px;margin-inline-start:6px;border-radius:0 0 1px 1px;background:var(--theme);vertical-align:0}
-.pearl blockquote{line-height:1.7}
-.theme-head .flag{width:10px;height:13px}
-.moods button{font-weight:500}
-.moods button[aria-pressed="true"]{background:var(--sheet);color:var(--accent);border:0}
-.vacts button{border:0}
-.vnav{gap:12px}.vnav button{min-height:48px}
-.breath{width:8px;height:8px;border:0;background:var(--veil-muted);opacity:.35}
-.vtext{font-size:clamp(21px,5.6vw,28px);line-height:1.65}
-.sheet{border-radius:24px 24px 0 0}
-.tlist button{font-weight:500;min-height:52px}
-.eyebrow{letter-spacing:.06em}
-.tabbar button{font-size:13px}
-.tabbar button[aria-current="true"]{color:var(--ink);font-weight:800}
-.tabbar button[aria-current="true"] svg{stroke-width:2.4}
-.meta,.count,.tlist .count,.topbar .yr,.hero .att{font-size:13.5px;line-height:18px}
-.sub{margin:6px 0 0;font:400 15px/1.5 var(--ui);color:var(--muted)}
-.years a{padding:15px 20px}
-.theme .pearl,.list .pearl{background:var(--sheet);border:0;border-radius:16px;padding:20px 20px 8px;margin-top:16px;box-shadow:0 2px 8px rgba(40,35,25,.04)}
-.theme .pearl:first-of-type,.list .pearl:first-child{border:0}
-.acts{margin-top:18px;border-top:1px solid var(--line);padding-top:4px}
-.acts .ic{color:var(--accent)}
-.banner{background:transparent;border:0;padding:0 2px}
-/* ---------- phone ---------- */
-@media (max-width:720px){
-  body{font-size:18px}
-  .desk{display:none!important}
-  .mob{display:block}
-  .tabbar{display:grid}
-  body.has-tabbar .wrap{padding-bottom:calc(var(--bar-h) + 40px + env(safe-area-inset-bottom,0px))}
-  .player{bottom:calc(var(--bar-h) + env(safe-area-inset-bottom,0px));padding-bottom:8px}
-  :root{--toast-b:calc(var(--bar-h) + 16px)}
-  .flags{padding-top:18px;gap:7px}.flags::before{top:19px}.flags i{width:16px;height:19px}
-  .flags i:nth-child(n+11){display:none}
-  header{padding-top:14px}
-  .eyebrow{font-size:11px}
-  h1{font-size:28px}
-  .years{margin-top:12px}
-  .hero{margin-top:22px}
-  .hero blockquote{font-size:21px;line-height:1.65}
-  .hero .att{font-size:14px}
-  section.theme{margin-top:44px}
-  h2.tn{font-size:23px}
-  .theme-intro{font-size:16px}
-  .theme .pearl,.list .pearl{padding:20px 20px 8px}
-  .wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-  .hero,.theme-head,.theme-intro,header{padding-inline:4px}
-  .pearl blockquote{font-size:20px;line-height:34px}
-  .facts b{font-size:26px}
-  .para{grid-template-columns:1fr}.para .ts{text-align:right;line-height:1.4;justify-content:flex-start}
-  .both .tx{grid-template-columns:1fr;gap:8px}
-  .lib-day h2{font-size:23px}
+/* ---------- desktop ---------- */
+@media (min-width:721px){
+  body{font-size:19px}
+  .desk{display:block}
+  .tools.desk{display:flex}
+  .tabbar{display:none}
+  body.has-tabbar .wrap{padding-bottom:60px}
+  :root{--toast-b:24px}
+  body.playing{--toast-b:calc(var(--player-h,64px) + 16px)}
+  .player{bottom:0;padding-bottom:calc(8px + env(safe-area-inset-bottom,0px))}
+  body.has-tabbar.playing .wrap{padding-bottom:calc(var(--player-h,64px) + 40px)}
+  header{padding-top:56px}
+  .orb{width:88px;height:88px}
+  .hero blockquote{font-size:25px;line-height:40px}
+  .d-sky{height:170px}.d-y{font-size:84px;bottom:-13px;right:18px}.d-m{top:18px;right:22px;font-size:15px}
+  .y2024 .d-sky .disc{width:40px;height:40px;top:26px;left:34px;box-shadow:0 0 0 12px var(--halo),0 0 0 28px var(--halo)}
+  .y2025 .d-sky .disc{width:84px;height:84px;bottom:-42px;left:30px;box-shadow:0 0 0 16px var(--halo)}
+  .d-earth{padding:14px 22px 16px}
+  .intro{padding:30px 32px 22px}
+  .ch-sky{height:360px}
+  .ch-y{font-size:220px;bottom:-24px}
+  .ch-m{bottom:200px;font-size:38px}
+  .ch-k{top:36px}
+  .y2024 .ch-sky .disc{width:84px;height:84px;top:56px;left:calc(var(--gut) + 40px);box-shadow:0 0 0 24px var(--halo),0 0 0 58px var(--halo),0 0 0 100px var(--halo)}
+  .y2025 .ch-sky .disc{width:210px;height:210px;bottom:-105px;left:var(--gut);box-shadow:0 0 0 34px var(--halo),0 0 0 78px var(--halo)}
+  .ch-earth{padding:44px var(--gut) 44px}
+  .ch-tag{font-size:34px;line-height:44px}
+  .ch-intro{font-size:19px;line-height:33px}
+  .ch-toc{display:grid;grid-template-columns:1fr 1fr;column-gap:36px}
+  .ch-toc button:nth-child(2){border-top:0}
+  .pearl{padding:26px 30px 4px}
+  .pearl blockquote{font-size:21px;line-height:36px}
+  .tn{font-size:29px;line-height:36px}.t-num{font-size:42px}
+  .sheet{left:50%;right:auto;width:560px;margin-left:-280px}
+  .para{grid-template-columns:64px 1fr}.para .ts{line-height:2.2;justify-content:flex-end}
+  .both .tx{grid-template-columns:1fr 1fr;gap:20px}
 }
-body.playing .wrap{padding-bottom:calc(var(--player-h,64px) + 40px)}
-body.has-tabbar.playing .wrap{padding-bottom:calc(var(--bar-h) + env(safe-area-inset-bottom,0px) + var(--player-h,64px) + 40px)}
-body.reading.playing .veil{padding-bottom:var(--player-h,64px)}
-body.reading.playing .vnav{padding-bottom:12px}
-@media (min-width:721px){body.has-tabbar.playing .wrap{padding-bottom:calc(var(--player-h,64px) + 40px)}}
-
-/* ---------- Fable: "the sky after the monsoon" cover; paper cards below; night sky for quiet reading ---------- */
-:root{--sky-a:#14365a;--sky-b:#1d4f7b;--sky-c:#2a6490;--sky-ink:#f4f7fa;--sky-muted:rgba(244,247,250,.8);--sky-line:rgba(255,255,255,.3);--sky-glass:rgba(255,255,255,.12);--night-a:#0b1a2a;--night-b:#14365a;--accent:#1f5683}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--sky-a:#0a1826;--sky-b:#10304e;--sky-c:#17426a;--accent:#8fbfe6}}
-:root[data-theme="dark"]{--sky-a:#0a1826;--sky-b:#10304e;--sky-c:#17426a;--accent:#8fbfe6}
-body{position:relative;overflow-x:clip}
-.sky{position:absolute;top:0;left:0;right:0;height:430px;z-index:0;background:linear-gradient(180deg,var(--sky-a),var(--sky-b) 55%,var(--sky-c));border-radius:0 0 28px 28px}
-.wrap{position:relative;z-index:1}
-.flags{display:block;padding-top:6px}
-.flags::before{display:none}
-.flags svg{display:block;width:min(100%,560px);height:auto;margin:0 auto;overflow:visible}
-.flags .fl{transform-box:fill-box;transform-origin:50% 0;transform:rotate(var(--r));animation:sway 3.4s ease-in-out 2 both}
-@keyframes sway{0%,100%{transform:rotate(var(--r))}50%{transform:rotate(calc(var(--r) + 6deg))}}
-header,#vPearls>.yearbar,.hero{color:var(--sky-ink)}
-header{padding-top:6px}
-header :focus-visible,#vPearls>.yearbar :focus-visible,.hero :focus-visible{outline-color:var(--sky-ink)}
-.eyebrow,.sub{color:var(--sky-muted)}
-h1{font-size:clamp(40px,7vw,60px);margin-top:8px}
-.views a{color:var(--sky-muted)}
-.views a[aria-current="true"]{color:var(--sky-ink);border-bottom-color:var(--sky-ink)}
-#vPearls>.yearbar .years{background:var(--sky-glass);border-color:var(--sky-line)}
-#vPearls>.yearbar .years a{color:var(--sky-ink)}
-#vPearls>.yearbar .years a[aria-current="true"]{background:var(--sky-ink);color:var(--sky-a)}
-.hero{margin-top:28px;padding-bottom:36px}
-.hero .lbl{display:none}
-.hero blockquote{font-weight:400;font-size:clamp(24px,4.4vw,31px);line-height:1.6}
-.hero .att{color:var(--sky-ink);opacity:.9;margin-top:14px}
-.hero-actions{margin-top:22px}
-.hero-actions button{min-height:50px;padding:0 22px;font-size:16px}
-.hero-actions .pri{background:var(--sky-ink);color:var(--sky-a);border-color:var(--sky-ink)}
-.hero-actions .sec{background:var(--sky-glass);color:var(--sky-ink);border-color:var(--sky-line)}
-#main>section.theme:first-child{margin-top:34px}
-.moments{margin-top:40px}
-.theme .pearl,.list .pearl{position:relative}
-.theme .pearl::before,.list .pearl::before{content:"";position:absolute;top:0;inset-inline-end:22px;width:12px;height:18px;background:var(--theme);clip-path:polygon(0 0,100% 0,100% 100%,50% 74%,0 100%)}
-.pearl h3 .n::after{display:none}
-.pearl h3{padding-inline-end:26px}
-.veil{background:linear-gradient(180deg,var(--night-a),var(--night-b))}
-@media (max-width:720px){h1{font-size:38px}.hero blockquote{font-size:24px;line-height:1.6}.sub{font-size:14.5px}}
-/* Fable review 2: calmer card header, centred theme openers, narrower desktop column */
-.pearl h3 .n{display:none}
-.pearl h3{font:700 16px/1.4 var(--ui)}
-.acts .act svg{width:20px;height:20px}
-.acts .ic{color:var(--muted)}
-.acts .ic.kept{color:var(--flag-red)}
-section.theme{margin-top:60px}
-.theme-head{flex-direction:column;gap:10px;text-align:center}
-.theme-head .flag{width:14px;height:20px;border-radius:0;clip-path:polygon(0 0,100% 0,100% 100%,50% 74%,0 100%)}
-.theme-head .count{display:none}
-h2.tn{font-size:28px}
-.theme-intro{text-align:center;max-width:30em;margin:6px auto 4px}
-.wrap{max-width:680px}
-.sheet .close{display:none}
-body.playing{--toast-b:calc(var(--player-h,64px) + 16px)}
-@media (max-width:720px){h2.tn{font-size:26px}section.theme{margin-top:48px}body.playing{--toast-b:calc(var(--bar-h) + var(--player-h,64px) + 16px)}}
-/* Fable review 3: one stream, named actions */
-#vPearls>.yearbar{display:none}
-.hero{margin-top:22px}
-.yr-h{display:flex;align-items:center;gap:14px;margin:56px 0 -20px;font:700 13px/1.4 var(--ui);letter-spacing:.08em;color:var(--muted)}
-.yr-h::before,.yr-h::after{content:"";flex:1;height:1px;background:var(--line)}
-#main>.yr-h:first-child{margin-top:30px}
-#main>.yr-h+section.theme{margin-top:44px}
-.acts{gap:0}
-.acts .act{flex:1;justify-content:center;gap:8px;color:var(--ink);font:600 15px/1.2 var(--ui);padding:0 4px}
-.acts .act:first-child{padding-inline-start:4px}
-.acts .act svg{width:20px;height:20px;color:var(--accent)}
-.acts .act+.act{border-inline-start:1px solid var(--line);border-radius:0}
-.acts .act.kept svg{color:var(--flag-red);fill:currentColor}
-.theme .pearl,.list .pearl{padding-bottom:4px}
-.sheet h4{margin-top:22px}
-/* Opus review 4: intro + how-to, no card pennants, quieter structure */
-.theme .pearl::before,.list .pearl::before{display:none}
-.pearl h3{padding-inline-end:0}
-.intro,.howto{background:var(--sheet);border-radius:18px;padding:22px 20px 20px;margin-top:22px;box-shadow:0 2px 8px rgba(40,35,25,.04)}
-.intro h2,.howto h2{font:400 24px/1.3 var(--display);margin:0 0 10px;color:var(--ink)}
-.intro p{margin:0 0 12px;font-size:17px;line-height:1.75;color:var(--ink)}
-.intro .facts{grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin-top:6px;padding:14px 0 0}
-.intro .facts b{font-size:26px}
-.ways{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.way{flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;gap:6px;padding:16px 8px 14px;border-radius:14px;border:1px solid var(--line);background:var(--paper);min-height:132px;white-space:normal}
-.way svg{width:26px;height:26px;color:var(--accent)}
-.way b{font:700 16px/1.2 var(--ui)}
-.way span{font:400 13px/1.45 var(--ui);color:var(--muted)}
-.howto .hint{margin:12px 0 0;text-align:center;font:14px/1.5 var(--ui);color:var(--muted)}
-#main>.yr-h:first-child{margin-top:44px}
-footer{margin-top:56px}
-@media (max-width:720px){.intro,.howto{margin-top:16px}.way{padding:14px 6px 12px;min-height:128px}.way span{font-size:12.5px}.intro .facts b{font-size:24px}}
-.who{color:var(--accent);font-weight:700}
-/* Opus pro pass: one type system, flatter surfaces, clear active states */
-:root{--paper:#f6f4f0;--sheet:#ffffff;--ink:#292b2d;--muted:#686863;--line:#e5e0d8;--accent:#205c88;--glass:rgba(246,244,240,.94)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#141b20;--sheet:#202930;--ink:#eceeef;--muted:#a9b2ba;--line:#33404a;--accent:#8fbfe6;--glass:rgba(20,27,32,.94)}}
-:root[data-theme="dark"]{--paper:#141b20;--sheet:#202930;--ink:#eceeef;--muted:#a9b2ba;--line:#33404a;--accent:#8fbfe6;--glass:rgba(20,27,32,.94)}
-/* cover */
-header{padding-top:2px}
-h1{font-size:44px;line-height:54px}
-.sub{font:400 15px/22px var(--ui)}
-.hero{margin-top:20px;padding-bottom:30px}
-.hero blockquote{font-size:24px;line-height:38px}
-.hero .att{font:400 13px/18px var(--ui);margin-top:12px}
-.hero-actions{gap:6px;margin-top:20px}
-.hero-actions .pri{min-height:48px;padding:0 24px}
-.hero-actions .sec{background:transparent;border-color:transparent;min-height:48px;padding:0 14px}
-/* intro card */
-.intro{box-shadow:none;border:1px solid var(--line);padding:22px 20px}
-.intro h2{font:400 26px/32px var(--display);margin:0 0 12px}
-.intro p{font:400 17px/29px var(--body);margin:0 0 12px}
-.how-h{font:600 15px/22px var(--ui);margin:20px 0 6px;padding-top:18px;border-top:1px solid var(--line)}
-.ways{display:block}
-.way{display:flex;flex-direction:row;align-items:center;justify-content:flex-start;gap:14px;width:100%;min-height:60px;padding:8px 2px;border:0;border-radius:0;background:transparent;text-align:right;white-space:normal}
-.way+.way{border-top:1px solid var(--line)}
-.way svg{width:22px;height:22px;stroke-width:1.75;color:var(--accent);flex:none}
-.way span{font:400 14px/20px var(--ui);color:var(--muted)}
-.way b{display:block;font:600 16px/22px var(--ui);color:var(--ink)}
-.intro .hint{margin:10px 0 0;text-align:right;font:400 13px/20px var(--ui);color:var(--muted)}
-/* cards */
-.theme .pearl,.list .pearl{box-shadow:none;border:1px solid var(--line);border-radius:16px;padding:20px 20px 2px;margin-top:16px}
-.pearl h3{font:600 16px/24px var(--ui);margin:0}
-.meta{font:400 12.5px/18px var(--ui);margin:2px 0 0}
-.who{font:600 13px/20px var(--ui);color:var(--accent);margin-top:2px}
-.pearl blockquote{font-size:21px;line-height:34px;margin:16px 0 18px}
-.acts{margin-top:0;min-height:48px;border-top:1px solid var(--line);padding-top:0;gap:4px;justify-content:flex-start}
-.acts .act{flex:0 0 auto;min-height:48px;padding:0 10px;font:500 14px/20px var(--ui);color:var(--muted)}
-.acts .act:first-child{color:var(--accent);font-weight:600;padding-inline-start:0;margin-inline-end:auto}
-.acts .act+.act{border-inline-start:0}
-.acts .act svg{width:20px;height:20px;stroke-width:1.75;color:currentColor}
-.acts .act.kept{color:var(--flag-red)}
-/* section heads */
-h2.tn{font-size:26px;line-height:32px}
-.theme-intro{font:400 15px/24px var(--ui);color:var(--muted)}
-.yr-h{font:600 12px/16px var(--ui)}
-/* bottom bar + sheet */
-.tabbar button{min-height:56px;font:500 12px/16px var(--ui);color:var(--muted)}
-.tabbar button svg{width:22px;height:22px;stroke-width:1.75}
-.tabbar button[aria-current="true"]{color:var(--accent);font-weight:600}
-.tlist button{min-height:52px;padding-inline:8px;font:500 16px/22px var(--ui)}
-.tlist .count{font:400 12px/16px var(--ui);color:var(--muted)}
-.tlist .dot{width:10px;height:10px;border-radius:2px}
-.sheet h4{font:600 12px/16px var(--ui);letter-spacing:.06em}
-@media (max-width:720px){h1{font-size:30px;line-height:38px}.hero blockquote{font-size:21px;line-height:33px}.pearl blockquote{font-size:20px;line-height:33px}}
-.intro p,.intro .hint,.intro h2,.how-h{text-align:right}
-.pearl blockquote,.vtext,.hero blockquote{text-wrap:pretty}
 </style>
 
 </head><body><svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -456,17 +382,15 @@ h2.tn{font-size:26px;line-height:32px}
   <symbol id="i-chev-r" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
   <symbol id="i-chev-l" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol>
   <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
-  <symbol id="i-breath" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></symbol>
 </svg>
 
-<div class="sky" id="sky" aria-hidden="true"></div>
-<div class="topbar" id="topbar" aria-hidden="true"><span class="dot" id="tbDot"></span><span id="tbName"></span><span class="yr" id="tbYear"></span></div>
+<div class="topbar" id="topbar" aria-hidden="true"><span id="tbDot"></span><span id="tbName"></span><span class="yr" id="tbYear"></span></div>
 
 <div class="wrap">
-  <div class="flags" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   <header>
+    <div class="orb" aria-hidden="true"></div>
     <div class="eyebrow">ריטריטים של מהאמודרה בישראל · עמותת תובנה</div>
-    <h1>פנינים מלאמה טילמן לונדרופ</h1>
+    <h1><span class="h1-a">פנינים</span> <span class="h1-b">מלאמה טילמן לונדרופ</span></h1>
     <p class="sub">92 קטעים קצרים מתורתו, בעברית · לקרוא, להאזין ולשתף</p>
     <nav class="views" id="views" aria-label="מה להציג" hidden>
       <a href="#pearls" id="navPearls" aria-current="true">הפנינים</a>
@@ -476,7 +400,6 @@ h2.tn{font-size:26px;line-height:32px}
 
   <div id="vTalks" hidden></div>
   <main id="vPearls">
-    <div class="yearbar"><nav class="years" aria-label="בחירת שנה" id="years"></nav></div>
     <div class="hero" id="hero"></div>
 
     <section class="intro" aria-label="על המורה ועל האתר">
@@ -497,7 +420,6 @@ h2.tn{font-size:26px;line-height:32px}
       <p>בחרו רגע, ותקבלו פנינים משני הריטריטים שמדברות אליו.</p>
       <div class="chips" id="chipsDesk"></div>
     </div>
-    <ul class="toc desk" id="toc"></ul>
     <div class="tools desk">
       <div class="seg" role="group" aria-label="שפת התצוגה"><button data-lang="he" aria-pressed="true">עברית</button><button data-lang="both" aria-pressed="false">עברית + המקור באנגלית</button></div>
       <button data-mine>הפנינים שלי</button>
@@ -533,13 +455,14 @@ h2.tn{font-size:26px;line-height:32px}
   <div id="sheetBody"></div>
 </div>
 
-<div class="player" id="player" hidden>
+<div class="player" id="player" role="region" aria-label="נגן ההקלטה" hidden>
   <button class="pp" id="pPlay" aria-label="נגינה"><svg class="i"><use href="#i-pause"/></svg></button>
   <div class="pt"><b id="pTitle"></b><span id="pTime"></span> · <a id="pLink" target="_blank" rel="noopener">לפתוח את ההקלטה</a></div>
   <button id="pClose" aria-label="סגירת הנגן"><svg class="i"><use href="#i-x"/></svg></button>
 </div>
 
 <div class="veil" id="veil" hidden role="dialog" aria-modal="true" aria-label="קריאה אחת אחת">
+  <div class="vprog" aria-hidden="true"><i id="vProg"></i></div>
   <div class="vtop"><button id="vClose" aria-label="סגירה"><svg class="i"><use href="#i-x"/></svg></button><span class="scope" id="vScope"></span><span class="ctr" id="vCtr"></span></div>
   <div class="vbody" id="vBody"><div class="vinner" id="vInner"></div></div>
   <div class="vacts">
@@ -549,20 +472,21 @@ h2.tn{font-size:26px;line-height:32px}
   </div>
   <div class="vnav"><button id="vPrev"><svg class="i"><use href="#i-chev-r"/></svg>הקודמת</button><button id="vNext">הבאה<svg class="i"><use href="#i-chev-l"/></svg></button></div>
 </div>
-<div class="toast" id="toast" hidden></div>
+<div class="toast" id="toast" role="status" hidden></div>
 
 <script>
 const D=[{"year": "2024", "label": "יולי 2024", "intro": "ביולי 2024 הגיע לאמה טילמן לונדרופ לישראל לראשונה, ולימד עם לילה קמחי ריטריט מהאמודרה בן עשרה ימים. הריטריט התקיים בזמן המלחמה. הוא לימד את שש ההנחיות של טילופה, את חמשת היסודות, את האחדות של חוכמה וחמלה ואת תרגול הטונגלן. לימד גם איך לעבוד עם כאב ועם רגשות, ואיך להפוך את היום כולו ליוגה.", "themes": [{"name": "מהי מהאמודרה – האצבע והירח", "intro": "הכוונה הבסיסית של הדרך: לא עוד שיטה, אלא שינוי באופן שבו רואים.", "p": [{"n": 1, "title": "האצבע העקומה והירח", "he": "במסורת המהאמודרה אומרים שהוראה דומה לאישה זקנה המצביעה על הירח. היא אומרת: ״ראו, שם הירח״, אבל אצבעה עקומה – היא אפילו אינה מצביעה לעברו. הזקנה יודעת שהירח שם, אבל אצבעה מצביעה בחזרה אל האדמה.", "en": "In the Mahamudra tradition, we say that teaching is like an old lady pointing at the moon. She says, “Look, the moon is there,” but her finger is crooked – it is not even pointing at the moon. The old lady knows the moon is there, but her finger points back to the earth.", "date": "03.07.2024", "rec": 2, "ts": "24:04", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%202%20-%20לאמה%20טילמן%20-%2003.07.24%20-%20יום%201%20-%20הקלטה%202%20-%20ערב%20-%20שיחת%20דהרמה%20-%20Introduction%20to%20Lama%20Tilmann%20and%20the%20Mahamudra.mp3#t=1444", "tags": ["כשהתרגול נהיה מאמץ", "רגע של השראה"], "tid": "27691", "sec": 1444, "who": "tilmann"}, {"n": 2, "title": "סמסרה היא דרך לראות", "he": "הלימוד המרכזי בגישה הזאת הוא שסמסרה אינה עולם, אלא נקודת מבט על העולם – דרך לראות אותו. סמסרה אינה העולם הזה שלנו, אלא האופן שבו אנחנו חיים בו.", "en": "The key teaching of this approach is that samsara is not a world, but a perspective on the world – a way of seeing it. Samsara is not this world of ours, but the way we live in it.", "date": "04.07.2024", "rec": 7, "ts": "03:39", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%207%20-%20לאמה%20טילמן%20-%2004.07.24%20-%20יום%202%20-%20הקלטה%207%20-%20אחהצ%20-%20שיחת%20דהרמה%20-%20Further%20orientation%20waht%20mahamudra%20is.mp3#t=219", "tags": ["בחיי היומיום", "רגע של השראה"], "tid": "27696", "sec": 219, "who": "tilmann"}, {"n": 3, "title": "מודעות ללא מרכז", "he": "ההתעוררות ברגע הזה אינה דבר שאפשר להיאחז בו. היא אינה מושא לתפיסה, אלא איכות של האופן שבו התפיסה מתרחשת. זו איכות של היות בעולם, ולא דבר שאפשר להשיג. זהו מצב דינמי מאוד של מודעות ללא מרכז.", "en": "Awakening in the present moment is not something you can grasp. It is not an object of perception, but a quality of how perceiving happens. It is a quality of being in the world, not something that can be attained. It is that very dynamic state of awareness without a center.", "date": "04.07.2024", "rec": 7, "ts": "33:43", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%207%20-%20לאמה%20טילמן%20-%2004.07.24%20-%20יום%202%20-%20הקלטה%207%20-%20אחהצ%20-%20שיחת%20דהרמה%20-%20Further%20orientation%20waht%20mahamudra%20is.mp3#t=2023", "tags": ["כשהתרגול נהיה מאמץ", "רגע של השראה"], "tid": "27696", "sec": 2023, "who": "tilmann"}, {"n": 4, "title": "להניח לעכשיו להיות חופשי", "he": "אנא, אל תיאחזו בחוויה היקרה הזאת של העכשיו. אל תעשו מדיטציה ואל תטפחו דבר – מה שאתם מחפשים כבר כאן. הניחו לתודעה להיות טבעית, כפי שהיא, ושוב, אל תיאחזו בכך – אין כאן דבר מיוחד. אני רואה שכמה מכם מרפים ממש מן הניסיון לכלוא את העכשיו. הניחו לו להיות חופשי ולהתפתח, ותנו מרחב לחוויה האישית כל כך שלכם ברגע הזה.", "en": "Please do not hold on to this precious experience of now. Do not meditate or cultivate anything – what you are looking for is already here. Leave the mind natural, as it is. Again, do not hold on to it; there is nothing special. I see some of you really releasing the attempt to keep the now in a cage. Leave it free, let it unfold, and give space to your own very personal experience of this moment.", "date": "07.07.2024", "rec": 21, "ts": "09:33", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2021%20-%20לאמה%20טילמן%20-%2007.07.24%20-%20יום%205%20-%20הקלטה%2021%20-%20בוהריים%20-%20מדיטציה%20מונחית%20-%20Six%20Dhammas%20of%20Tilopa%20-%20part%201.mp3#t=573", "tags": ["כשהתרגול נהיה מאמץ"], "tid": "27710", "sec": 573, "who": "tilmann"}, {"n": 5, "title": "כל אחד יהיה בודהה אחר", "he": "איכויות ההתעוררות הבסיסיות יהיו זהות אצל כולנו, אך ביטוין האישי יהיה שונה, כשם שכל אחד מאיתנו שונה. כולנו נהיה בודהות שונים. לכן תרגול בודהיצ'יטה אינו ניסיון לעצב את עצמנו לפי דימוי חיצוני. פירושו לפנות אל המקור הפנימי הזה, אל המחסה הפנימי, ולאפשר לו להתבטא יותר ויותר.", "en": "The basic qualities of bodhi, of awakening, will be the same, but their individual expression will be as different as each of us is different. We will all be different Buddhas. Practicing bodhicitta is therefore not about modeling ourselves on an external image. It is about turning to that inner source, that inner refuge, and allowing it to express itself more and more.", "date": "04.07.2024", "rec": 5, "ts": "52:42", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%205%20-%20לאמה%20טילמן%20-%2004.07.24%20-%20יום%202%20-%20הקלטה%205%20-%20בוקר%20-%20הנחיות%20למדיטציה.mp3#t=3162", "tags": ["כשהתרגול נהיה מאמץ", "רגע של השראה"], "tid": "27694", "sec": 3162, "who": "tilmann"}, {"n": 6, "title": "מסירות שמובילה לעצמאות", "he": "מסירות אמיתית לעולם אינה משמשת ליצירת תלות. כוחה מחזק את המורה הפנימי ומסייע לנו להיעשות עצמאיים.", "en": "True devotion is never used to make someone dependent. Its strength is used to strengthen the inner guru and help us become independent.", "date": "10.07.2024", "rec": 38, "ts": "49:56", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2038%20-%20לאמה%20טילמן%20-%2010.07.24%20-%20יום%208%20-%20הקלטה%2038%20-%20אחהצ%20-%20שאלות%20ותשובות.mp3#t=2996", "tags": ["כשהתרגול נהיה מאמץ", "רגע של השראה"], "tid": "27727", "sec": 2996, "who": "tilmann"}]}, {"name": "טבע התודעה – מעגל על פני המים", "intro": "דימויים שטילמן נתן לתודעה עצמה: מים, מראה, תוף, מרק.", "p": [{"n": 7, "title": "מעגל על פני המים", "he": "אילו הייתה כאן בריכה, הייתי הולך איתכם אליה ומבקש מכם לצייר באצבע מעגל גדול במים. בעוד האצבע נעה, תחילת המעגל כבר מתפוגגת, וקשה לסגור אותו, כי ההתחלה כבר איננה. זהו טבע התודעה שלנו. לשם מכוונים לימודי המהאמודרה האלה: לשוב הביתה, אל המחסה האמיתי שלנו.", "en": "If we had a pond here, I would go there with you and ask you to draw a large circle in the water with your finger. The beginning of the circle dissolves as you move your finger, and it is difficult to close the circle because the beginning is no longer there. This is the nature of our mind. That is where these Mahamudra teachings are taking us: home to our true refuge.", "date": "04.07.2024", "rec": 5, "ts": "13:46", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%205%20-%20לאמה%20טילמן%20-%2004.07.24%20-%20יום%202%20-%20הקלטה%205%20-%20בוקר%20-%20הנחיות%20למדיטציה.mp3#t=826", "tags": ["כשהתודעה לא נרגעת", "רגע של השראה"], "tid": "27694", "sec": 826, "who": "tilmann"}, {"n": 8, "title": "היד שעל התוף", "he": "היאחזות דומה להנחת יד על תוף: עור התוף כבר אינו יכול להדהד בחופשיות. הוא מנסה לרטוט, אך ככל שלוחצים עליו יותר, כך הוא מהדהד פחות. זה מה שקורה בסמסרה: בהיאחזותנו אנחנו חוסמים את ההדהוד הטבעי, ויכולתנו להרגיש מצטמצמת.", "en": "Clinging is like putting a hand on a drum: the drumhead cannot resonate freely. It tries to vibrate, but the more you press, the less it resonates. This is a good description of what happens in samsara: through clinging, we block the natural resonance and cannot feel as much. After difficult experiences, we almost do this on purpose: we do not want to feel so much because it is overwhelming.", "date": "08.07.2024", "rec": 27, "ts": "01:52", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2027%20-%20לאמה%20טילמן%20-%2008.07.24%20-%20יום%206%20-%20הקלטה%2027%20-%20צהרים%20-%20שיחת%20דהרמה%20-%20Mahamudra%20bodhisatva.mp3#t=112", "tags": ["כשהלב נסגר", "כשיש כאב או פחד"], "tid": "27716", "sec": 112, "who": "tilmann"}, {"n": 9, "title": "המראה אינה נאחזת", "he": "המראה משקפת את פניכם ואחר כך את פניו של מישהו אחר, ואינה נאחזת ולו לרגע בדמות שהשתקפה בה קודם. אין צורך לסלק את הדמות הזאת: היא נעלמת מעצם טבעה, ומעולם לא הייתה בעלת ממשות משל עצמה. כך גם המחשבות, הדימויים והרגשות שלנו: בזרם החוויה המתמשך הם מופיעים ונעלמים כדמויות במראה.", "en": "A mirror shows your face, then someone else's, without a moment of holding on to the image that was there before. You do not have to make that image go away. It disappears by its very nature; it never had any substance of its own. The same is true of our thoughts, images, and emotions: in the fluid continuity of experience, they arise and disappear like images in a mirror.", "date": "06.07.2024", "rec": 15, "ts": "29:50", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2015%20-%20לאמה%20טילמן%20-%2006.07.24%20-%20יום%204%20-%20הקלטה%2015%20-%20בוקר%20-%20הנחיות%20למדיטציה%20-%20Developing%20Insight.mp3#t=1790", "tags": ["כשהתודעה לא נרגעת", "כשרגש משתלט"], "tid": "27704", "sec": 1790, "who": "tilmann"}, {"n": 10, "title": "כדג המזנק מן המים", "he": "עצם הופעתה של מחשבה, של תנועה כלשהי בתודעה, אינה מסיחה את הדעת – היא פשוט מתרחשת. כשאין היאחזות, הדבר דומה לדג המזנק מן המים ונופל היישר בחזרה לתוכם.", "en": "The arising of a single thought, of some movement in the mind, is not itself a distraction. It is simply happening. Without clinging, it is like a fish jumping out of the water and falling right back into it.", "date": "10.07.2024", "rec": 38, "ts": "07:28", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2038%20-%20לאמה%20טילמן%20-%2010.07.24%20-%20יום%208%20-%20הקלטה%2038%20-%20צהרים%20-%20מדיטציה%20מונחית%20-%20Tong%20leng%207.mp3#t=448", "tags": ["כשהתודעה לא נרגעת", "כשהתרגול נהיה מאמץ"], "tid": "27728", "sec": 448, "who": "tilmann"}, {"n": 11, "title": "טעמיה של התודעה", "he": "כשאתם מיומנים בחקירת התודעה, הדבר דומה להגשת מרק לא מוכר לטבח טוב ולשאלה: ״אילו תבלינים יש במרק הזה?״ תחילה אני חש טעם עדין של עצב, אחר כך עניין, מעט שמחה וסקרנות ערה. אה, ויש גם הרבה פחד. ברקע יש אושר, ואפילו כמיהה לחיות את האושר הזה. כך תחושו שהתודעה אינה מקשה אחת – יש בה טעמים שונים, כתבלינים במרק.", "en": "When you are skilled at exploring your mind, it is like presenting an unfamiliar soup to a good cook and asking, “What spices are in this soup?” First I can sense a slight taste of sadness, then interest, some joy, some keen curiosity. And there is a lot of fear. There is an underlying happiness, even a yearning to live that happiness. You begin to feel that your mind is not one uniform thing; it has different tastes, like different spices in a soup.", "date": "05.07.2024", "rec": 11, "ts": "40:24", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2011%20-%20לאמה%20טילמן%20-%2005.07.24%20-%20יום%203%20-%20הקלטה%2011%20-%20צהרים%20-%20הנחיות%20מדיטציה%20-%20Guided%20Bodhicita%20and%20satipathana,%20and%20Tara%20mantra%20chanting.mp3#t=2424", "tags": ["כשרגש משתלט", "כשהתודעה לא נרגעת"], "tid": "27700", "sec": 2424, "who": "tilmann"}, {"n": 12, "title": "לראות גם את הדגים הקטנים", "he": "ואז נדמה לכם שיש לכם יותר מחשבות מבעבר, ואתם אומרים לעצמכם: ״זה מטורף, מעולם לא חשבתי כל כך הרבה״. אבל רק עכשיו אתם מגלים זאת – גם קודם חשבתם לפחות באותה מידה. עכשיו אתם מבחינים בכך מפני שהרכבתם את משקפת הצלילה, ואפשר לראות גם את הדגים הקטנים.", "en": "At this point, you think you have more thoughts than before: “This is crazy; I have never thought so much.” You are only discovering it now. You were thinking at least that much before, but now you notice because you have your goggles on and can see the small fish.", "date": "05.07.2024", "rec": 11, "ts": "36:37", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2011%20-%20לאמה%20טילמן%20-%2005.07.24%20-%20יום%203%20-%20הקלטה%2011%20-%20צהרים%20-%20הנחיות%20מדיטציה%20-%20Guided%20Bodhicita%20and%20satipathana,%20and%20Tara%20mantra%20chanting.mp3#t=2197", "tags": ["כשהתודעה לא נרגעת", "כשהתרגול נהיה מאמץ"], "tid": "27700", "sec": 2197, "who": "tilmann"}, {"n": 13, "title": "התודעה היא תהליך", "he": "כשאתם מתבוננים בחוויה ומציינים במילים את המתרחש, למשל בתרגול ויפאסנה של תיוג, אל תאמרו ״מחשבות״ אלא ״חשיבה״. במקום לומר ״כעס, כעס״, אפשר לומר ״לכעוס״ או ״חשיבה כועסת״. חשוב לזכור שגם בזמן שאתם מתבוננים בתודעה ומתייגים את המתרחש בה, היא משתנה וממשיכה להתהוות. היא לעולם אינה אלא תהליך.", "en": "When you observe your experience and describe it, for example in the vipassana practice of labeling, do not say “thoughts,” but “thinking.” Instead of saying “anger, anger,” you might say “being angry” or “angry thinking.” When observing your mind, it is very important to be aware that even as you observe and label it, it changes; it remains a process. It is never anything other than a process.", "date": "08.07.2024", "rec": 25, "ts": "12:11", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2025%20-%20לאמה%20טילמן%20-%2008.07.24%20-%20יום%206%20-%20הקלטה%2025%20-%20בוקר%20-%20שיחת%20דהרמה%20-%20All%20apperances%20are%20mind%20-%20part%202.mp3#t=731", "tags": ["כשהתודעה לא נרגעת", "כשרגש משתלט"], "tid": "27714", "sec": 731, "who": "tilmann"}, {"n": 14, "title": "אפשר לסמוך על השינוי", "he": "אפשר לקרוא לזה ארעיות, ואפשר לקרוא לזה טבעה הדינמי של החוויה – הכול משתנה, ועל כך אפשר לסמוך לחלוטין. החוק הזה, טבען החומק מאחיזה של החוויות, אמין כמו האדמה שאנחנו יושבים עליה. אפשר, כביכול, לבנות על השינוי ולסמוך עליו. כל מה שנוכח עכשיו ישתנה.", "en": "You might call it impermanence or the dynamic nature of experience. Everything changes, and that is completely reliable. This law, this ungraspable nature of experiences, is as reliable as the earth we sit on. We can, so to speak, build on change; we can rely on it. Whatever is here now will change.", "date": "06.07.2024", "rec": 14, "ts": "25:47", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2014%20-%20לאמה%20טילמן%20-%2006.07.24%20-%20יום%204%20-%20הקלטה%2014%20-%20בוקר%20-%20מדיטציה%20מונחית%20-%20Five%20elements.mp3#t=1547", "tags": ["כשיש כאב או פחד", "רגע של השראה"], "tid": "27703", "sec": 1547, "who": "tilmann"}]}, {"name": "הרפיה בלי מאמץ", "intro": "איך מרפים בלי להפוך גם את ההרפיה למשימה.", "p": [{"n": 15, "title": "לשבת על ערמת העצים", "he": "המורה שלי נתנה לי הנחיה נפלאה: ״טוב שאתה חוטב עצים, אבל מה דעתך לשבת מדי פעם על ערמת העצים שלך? אחרי החטיבה, במקום להמשיך ולהמשיך, עצור לרגע ושב״. כך חוויתי רגעים של שקט טבעי לחלוטין – בלי לחשוב על העבר, ההווה או העתיד, בלי לנתח ובלי לעשות מדיטציה, פשוט כך – מפני שהעבודה המספקת שחררה את האנרגיות שלי.", "en": "My teacher gave me a wonderful instruction: “It is good that you chop wood, but how about sitting on your woodpile for a while between tasks? After chopping, instead of going on and on, pause for a moment and sit.” I experienced moments of completely natural calm – not thinking about the past, present, or future, not analyzing, not meditating, just like that – because enough work had freed my energies.", "date": "07.07.2024", "rec": 23, "ts": "19:14", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2023%20-%20לאמה%20טילמן%20-%2007.07.24%20-%20יום%205%20-%20הקלטה%2023%20-%20ערב%20-%20שיחת%20דהרמה%20-%20Dynamic%20creative%20mind%20-%20active%20mind%20-%20instructions%20and%20inquiry.mp3#t=1154", "tags": ["בחיי היומיום", "כשהתרגול נהיה מאמץ"], "tid": "27712", "sec": 1154, "who": "tilmann"}, {"n": 16, "title": "להרפות מן הבלמים", "he": "אני אוהב לרכוב על אופניים: הידיים מונחות על הבלמים, והאופניים נעים כמעט מעצמם. אפשר להרפות מן המתח המתמיד הזה – וכשם שמרפים את הידיים, כך מרפים את התודעה. תמיד נוכל לבלום שוב: אנחנו יודעים איך לעשות זאת, ונוכל להגן על עצמנו ברגע שיהיה צורך. אם הירידה מהירה מדי, לוחצים על הבלמים.", "en": "I love bicycling: your hands are on the brakes, and the bicycle moves almost by itself. You can relax that constant tension. Just as we relax our hands, we relax the mind. We can always put on the brakes again – we know how, and we can protect ourselves as soon as we need to. If we are going downhill too fast, we put on the brakes.", "date": "04.07.2024", "rec": 5, "ts": "42:32", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%205%20-%20לאמה%20טילמן%20-%2004.07.24%20-%20יום%202%20-%20הקלטה%205%20-%20בוקר%20-%20הנחיות%20למדיטציה.mp3#t=2552", "tags": ["כשיש כאב או פחד", "כשהתרגול נהיה מאמץ"], "tid": "27694", "sec": 2552, "who": "tilmann"}, {"n": 17, "title": "כמה מאמץ דורשת הרפיה", "he": "המאמץ הנדרש הוא כמאמץ שבפתיחת האגרוף הזה. אם נהיה כנים, דווקא עכשיו, כשאני סוגר את האגרוף, אני מתאמץ – אבל אני רגיל כל כך לאחוז, שנדמה לי שזה המצב הטבעי. כל לימודי הדהרמה עוסקים בהרפיית היד הזאת, בהרפיית האחיזה. כמה מאמץ זה דורש – מדהים; ובכל זאת, צריך להודות שלמעשה אין כאן מאמץ, כי אנחנו רק מתירים הרגל בלתי מיומן מאוד של התמודדות עם המציאות: לאחוז בלי הרף.", "en": "The effort required is like the effort of opening this fist. If we are honest, I am making an effort to close it, but I am so used to grasping that this feels like the normal state. All the Dharma teachings are about relaxing this hand, relaxing the grasping. How much effort that seems to take – it is incredible. Yet we must admit that there is actually no effort, because we are simply undoing a very unskillful way of dealing with reality: constantly grasping.", "date": "08.07.2024", "rec": 27, "ts": "01:52", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2027%20-%20לאמה%20טילמן%20-%2008.07.24%20-%20יום%206%20-%20הקלטה%2027%20-%20צהרים%20-%20שיחת%20דהרמה%20-%20Mahamudra%20bodhisatva.mp3#t=112", "tags": ["כשהתרגול נהיה מאמץ"], "tid": "27716", "sec": 112, "who": "tilmann"}, {"n": 18, "title": "להרפות אל תוך ערות", "he": "כדי להירדם, עלינו להרפות מכל מה שהטריד אותנו במשך היום ולהניח לעיסוק בעצמנו – אחרת לא נוכל לישון. במהאמודרה מרפים בדיוק כך, כמו כשנרדמים, אלא שמרפים אל תוך ערות, אל תוך נוכחות מלאה. ההרפיה היא אותה הרפיה, ואי־ההזדהות היא אותה אי־הזדהות.", "en": "To fall asleep, we have to let go of whatever bothered us during the day and step out of self-concern; otherwise, we cannot sleep. In Mahamudra, we relax in exactly that way, as when falling asleep, but into wakefulness, into complete presence. The relaxation is the same; the non-identification is the same.", "date": "05.07.2024", "rec": 10, "ts": "52:12", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2010%20-%20לאמה%20טילמן%20-%2005.07.24%20-%20יום%203%20-%20הקלטה%2010%20-%20בוקר%20-%20שיחת%20דהרמה%20-%20Using%20the%20gap%20and%20preparing%20for%20dying.mp3#t=3132", "tags": ["כשהתודעה לא נרגעת", "כשהתרגול נהיה מאמץ"], "tid": "27699", "sec": 3132, "who": "tilmann"}, {"n": 19, "title": "ללכת כמו בודהה", "he": "זו הנחיית מהאמודרה טיפוסית: לכו כמו בודהה, זה הכול. איך בודהה הולך? אינני יודע – גלו איך הבודהה שלכם הולך. איך הוא הולך, עומד, מסתובב, אולי מביט במישהו, בלי להיאחז – לא במבט ולא בהליכה? סביר שכך אכן נוהג בודהה.", "en": "This is a typical Mahamudra instruction: walk like a Buddha. That is all. How does a Buddha walk? I do not know – discover how your Buddha walks. How does your Buddha walk, stand, turn around, perhaps look at someone, without clinging – no clinging in the looking, no clinging in the walking? That is probably quite true of a Buddha.", "date": "04.07.2024", "rec": 6, "ts": "48:44", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%206%20-%20לאמה%20טילמן%20-%2004.07.24%20-%20יום%202%20-%20הקלטה%206%20-%20צהרים%20-%20מדיטציה%20מונחית.mp3#t=2924", "tags": ["בחיי היומיום", "רגע של השראה"], "tid": "27695", "sec": 2924, "who": "tilmann"}, {"n": 20, "title": "גם האריה נרגע", "he": "ניסיתי הכול כדי להגיע להארה. הרגשתי כמו אריה בכלוב, מטיח את ראשי בקיר ההיאחזות הדואליסטית. עד שגם הבחור הזה נרגע, ואז הכול קרה מעצמו. מהאמודרה היא להניח לדברים לקרות מעצמם: לתת אמון, ללכת עם האמון ועם הברכה, מתוך מסירות לטבעם הבסיסי של כל היצורים החשים.", "en": "I was trying everything to become enlightened. I felt like a lion in a cage, banging my head against the wall of dualistic clinging. Eventually, this fellow relaxed too, and everything happened by itself. Mahamudra is about letting it happen by itself: trusting, going with that trust and the blessing, with devotion to the basic nature of all sentient beings.", "date": "04.07.2024", "rec": 5, "ts": "34:48", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%205%20-%20לאמה%20טילמן%20-%2004.07.24%20-%20יום%202%20-%20הקלטה%205%20-%20בוקר%20-%20הנחיות%20למדיטציה.mp3#t=2088", "tags": ["כשהתרגול נהיה מאמץ"], "tid": "27694", "sec": 2088, "who": "tilmann"}, {"n": 21, "title": "הרשות מסירה את הלחץ", "he": "התודעה שלכם פעילה בדרך כלל, אבל לפעמים, דווקא כשאתם מאפשרים לה להיות פעילה, לא קורה דבר. ברגע שאתם מרפים מן הבלמים ואומרים לה ״קדימה, תחשבי״, שום דבר אינו קורה. גם זו התנסות טובה מאוד: עצם הרשות מסירה את הלחץ. זו הבנה חשובה – לפעמים הלחץ שאנחנו מפעילים על עצמנו הוא שיוצר את כל הפעילות העצומה הזאת.", "en": "Normally, your mind is active, yet when you allow it to be active, nothing happens. As soon as you release the brakes and say, “Go on, think,” nothing happens. This is also a very good experience, because permission takes away the pressure. This is an important understanding: sometimes it is simply the pressure we put ourselves under that creates all that tremendous activity.", "date": "07.07.2024", "rec": 23, "ts": "1:14:40", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2023%20-%20לאמה%20טילמן%20-%2007.07.24%20-%20יום%205%20-%20הקלטה%2023%20-%20ערב%20-%20שיחת%20דהרמה%20-%20Dynamic%20creative%20mind%20-%20active%20mind%20-%20instructions%20and%20inquiry.mp3#t=4480", "tags": ["כשהתודעה לא נרגעת", "כשהתרגול נהיה מאמץ"], "tid": "27712", "sec": 4480, "who": "tilmann"}, {"n": 22, "title": "לשבת לצד המעיין", "he": "המקור תמיד נוכח, כמעיין שמחכה לנו ונפתח כשיש לנו סבלנות לשבת לצידו. לא די לומר ״צריך לשתות מן המעיין״, ללגום ולהמשיך הלאה. אנחנו מרפים אל תוך המקור, אל טבעה הבסיסי של הווייתנו, ועוברים דרך התשישות וחוסר האונים, רגע של צלילות, אולי צורך לישון, ואז עוד צלילות. יבואו רגעים שבהם נדע: ״כן, עכשיו אנחנו שוב מחוברים״. אל תמהרו אז לקום ולעשות משהו – הישארו עוד קצת, טבלו במעיין.", "en": "The source is always there, like a spring that waits for us and opens when we have the patience to sit beside it. It is not a matter of saying, “I need to drink from the spring, so let me take a sip and carry on.” We relax into the source, into the fundamental nature of our being, passing through exhaustion, helplessness, a little moment of clarity, perhaps the need to sleep, and then more clarity. There will be moments when you know, “Yes, now I am connected again.” Do not jump up too quickly to do something; stay a little longer and bathe in the spring.", "date": "05.07.2024", "rec": 12, "ts": "44:11", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2012%20-%20לאמה%20טילמן%20-%2005.07.24%20-%20יום%203%20-%20הקלטה%2012%20-%20אחהצ%20-%20שאלות%20ותשובות.mp3#t=2651", "tags": ["כשהתרגול נהיה מאמץ", "כשהלב נסגר"], "tid": "27701", "sec": 2651, "who": "tilmann"}]}, {"name": "רגשות, פחד וכאב", "intro": "לפגוש את מה שקשה, בלי לברוח ובלי להיבלע בו.", "p": [{"n": 23, "title": "השוקולד כבר הולך ונמס", "he": "כשאנחנו נאחזים, אנחנו עדיין תלויים ברגע הקודם של החוויה, במשהו שכבר היה. זה טבעה של ההיאחזות: אנחנו מחזיקים, ואיננו פנויים לחדש. כדי שתנועת ההיאחזות הזאת תיפסק, עלינו לראות את הטבע שאי אפשר לאחוז בו. לומר לעצמנו ״אל תיאחזו״ לא יעזור, כשם שלא עוזר לומר לילד ״אל תיקח את השוקולד״. צריך לראות שהשוקולד כבר הולך ונמס.", "en": "When we grasp, we are still hanging on to the previous moment of experience, to something that has already passed. That is the nature of grasping: we hold on and are not open to the new. Stopping this grasping means seeing the ungraspable nature of experience. Telling ourselves “Do not grasp” will not work, just as telling a child “Do not take the chocolate” does not work. We have to see that the chocolate is already melting.", "date": "07.07.2024", "rec": 20, "ts": "22:49", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2020%20-%20לאמה%20טילמן%20-%2007.07.24%20-%20יום%205%20-%20הקלטה%2020%20-%20בוקר%20-%20שיחת%20דהרמה%20-%20The%20unity%20of%20wisdom%20and%20compassion%20-%20part%202.mp3#t=1369", "tags": ["כשהתרגול נהיה מאמץ", "כשרגש משתלט"], "tid": "27709", "sec": 1369, "who": "tilmann"}, {"n": 24, "title": "הכאב לש אותנו", "he": "אנחנו זקוקים לעזרה ולרכות, ונעשים רכים כלפי אחרים; אנחנו זקוקים לאהבה ונותנים אהבה. הכאב לש אותנו כמו בצק, מעבד אותנו. בתחילה אנחנו עדיין מנסים לשמור על דמותנו הרגילה ומתנגדים: ״אני יכול, אני יכול להמשיך״. אנחנו מחזיקים מעמד כל עוד אפשר, עד שכבר אי אפשר – ואז באה ההתרככות, באה הנכונות להרפות: ״בסדר, אתן לעצמי לנוח קצת״.", "en": "We need help and tenderness, and we are tender with others. We need love; we give love. Pain works on us like hands kneading dough. At first, we still try to maintain our usual self; we resist: “I can do it, I can keep going.” We hold on as long as possible, until we cannot anymore – then comes the softening, the willingness to yield: “All right, I will give myself a break.”", "date": "10.07.2024", "rec": 39, "ts": "48:54", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2039%20-%20לאמה%20טילמן%20-%2010.07.24%20-%20יום%208%20-%20הקלטה%2039%20-%20ערב%20-%20הנחיות%20למדיטציה%20-%20Dealing%20with%20pain.mp3#t=2934", "tags": ["כשיש כאב או פחד", "כשהלב נסגר"], "tid": "27729", "sec": 2934, "who": "tilmann"}, {"n": 25, "title": "לא למהר להיפטר מהרגש", "he": "הייתי מיומן למדי בהרפיית החשיבה, אך הרגשתי שאני נעזר בכך גם כדי לחמוק מרגשות – מעין עקיפה רוחנית. לכן חלק מתרגול המהאמודרה שלי היה, ועודנו, לאפשר לרגשות לעלות ולהניח להם להירגע רק לאחר שטעמתי אותם והתבוננתי בהם היטב. אין צורך לבטא אותם כלפי חוץ, אבל אל תמהרו להרפות מהם, שכן בחיפזון הזה עלול להסתתר הרצון להיפטר מהם. איננו מבקשים להיפטר מהם: הם ביטויים של חמלה, אולי בלתי מיומנים, ולעיתים קרובות מבטאים הגנה עצמית או צורך.", "en": "I was quite skilled at relaxing thinking, but I felt I was also using it to avoid emotions – a kind of spiritual bypassing. Part of my Mahamudra practice was then, and still is, to allow emotions to arise and not relax them too quickly, but only once they have been properly tasted and seen. There is no need to express them outwardly, but do not be too quick, as this may reflect an attitude of trying to get rid of them. We do not want to get rid of them: they are expressions of compassion, perhaps unskillful, but they often express self-protection or a need.", "date": "07.07.2024", "rec": 23, "ts": "1:04:38", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2023%20-%20לאמה%20טילמן%20-%2007.07.24%20-%20יום%205%20-%20הקלטה%2023%20-%20ערב%20-%20שיחת%20דהרמה%20-%20Dynamic%20creative%20mind%20-%20active%20mind%20-%20instructions%20and%20inquiry.mp3#t=3878", "tags": ["כשרגש משתלט", "כשהתרגול נהיה מאמץ"], "tid": "27712", "sec": 3878, "who": "tilmann"}, {"n": 26, "title": "כאב בלי דרמה", "he": "גם בודהה שידרוך על קוץ יחוש כאב, אבל לא תהיה דרמה סביב הכאב. גם אדם ער שיגיע לארץ חמה יזיע וירגיש שחם, אבל בלי דרמה. היעדר הדרמה הזה הוא קץ הסבל שאנחנו מוסיפים על הסבל.", "en": "A Buddha who steps on a thorn will feel pain, but there will be no drama around it. An awakened person who goes to a hot country will also sweat and feel the heat, but without drama. This absence of drama is the end of suffering added to suffering.", "date": "06.07.2024", "rec": 15, "ts": "00:02", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2015%20-%20לאמה%20טילמן%20-%2006.07.24%20-%20יום%204%20-%20הקלטה%2015%20-%20בוקר%20-%20הנחיות%20למדיטציה%20-%20Developing%20Insight.mp3#t=2", "tags": ["כשיש כאב או פחד"], "tid": "27704", "sec": 2, "who": "tilmann"}, {"n": 27, "title": "אין צורך להשתיק את התודעה", "he": "אינכם צריכים להירגע תחילה; עליכם רק לפתח את היכולת לא להאמין לסרט שלכם. הסרט יכול להימשך, ההצגה יכולה להימשך, והתודעה יכולה להיות פעילה ככל שתרצה.", "en": "You do not have to become calm first. You only need to develop the capacity not to believe the movie in your mind. The movie can continue, the show can go on, and the mind can be as active as it wants. We mean it when we say, “Allow all appearances to arise.”", "date": "07.07.2024", "rec": 23, "ts": "04:12", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2023%20-%20לאמה%20טילמן%20-%2007.07.24%20-%20יום%205%20-%20הקלטה%2023%20-%20ערב%20-%20שיחת%20דהרמה%20-%20Dynamic%20creative%20mind%20-%20active%20mind%20-%20instructions%20and%20inquiry.mp3#t=252", "tags": ["כשהתודעה לא נרגעת", "כשהתרגול נהיה מאמץ"], "tid": "27712", "sec": 252, "who": "tilmann"}, {"n": 28, "title": "להשקות את המיטיב", "he": "לכוון את תשומת הלב ואת העניין אל המיטיב פירושו להשקות את החלקים האלה בהווייתנו. באחרים אין צורך להילחם – פשוט לא משקים אותם, לא מעניקים להם תשומת לב. כשאני מבחין בכעס, בשנאה או בפחד העולים בי, אני אומר: ״אני רואה אתכם, אתם חלק מזרם התודעה הזה. אני מקבל אתכם, ומותר לכם ללכת בדרך שבה הולך הכול – מותר לכם להתמוסס״. ותשומת ליבי ממשיכה לזרום אל מה שמועיל יותר.", "en": "Directing your attention and interest toward what is wholesome is like watering those areas of your being. We do not have to fight the others; we simply do not water them or give them attention. When I notice anger, hatred, or fear arising, I say, “I see you. You are part of this mindstream. I accept you, and you are allowed to go the way everything goes. You are allowed to dissolve.” My attention flows on to something more beneficial.", "date": "07.07.2024", "rec": 20, "ts": "12:21", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2020%20-%20לאמה%20טילמן%20-%2007.07.24%20-%20יום%205%20-%20הקלטה%2020%20-%20בוקר%20-%20שיחת%20דהרמה%20-%20The%20unity%20of%20wisdom%20and%20compassion%20-%20part%202.mp3#t=741", "tags": ["כשרגש משתלט", "בחיי היומיום"], "tid": "27709", "sec": 741, "who": "tilmann"}, {"n": 29, "title": "להסתובב ולפגוש את הפחד", "he": "בריטריט של שלוש שנים היה טבח צרפתי, גבר חזק ומקועקע, שמאז ילדותו התעורר כל לילה מסיוט שבו רודפים אחריו. באמצע השנה השנייה הוא בא אליי ואמר: ״לפני כמה שבועות, באמצע הסיוט, הסתובבתי. הסתובבתי ופגשתי את הפחד, את הסכנה – ולא היה שם דבר. מאז אותו לילה הסיוט לא חזר״. זה כוחו של הדבר כשבאמת עושים אותו: כשמגיע הרגע הנכון ומסתובבים אל הפחד, אפשר להיעשות חסרי פחד.", "en": "“A few weeks ago, one night, I turned around in the nightmare. In that nightmare, where I had been running since childhood, I turned around and faced the fear, faced the danger. There was nothing there. Since that night, the nightmare has never returned.” We kept in contact for about ten years, and then I lost touch with him.", "date": "05.07.2024", "rec": 10, "ts": "23:55", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2010%20-%20לאמה%20טילמן%20-%2005.07.24%20-%20יום%203%20-%20הקלטה%2010%20-%20בוקר%20-%20שיחת%20דהרמה%20-%20Using%20the%20gap%20and%20preparing%20for%20dying.mp3#t=1435", "tags": ["כשיש כאב או פחד"], "tid": "27699", "sec": 1435, "who": "tilmann"}, {"n": 30, "title": "כשההתנגדות נושרת", "he": "האם הכאב נעלם כשההתנגדות לו פוסקת? לפעמים כן ולפעמים לא – לרוב לא. אבל בלי ההתנגדות חוויית הכאב משתנה ודומה יותר לעוצמת תחושה. כשהעוצמה לבדה נוכחת, התחושה שונה מאוד: היא עדיין כואבת ולא נעימה, ואף עלולה להגביל אותנו עד שלא נוכל לעשות דברים מסוימים.", "en": "You may wonder: does it take the pain away? Sometimes yes, sometimes no – mostly no. But when resistance is gone, the experience of pain changes; it becomes more like intensity. When only the intensity remains, without resistance, it feels very different. It is still painful and unpleasant, and it may even be disabling – there are things we cannot do.", "date": "10.07.2024", "rec": 39, "ts": "35:45", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2039%20-%20לאמה%20טילמן%20-%2010.07.24%20-%20יום%208%20-%20הקלטה%2039%20-%20ערב%20-%20הנחיות%20למדיטציה%20-%20Dealing%20with%20pain.mp3#t=2145", "tags": ["כשיש כאב או פחד"], "tid": "27729", "sec": 2145, "who": "tilmann"}, {"n": 31, "title": "הכעס כבר פחות משכנע", "he": "גם כשאנחנו חוזרים לדפוסים הישנים, איננו מאמינים להם כבעבר, והאמונה בהשלכות שלנו נחלשת. אפילו כשאנחנו כועסים או מלאי תשוקה, איננו מאמינים עוד לכעס ולתשוקה באותה מידה. הגאווה נעשית חלולה. כשאנחנו ממשיכים לתרגל וחווים זאת שוב ושוב, החוויה מתייצבת וכוחה לחולל שינוי גדל – זו הדרך ההדרגתית.", "en": "You fall back into your patterns, but you no longer believe them as you once did. Your belief in your own projections is weaker. Even when you are angry or full of desire, you no longer believe your anger or desire as much. Your pride becomes hollow. As you continue to practice and have these experiences again and again, they become more stable and their transformative power grows – this is what we call the gradual path.", "date": "04.07.2024", "rec": 8, "ts": "20:22", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%208%20-%20לאמה%20טילמן%20-%2004.07.24%20-%20יום%202%20-%20הקלטה%208%20-%20ערב%20-%20שאלות%20ותשובות.mp3#t=1222", "tags": ["כשרגש משתלט", "כשהתרגול נהיה מאמץ"], "tid": "27697", "sec": 1222, "who": "tilmann"}, {"n": 32, "title": "כשהכעס בא ללמד", "he": "אני כועס כל כך – מה עליי ללמוד מן המצב הזה? במקום להדוף את מה שאיננו רוצים, אנחנו מקבלים אותו, וכפי שאומרים במסורת הטיבטית: ״איזה יופי, הלאמה בא לביקור, הגורו בא לביקור״. זו הזדמנות נפלאה ללמוד, כי הרגש הזה הוא עכשיו הגורו שלי. כך הקושי עצמו נעשה לדרך.", "en": "I am so angry – what do I need to learn from this situation? Instead of pushing away what is unwanted, we welcome it. In the Tibetan tradition, we say, “The lama has come to visit; the guru has come to visit.” It is a wonderful opportunity to learn, because that emotion is now the guru; it is what I need to learn from. Taking difficulty as the path is the shift at the third level of working with emotions.", "date": "05.07.2024", "rec": 12, "ts": "08:45", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2012%20-%20לאמה%20טילמן%20-%2005.07.24%20-%20יום%203%20-%20הקלטה%2012%20-%20אחהצ%20-%20שאלות%20ותשובות.mp3#t=525", "tags": ["כשרגש משתלט", "כשקשה עם מישהו"], "tid": "27701", "sec": 525, "who": "tilmann"}]}, {"name": "חמלה ולב פתוח", "intro": "טונגלן, אהבה שאינה כופה את עצמה, ומרחב סביב הכאב של אחרים.", "p": [{"n": 33, "title": "המרחב שסביב הכאב", "he": "המרחב שבין הפרחים עשוי לעורר השראה יותר מן הפרחים עצמם. כשאני שומע על צער, על כאב גדול, אני נענה לו, אבל איני נלכד בו, כי למדתי לחוות בה בעת גם את המרחב. כשדברים משתבשים, תמיד יש מרחב סביב מה שמשתבש.", "en": "The space between the flowers can be more inspiring than the flowers themselves. When I hear sorrow, when I hear great pain, I respond to it without being caught in it, because I have learned to experience the space at the same time. When things go wrong, there is always space around what is going wrong.", "date": "05.07.2024", "rec": 10, "ts": "10:01", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2010%20-%20לאמה%20טילמן%20-%2005.07.24%20-%20יום%203%20-%20הקלטה%2010%20-%20בוקר%20-%20שיחת%20דהרמה%20-%20Using%20the%20gap%20and%20preparing%20for%20dying.mp3#t=601", "tags": ["כשיש כאב או פחד", "כשהלב נסגר"], "tid": "27699", "sec": 601, "who": "tilmann"}, {"n": 34, "title": "תודעה חופשייה לצד הסבל", "he": "האם מותר לי להיות מאושר כשאני יושב לצד מיטתו של אדם הנפרד מן העולם? הגעתי לתשובה ברורה מאוד, ואותה אני רוצה לחלוק איתכם: זו כמעט חובתי להיות מאושר. כשאנשים במצוקה, אוכל להועיל להם יותר מכול אם אשמור בעצמי על תודעה חופשייה.", "en": "Am I allowed to be happy while sitting beside the bed of someone who is leaving this world? I came to a very clear answer, which I want to share with you: it is almost my duty to be happy. I can be of greatest service to people in distress when I keep my own mind free.", "date": "05.07.2024", "rec": 10, "ts": "02:07", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2010%20-%20לאמה%20טילמן%20-%2005.07.24%20-%20יום%203%20-%20הקלטה%2010%20-%20בוקר%20-%20שיחת%20דהרמה%20-%20Using%20the%20gap%20and%20preparing%20for%20dying.mp3#t=127", "tags": ["כשיש כאב או פחד", "כשהלב נסגר"], "tid": "27699", "sec": 127, "who": "tilmann"}, {"n": 35, "title": "אהבה אינה כופה את עצמה", "he": "כשאנחנו נותנים או משתפים, אנחנו מציעים בדיוק את מה שהאחרים יכולים לקבל ומייחלים לו. אם המסר שמגיע אלינו הוא ״הניחו לי״, אנחנו מציעים בדיוק זאת – מרחב. זו אהבה: היא אינה כופה את עצמה. כמה הקלה יש בתחושה שלא מנסים לתמרן אותנו.", "en": "With our next offering, our next act of sharing, we offer exactly what can be accepted, exactly what is wished for. If we receive a message like “Leave me alone,” that is exactly what we offer: that space. This is love. Love does not impose itself. Then you feel the relief of not being manipulated.", "date": "10.07.2024", "rec": 36, "ts": "13:47", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2036%20-%20לאמה%20טילמן%20-%2010.07.24%20-%20יום%208%20-%20הקלטה%2036%20-%20בוקר%20-%20הנחיות%20למדיטציה%20-%20Tong%20leng%205.mp3#t=827", "tags": ["כשקשה עם מישהו", "בחיי היומיום"], "tid": "27725", "sec": 827, "who": "tilmann"}, {"n": 36, "title": "פנימה נכנסים ברכות", "he": "ככל שאנחנו גמישים יותר ודומים יותר למים, כך אנחנו מעמיקים פנימה. בתוכנו אנחנו רכים כל כך – אי אפשר להיכנס לשם עם סכינים.", "en": "The more flexible we are, the more we are like water, the deeper we go. We are so tender inside; we cannot go in with knives.", "date": "12.07.2024", "rec": 46, "ts": "18:37", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2046%20-%20לאמה%20טילמן%20ולילה%20קמחי%20-%2012.07.24%20-%20יום%2010%20-%20הקלטה%2046%20-%20בוקר%20-%20Transition%20talk.mp3#t=1117", "tags": ["כשהתרגול נהיה מאמץ", "כשהלב נסגר"], "tid": "27736", "sec": 1117, "who": "lila"}, {"n": 37, "title": "לתת ללב לנשום שוב", "he": "כשאנחנו הופכים את הבלבול ואת חוסר האונים שאנחנו חשים למשאלה, אנחנו מאפשרים ללב לנשום שוב. כעת הוא יכול לבטא את עצמו, במקום להיחסם. מטבענו אנחנו מלאי אכפתיות ורוצים לעזור למי שרעבים, צמאים או שרויים בכאב. כשהדחף הזה נחסם, סבלנו גובר.", "en": "You turn the confusion and helplessness you feel into a wish. It is like allowing your heart to breathe again: now it can express itself instead of getting stuck. Human beings are caring by nature; they want to help those who are hungry, thirsty, or in pain. When this impulse is blocked, we suffer even more.", "date": "05.07.2024", "rec": 12, "ts": "29:09", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2012%20-%20לאמה%20טילמן%20-%2005.07.24%20-%20יום%203%20-%20הקלטה%2012%20-%20אחהצ%20-%20שאלות%20ותשובות.mp3#t=1749", "tags": ["כשהלב נסגר", "כשיש כאב או פחד"], "tid": "27701", "sec": 1749, "who": "tilmann"}, {"n": 38, "title": "הטיפול בלב כמתנה לעולם", "he": "הניחו למודעות לנוע עם הנשימה אל המקומות הזקוקים לתשומת לב מיטיבה – בגוף, בכל מה שעולה בתודעה ובכל רגש שנוכח. כשאנחנו מטפלים היטב ברגשותינו ובמצבי התודעה שלנו, אנחנו מעניקים מנחה לעולם. זו אחת המנחות הגדולות ביותר שביכולתנו להעניק.", "en": "Let your awareness move with the breath to the places that need kind attention – within the body, in whatever comes to mind, in whatever emotion is present. Taking good care of our emotions and states of mind is an offering to this world. It is one of the greatest offerings we can make.", "date": "06.07.2024", "rec": 14, "ts": "13:54", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2014%20-%20לאמה%20טילמן%20-%2006.07.24%20-%20יום%204%20-%20הקלטה%2014%20-%20בוקר%20-%20מדיטציה%20מונחית%20-%20Five%20elements.mp3#t=834", "tags": ["כשרגש משתלט", "כשהלב נסגר"], "tid": "27703", "sec": 834, "who": "tilmann"}, {"n": 39, "title": "לתת לעצמנו את ההבנה שהייתה חסרה", "he": "דמיינו את עצמכם כפי שהייתם ברגע של היקשרות או סלידה. שאפו ונשפו בלב חם, והעניקו לעצמכם כעת את האהבה, התמיכה וההבנה שהייתם זקוקים להן אז. עם השאיפה אנחנו חשים במתח שנלווה לחוויה הרגשית ההיא. המתח מתמוסס עם זיכרון המצב ועם הרגש.", "en": "Imagine yourself as you were in that moment of attachment or aversion. With a warm heart, breathe in and out, and give yourself all the love and support you needed then. Offer yourself, in retrospect, the understanding you needed at the time. As we breathe in, we feel the stress connected with that emotional experience. The stress dissolves along with the memory of the situation and the emotion.", "date": "09.07.2024", "rec": 32, "ts": "41:57", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2032%20-%20לאמה%20טילמן%20-%2009.07.24%20-%20יום%207%20-%20הקלטה%2032%20-%20בוהריים%20-%20מדיטציה%20מונחית%20-%20Tong%20leng%202.mp3#t=2517", "tags": ["כשיש כאב או פחד", "כשרגש משתלט"], "tid": "27721", "sec": 2517, "who": "tilmann"}, {"n": 40, "title": "לשחרר אחרים מכלא ההשלכות שלנו", "he": "כשאנחנו משתחררים מן התפיסות המשונות והמגבילות כל כך שלנו על אחרים, אנחנו למעשה מרפאים את עצמנו. אנחנו מוציאים אותם מכלא ההשלכות שלנו. הגיעה השעה לעשות זאת – זה המעט שביכולתנו לעשות.", "en": "We are actually healing ourselves. We are freeing ourselves from our strange, deeply limiting conceptions of others. We are taking them out of the prison of our projections. It is high time we did this; it is the least we can do.", "date": "10.07.2024", "rec": 37, "ts": "34:33", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2037%20-%20לאמה%20טילמן%20-%2010.07.24%20-%20יום%208%20-%20הקלטה%2037%20-%20בוהריים%20-%20הנחיות%20מדיטציה%20-%20Tong%20leng%206.mp3#t=2073", "tags": ["כשקשה עם מישהו"], "tid": "27726", "sec": 2073, "who": "tilmann"}]}, {"name": "החיים כתרגול", "intro": "מהכוס ההפוכה בבוקר ועד רשימת המטלות: היום כולו כיוגה.", "p": [{"n": 41, "title": "עוד יום, עוד מתנה", "he": "יוגי טיבטי זקן נהג, כשסיים לשתות בערב, לנגב את כוסו, לייבש אותה ולהניחה הפוכה ליד מקום התרגול שלו, שבו גם ישן. כשהתעורר בבוקר היה אומר: ״הו, עוד יום״, הופך את הכוס ומוזג לעצמו מעט לשתות. כך היה פותח את היום בהתבוננות במתנה הנפלאה הזאת – האפשרות לתרגל יום נוסף.", "en": "After finishing his drink in the evening, an old Tibetan yogi would wipe his cup, dry it, and place it upside down beside his practice place, where he also slept. On waking in the morning, he would say, “Oh, another day,” turn his cup upright, and pour himself a little something to drink. He would begin the day by contemplating the wonderful gift of being able to practice for one more day.", "date": "04.07.2024", "rec": 4, "ts": "00:00", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%204%20-%20לאמה%20טילמן%20-%2004.07.24%20-%20יום%202%20-%20הקלטה%204%20-%20בוקר%20-%20מדיטציה%20מונחית%20-%20Guided%20meditation,%20contemplation,%20and%20gratitude%20for%20precious%20lives.mp3#t=0", "tags": ["בחיי היומיום", "רגע של השראה"], "tid": "27693", "sec": 0, "who": "tilmann"}, {"n": 42, "title": "להודות גם לתודעה הסוררת", "he": "אני מודה גם לתודעתי על יכולתה להבין – אותה תודעה שלפעמים נדמית סוררת כל כך, ושלעיתים אני מבקר את הרגשות העולים בה. הרי התודעה הזאת עצמה הביאה אותי לכאן.", "en": "I also thank my own mind for its ability to understand – this mind that sometimes seems so unruly, whose emotions I sometimes regard critically. This very same mind brought me here.", "date": "04.07.2024", "rec": 4, "ts": "07:20", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%204%20-%20לאמה%20טילמן%20-%2004.07.24%20-%20יום%202%20-%20הקלטה%204%20-%20בוקר%20-%20מדיטציה%20מונחית%20-%20Guided%20meditation,%20contemplation,%20and%20gratitude%20for%20precious%20lives.mp3#t=440", "tags": ["כשהתודעה לא נרגעת", "כשהתרגול נהיה מאמץ"], "tid": "27693", "sec": 440, "who": "tilmann"}, {"n": 43, "title": "פרחים באחו של האביב", "he": "כל חוויות המדיטציה האלה הן כפרחים באחו של האביב: הגשמים ירדו, והפרחים עולים. הם פורחים וחולפים. רק השינוי שחוללה בכם החוויה נשאר. לכן אל תחשבו אפילו לחוות אותן שוב.", "en": "All these meditation experiences are like flowers in a spring meadow. The rains have fallen, and the flowers emerge. They bloom and fade. Only the transformation the experience has brought about in you remains. So do not even think of having those experiences again.", "date": "10.07.2024", "rec": 38, "ts": "39:40", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2038%20-%20לאמה%20טילמן%20-%2010.07.24%20-%20יום%208%20-%20הקלטה%2038%20-%20אחהצ%20-%20שאלות%20ותשובות.mp3#t=2380", "tags": ["כשהתרגול נהיה מאמץ"], "tid": "27727", "sec": 2380, "who": "tilmann"}, {"n": 44, "title": "לפגוש את אמא מחדש", "he": "יום אחד אנחנו עוצרים ומביטים באמא שלנו כאילו איננו מכירים אותה, ומגלים מישהי שלמעשה לא הכרנו. היא יכולה להיות חדשה ורעננה בעינינו, מפני שיצאנו מדפוסי ההסתכלות הישנים שלנו על העולם. כמה זה מועיל. העולם הזה מופלא כשאנחנו נשארים פתוחים לגלות את התנועה שמאחורי מה שנדמה לנו כמוכר.", "en": "One day, we stop and look at our mother as if we did not know her. We discover someone we did not actually know. She can appear new and fresh because we have stepped out of our old patterns of looking at the world. This is so helpful. The world is incredible when we remain open to discovering the movement behind what seems familiar.", "date": "09.07.2024", "rec": 34, "ts": "38:27", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2034%20-%20לאמה%20טילמן%20-%2009.07.24%20-%20יום%207%20-%20הקלטה%2034%20-%20ערב%20-%20הנחיות%20מדיטציה%20-%20Challenging%20careless%20thinking.mp3#t=2307", "tags": ["כשקשה עם מישהו", "בחיי היומיום"], "tid": "27723", "sec": 2307, "who": "tilmann"}, {"n": 45, "title": "לקבוע את ההפסקה כבר בהתחלה", "he": "אפשר, למשל, להחליט: ״כשנענה למייל הזה, נקדיש לו את מלוא תשומת הלב, ואחר כך נעצור להפסקה קצרה לפני שנענה למייל הבא״. כך אנחנו קובעים את ההפסקה כבר בתחילת הכתיבה ורואים בתקשורת עצמה תרגול דהרמה. אנחנו נותנים מקום לתקשורת טובה ולהפסקה טובה, ורק אז פונים להתכתבות הבאה.", "en": "A good task, for example, is to decide: “I will answer this email with my full attention, then make sure to take a short pause before answering the next one.” I plan the pause as soon as I begin writing. I treat the communication, the email itself, as Dharma practice. Answering the email becomes a Dharma practice of quality communication and a quality pause; only then do I begin the next exchange.", "date": "07.07.2024", "rec": 23, "ts": "55:30", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2023%20-%20לאמה%20טילמן%20-%2007.07.24%20-%20יום%205%20-%20הקלטה%2023%20-%20ערב%20-%20שיחת%20דהרמה%20-%20Dynamic%20creative%20mind%20-%20active%20mind%20-%20instructions%20and%20inquiry.mp3#t=3330", "tags": ["בחיי היומיום"], "tid": "27712", "sec": 3330, "who": "tilmann"}, {"n": 46, "title": "אל תנסו רק שלושה ימים", "he": "גם אם אינכם יכולים להרבות בתרגול על הכרית, תוכלו להפוך את היום כולו לתרגול. כשתנסו, תגלו שאתם נכשלים שוב ושוב, ואחרי שלושה ימים אולי תאמרו: ״זה בלתי אפשרי״. אבל שלושה ימים אינם מספיקים – נסו כל החיים. אל תוותרו, תלכו ותשתפרו. תגלו עד כמה אתם זקוקים לזמנים המוקדשים לתרגול, תהיו צמאים ורעבים להם, ותנצלו כל הזדמנות לתרגל שתיקרה בדרככם.", "en": "Even if you cannot spend much time in formal practice on a cushion, you can still make your whole day a practice. When you try, you will find yourself failing again and again. After three days, you may say, “Impossible” – but you have not tried long enough; try for your whole life. Do not give up; you will improve. You will discover that you need dedicated practice times, become thirsty and hungry for them, and seize them whenever the opportunity arises.", "date": "11.07.2024", "rec": 44, "ts": "42:08", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2044%20-%20לאמה%20טילמן%20-%2011.07.24%20-%20יום%209%20-%20הקלטה%2044%20-%20ערב%20-%20שיחת%20דהרמה%20-%20Yoga%20all%20around%20the%20clock.mp3#t=2528", "tags": ["בחיי היומיום", "כשהתרגול נהיה מאמץ"], "tid": "27734", "sec": 2528, "who": "tilmann"}, {"n": 47, "title": "רשימת המטלות כאפשרויות", "he": "כשנחלשת התחושה שה״אני״ חייב לעשות הכול, משתנה גם היחס לרשימת המטלות – כאילו איזה ״אני״ חייב לסיים אותה לפני שנמות. כך גם הרשימה היומית שעלינו להשלים לפני השינה. חלק מן המטלות אכן חשובות, אבל את רובן ראו כאפשרויות. עשו תמיד את מה שאתם מרגישים שהוא החשוב ביותר.", "en": "This shift also comes from the feeling that it is not the “I” that needs to do all these things – as though some “I” had to finish the to-do list before I die. The daily list of things to finish before bed is similar. Some tasks really are important, but consider most of them options. Then always do what you feel is truly most important.", "date": "12.07.2024", "rec": 45, "ts": "35:09", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2045%20-%20לאמה%20טילמן%20-%2012.07.24%20-%20יום%2010%20-%20הקלטה%2045%20-%20בוקר%20-%20הנחיות%20מדיטציה%20-%20Tara%20mantra%20chanting%20+%20preparing%20for%20transition.mp3#t=2109", "tags": ["בחיי היומיום"], "tid": "27735", "sec": 2109, "who": "tilmann"}, {"n": 48, "title": "המקום שממנו נובעות הפעולות", "he": "בעיניי, תרגול דהרמה, מדיטציה ונתינה הם כולם מעשה פוליטי. אנחנו עובדים עם הכוח העמוק ביותר שיכול לחולל שינוי – התודעה והלב שלנו, שמהם נובעות הפעולות. ככל שאנחנו נעשים חופשיים, פתוחים, נדיבים, שמחים ואוהבים יותר, אנחנו אומרים לכל אלה ״כן״. אנחנו אומרים ״לא״ למלחמה, לאיבה, לשנאה, לכעס ולאי־הבנה.", "en": "For me, Dharma practice, meditation, and dana are all political acts. We work with the deepest possible agent of change: our minds and hearts, from which actions arise. As we become freer, more open, more generous, more joyful, and more loving, we say yes to these qualities. We say no to war, animosity, hatred, anger, and misunderstanding.", "date": "12.07.2024", "rec": 46, "ts": "23:23", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2046%20-%20לאמה%20טילמן%20ולילה%20קמחי%20-%2012.07.24%20-%20יום%2010%20-%20הקלטה%2046%20-%20בוקר%20-%20Transition%20talk.mp3#t=1403", "tags": ["בחיי היומיום", "רגע של השראה"], "tid": "27736", "sec": 1403, "who": "lila"}]}], "hero": {"n": 26, "title": "כאב בלי דרמה", "he": "גם בודהה שידרוך על קוץ יחוש כאב, אבל לא תהיה דרמה סביב הכאב. גם אדם ער שיגיע לארץ חמה יזיע וירגיש שחם, אבל בלי דרמה. היעדר הדרמה הזה הוא קץ הסבל שאנחנו מוסיפים על הסבל.", "en": "A Buddha who steps on a thorn will feel pain, but there will be no drama around it. An awakened person who goes to a hot country will also sweat and feel the heat, but without drama. This absence of drama is the end of suffering added to suffering.", "date": "06.07.2024", "rec": 15, "ts": "00:02", "url": "https://tovana.org.il/sites/default/files/podcasts/2024/הקלטה%2015%20-%20לאמה%20טילמן%20-%2006.07.24%20-%20יום%204%20-%20הקלטה%2015%20-%20בוקר%20-%20הנחיות%20למדיטציה%20-%20Developing%20Insight.mp3#t=2", "tags": ["כשיש כאב או פחד"], "tid": "27704", "sec": 2, "who": "tilmann", "id": "y2024-26"}, "days": 10, "talks": 45, "hours": 36}, {"year": "2025", "label": "מאי 2025", "intro": "במאי 2025 חזר לאמה טילמן לריטריט מהאמודרה שני בישראל, עם לילה קמחי ובסיוע שחר מתן. הפעם הלימוד העמיק: טבע הבודהה שמודט בתוכנו, ואג'רסטווה והמודעות שאי אפשר להרוס, אבן החן של הלב, דגלי תפילה, מסירות ושירות. לצד אלה הייתה עבודה עדינה עם רגשות, גאווה, פחד ושעמום, ושאלה שחזרה לאורך כל הריטריט: איך לוקחים את זה הביתה.", "themes": [{"name": "טבע הבודהה – הבית שאינו עוזב אותנו", "intro": "מה שאנחנו מחפשים כבר נמצא כאן, ואפשר לשבת איתו תחת עץ זית.", "p": [{"n": 1, "title": "הבית שאינו עוזב אותנו", "he": "דרך המהאמודרה היא התרגול של שכחת עצמנו, ופרי המהאמודרה הוא להיות באמת בבית. הפרי השלם הוא שלכל מקום שנלך, הבית לעולם אינו עוזב אותנו.", "en": "The Mahamudra path is the practice of forgetting oneself. The Mahamudra fruit is to really be home. The complete fruit is that wherever we go, home never leaves us.", "date": "21.05.2025", "rec": 1, "ts": "45:44", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%201%20-%20Tilmann%20-%2021.05.25%20-%20day%201%20-%20recording%201%20-%20Evening%20-%20Chanting%20+%20Introduction%20Dharma%20Talk.mp3#t=2744", "tags": ["רגע של השראה"], "tid": "28522", "sec": 2744, "who": "tilmann"}, {"n": 2, "title": "מה שמתגלה כשמרפים", "he": "אין צורך ליצור דבר מיוחד כדי להתעורר, כדי להיות חופשיים. כשאנחנו מבינים זאת, אנחנו מרפים מכל מה שאינו נחוץ, ומה שנותר, מה שמתגלה, הוא מה שחיפשנו. ואחרי התובנה – לחיות אותה.", "en": "We do not need to create something special in order to awaken, in order to be free. When we understand that, we let go of everything unnecessary, and what remains, what reveals itself, is what we have been looking for. After the insight, we live in that insight.", "date": "21.05.2025", "rec": 1, "ts": "07:16", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%201%20-%20Tilmann%20-%2021.05.25%20-%20day%201%20-%20recording%201%20-%20Evening%20-%20Chanting%20+%20Introduction%20Dharma%20Talk.mp3#t=436", "tags": ["כשהתרגול נהיה מאמץ", "רגע של השראה"], "tid": "28522", "sec": 436, "who": "tilmann"}, {"n": 3, "title": "בודהה תחת עץ זית", "he": "המדיטציה של בודהה אינה דבר מיוחד, ולכן אל תנסו ליצור דבר מיוחד. אפשר לדמיין בודהה יושבת תחת עץ זית, פשוט נוכחת. וכשהבודהה שבלבנו יושבת שם, תודעת הלב שלנו מתחילה לראות את המציאות בעיני ההתעוררות.", "en": "The meditation of a Buddha is nothing special, so don't produce something special. You can imagine her sitting under an olive tree, simply being. As the Buddha in our heart sits there, our heart-mind begins to see reality with the eyes of awakening.", "date": "24.05.2025", "rec": 13, "ts": "16:38", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2013%20-%20Tilmann%20-%2024.05.25%20-%20day%204%20-%20recording%2013%20-%20Morning%20part1%20-%20Guided%20Chanting%20Meditation%20+%20Discussion%20-%20Three%20Aspects%20of%20Experience.mp3#t=998", "tags": ["כשהתרגול נהיה מאמץ", "רגע של השראה"], "tid": "28534", "sec": 998, "who": "tilmann"}, {"n": 4, "title": "הגלים אינם פוגעים במים", "he": "אי אפשר לפגוע במודעות, וגם מה שעולה בה הוא מטבעה של התודעה – אותה מודעות עצמה. אלה פשוט גלים במים, והגלים אינם פוגעים במים. התודעה עצמה והתצורות העולות בה הן בעלות טבע אחד. מתוך ההבנה העמוקה הזאת איננו פוחדים עוד מכל מה שעולה בלבנו הרגיש, הנפתח והזורם.", "en": "Awareness cannot be harmed, and that which arises is also of the same nature as mind – the same awareness. It is just waves in the water, and the waves do not harm the water. The mind itself and the formations are of one nature. With this deep understanding, we are not afraid of whatever arises in our sensitive, opening, flowing heart.", "date": "26.05.2025", "rec": 19, "ts": "45:46", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2019%20-%20Tilmann%20-%2026.05.25%20-%20day%206%20-%20recording%2019%20-%20Morning%20-%20Guided%20Meditation%20+%20Discussion%20+%20Guidance%20-%20The%20Nature%20of%20the%20Mind.mp3#t=2746", "tags": ["כשרגש משתלט", "כשיש כאב או פחד"], "tid": "28540", "sec": 2746, "who": "tilmann"}, {"n": 5, "title": "לשחרר גם את התרגול", "he": "לאחר ההקדשה במילים יש גם הקדשה ללא מילים: מנוחה בטבע הפתוח, בהוויה הטבעית או באי־עצמיות. בתום התרגול אנחנו מוותרים על הבעלות עליו: איש לא תרגל. התרגול הוגש כמנחה והושלם, ואיש אינו מזדהה איתו. כך אנחנו משחררים אותו מן הדחף לשוב ולנכס אותו לעצמנו, למשל מתוך גאווה.", "en": "After the verbal dedication, there is a non-verbal dedication: resting in open nature, in natural being, or in non-self. After practicing, we disown the practice: no one has practiced. It is offered, it is done, and no one identifies with it. We free the practice from the mechanisms by which our pride, for example, reappropriates this wonderful practice.", "date": "24.05.2025", "rec": 13, "ts": "03:46", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2013%20-%20Tilmann%20-%2024.05.25%20-%20day%204%20-%20recording%2013%20-%20Morning%20part1%20-%20Guided%20Chanting%20Meditation%20+%20Discussion%20-%20Three%20Aspects%20of%20Experience.mp3#t=226", "tags": ["כשהתרגול נהיה מאמץ"], "tid": "28534", "sec": 226, "who": "tilmann"}, {"n": 6, "title": "לקבל את ליטוף האדמה", "he": "לכו מתוך מודעות רחבה, בלב פתוח לחוש את האווירה שאתם עוברים בה. אפשר גם ללכת כשכפות הרגליים מלטפות בעדינות את הקרקע, ולדמיין שהקרקע מלטפת אתכם. זהו רק היפוך של נקודת המבט: אולי מעולם לא קיבלנו את הליטופים שהאדמה מציעה לנו. אנחנו מתוודעים כאן לרגישות אחרת, לפתיחה של הלב והתודעה בעודנו רוקדים.", "en": "Walk with spacious awareness, with your heart open to feel the atmosphere you are walking through. Or walk with your feet softly caressing the ground, and imagine how it would be if the ground were caressing you. It is just a reversal of perspective: perhaps I have never received the caresses offered to me by the ground. We are working with a different sensitivity, an opening of the heart-mind as we dance.", "date": "22.05.2025", "rec": 3, "ts": "51:29", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%203%20-%20Tilmann%20-%2022.05.25%20-%20day%202%20-%20recording%203%20-%20Morning%20-%20Meditation%20Guidance.mp3#t=3089", "tags": ["בחיי היומיום", "כשהלב נסגר"], "tid": "28524", "sec": 3089, "who": "tilmann"}]}, {"name": "הרפיה, מאמץ ופשטות", "intro": "אגרוף שנפתח, מיתר מכוון, ומקום גם למה שעוד מבקש עיכול.", "p": [{"n": 7, "title": "לפתוח את האגרוף", "he": "אי־היאחזות היא פשוט לפתוח את האגרוף. אין פירוש הדבר שאנחנו מאבדים את ילדינו, את בני הזוג שלנו, מחשבה או מצב רוח – כל אלה נחים בכף היד הפתוחה. אנחנו מרפים מן ההיאחזות, מן העניין המופרז שאנחנו משקיעים בהם. החיים נמשכים, הקשר נמשך, וגם הנושא שהעסיק אותנו עדיין נוכח בחיינו. כך אנחנו לומדים לטפל בנושא, באדם, בסוגיה או בבעיה בלי להיאחז.", "en": "Non-grasping is simply opening the fist. It doesn't mean that the child, the partner, the thought, the mood, or anything else is lost; it is lying in the open hand. We drop the grasping, this excessive interest. Life continues, our relationship continues, and the topic we have been thinking about is still there in our lives. Then we learn to take care of this topic, this person, this issue, this problem without grasping.", "date": "22.05.2025", "rec": 4, "ts": "10:49", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%204%20-%20Tilmann%20-%2022.05.25%20-%20day%202%20-%20recording%204%20-%20Afternoon%20-%20Meditation%20Guidance%20+%20Dharma%20talk.mp3#t=649", "tags": ["כשקשה עם מישהו", "בחיי היומיום"], "tid": "28525", "sec": 649, "who": "tilmann"}, {"n": 8, "title": "להרפות מן המאמץ המיותר", "he": "גם כשאנחנו מרפים, איננו מרפים מהכול. אנחנו מרפים רק מן המאמץ המיותר – מזה שיוצר דוקהה. רוב האנשים שומעים את ההנחיה ״להרפות״ וכמו מעמעמים את האור, עד שהמערכת כולה דועכת.", "en": "When we relax, we don't relax everything. We only relax the unnecessary effort – that which creates dukkha. Most people, when they hear \"relax,\" turn down the dimmer, and the whole system goes down.", "date": "27.05.2025", "rec": 24, "ts": "07:04", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2024%20-%20Tilmann%20-%2027.05.25%20-%20day%207%20-%20recording%2024%20-%20Afternoon%20-%20Dharma%20Talk%20+%20Guided%20Meditation%20-%20Self%20Liberated%20View,%20Meditation%20&%20Five%20Aspects%20of%20the%20Mind.mp3#t=424", "tags": ["כשהתרגול נהיה מאמץ"], "tid": "28545", "sec": 424, "who": "tilmann"}, {"n": 9, "title": "עוצמה רכה כמעוף עיט", "he": "כבר בסימן הראשון של קהות אתם יודעים להזדקף מעט, ובסימנים הראשונים של אי־שקט אתם יודעים להרפות מעט. ההתאמות נעשות עדינות מאוד. זו אמנות המדיטציה: להסתפק בהתאמות הזעירות האלה, עד שהמדיטציה נעשית כמעופו של עיט. זו תודעה עוצמתית מאוד, ועם זאת רכה. רכה, וחשה בדיוק מה נחוץ כדי לנוע עם הזרם.", "en": "At the first sign of torpor, you know how to straighten up a little; at the first signs of restlessness, you know how to relax a little. The adjustments become very subtle. This is the art of meditation: to make only these tiny adjustments so that meditation becomes like the flight of an eagle. It is a very powerful mind, yet soft – soft, and feeling just what is needed to go with the flow.", "date": "29.05.2025", "rec": 32, "ts": "48:52", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2032%20-%20Tilmann%20-%2029.05.25%20-%20day%209%20-%20recording%2032%20-%20Afternoon%20-%20Meditation,%20Discussion%20and%20Q&A.mp3#t=2932", "tags": ["כשהתרגול נהיה מאמץ", "כשהתודעה לא נרגעת"], "tid": "28553", "sec": 2932, "who": "tilmann"}, {"n": 10, "title": "גשר אל הטבעיות", "he": "השיטה אינה משנה את הטבע; היא רק גשר. אפשר להשתמש בה ואפשר להניח לה. היא רק גשר אל הוויה טבעית ככל האפשר.", "en": "The method does not change the nature. It is only a bridge; you can use it or leave it. It is only a bridge into being as natural as possible.", "date": "27.05.2025", "rec": 23, "ts": "03:57", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2023%20-%20Tilmann%20-%2027.05.25%20-%20day%207%20-%20recording%2023%20-%20Morning%20-%20Dharma%20Talk%20+%20Guidance%20+%20Meditation%20-%20Vajrasatva%20&%20Four%20Stages%20of%20Insight%20in%20Mahamudra.mp3#t=237", "tags": ["כשהתרגול נהיה מאמץ"], "tid": "28544", "sec": 237, "who": "tilmann"}, {"n": 11, "title": "לתת מקום לעיכול", "he": "כשיש לכם הרבה לעכל, אל תכפו על עצמכם מדיטציה; ניסיון לכפות אי־חשיבה כשמשהו עוד מבקש עיכול יהיה מלאכותי. במצב כזה התרגול המתאים הוא התבוננות, ואפשר לשלב בה פרקי מדיטציה קצרים. למשל: ״לפני שנמשיך בהתבוננות, נקדיש עשר דקות לתשומת לב לנשימה – ונניח לכל זה לנשור״. אז מניחים לזה לנשור, ואולי נשארים במדיטציה זמן רב יותר, משום שהיא נעימה ומועילה.", "en": "Don't force meditation on yourself when you have so much to digest; that would be artificial. If you force yourself into something like non-thinking when you really have something to digest, the appropriate practice is contemplation. This can alternate with short periods of meditation: \"Before any further contemplation, first ten minutes of mindfulness of breathing – may all of that just drop away.\" Then you let it drop away, and perhaps the meditation continues longer because it feels good and helpful.", "date": "26.05.2025", "rec": 20, "ts": "1:20:22", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2020%20-%20Tilmann%20-%2026.05.25%20-%20day%206%20-%20recording%2020%20-%20Afternoon%20-%20Chat%20+%20Guided%20Meditation%20-%20Dealing%20With%20Stress,%20Effort,%20Relaxation,%20Restlesness%20&%20Tiredness.mp3#t=4822", "tags": ["כשהתודעה לא נרגעת", "כשהתרגול נהיה מאמץ"], "tid": "28541", "sec": 4822, "who": "tilmann"}, {"n": 12, "title": "כשהשקט נעשה בועה", "he": "לשמאתה שיש בה מעט קהות או עמימות יש תחושה של שהייה בבועה, וקשה לצאת ממנה. למשל, אם ילדכם רץ אל החדר שבו אתם מודטים, עשויים להתעורר בכם מעט כעס או התגוננות; ייתכן אפילו שלא תשמעו אותו ולא תגיבו. ההתגוננות וההיאחזות הקלות האלה מגלות לכם שהייתם בתוך בועה.", "en": "Slightly dull or dim shamatha has the feeling of a bubble. When you are in a bubble, it is always difficult to get out. For example, if your child runs into the room where you are meditating, there may be a little anger or defensiveness, or perhaps you don't even hear or react. That little defensiveness and clinging tell you that you have been in a bubble.", "date": "26.05.2025", "rec": 21, "ts": "14:50", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2021%20-%20Tilmann%20-%2026.05.25%20-%20day%206%20-%20recording%2021%20-%20Afternoon%20-%20Q&A.mp3#t=890", "tags": ["כשהתרגול נהיה מאמץ", "כשקשה עם מישהו"], "tid": "28542", "sec": 890, "who": "tilmann"}, {"n": 13, "title": "להתחיל במקום שבו נוצר המתח", "he": "דוקהה היא התוספת המיותרת לחוויית החיים שלנו: ההתנגדות למה שכבר קשה, ההיאחזות במה שנעים אך ממילא משתנה, וההזדהות המכבידה עם עצמי שמפריד את עצמו מכל השאר. כל אלה מיותרים כל כך, ויוצרים מתח רב כל כך. שם הייתי מתחיל לפשט את החיים: לזהות מה מעורר בי מתח, ומה בתוך המתח הזה אפשר אולי לשחרר.", "en": "Dukkha is added on top of our life experience: the unnecessary aversion to what is already difficult; the unnecessary clinging to what is agreeable but changing anyway; the unnecessary, very stressful identification with a self that separates itself from everything else. All of this is so unnecessary and creates so much stress. I would start there to simplify life: identify what causes me stress and what within that stress I might be able to let go of.", "date": "27.05.2025", "rec": 23, "ts": "03:57", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2023%20-%20Tilmann%20-%2027.05.25%20-%20day%207%20-%20recording%2023%20-%20Morning%20-%20Dharma%20Talk%20+%20Guidance%20+%20Meditation%20-%20Vajrasatva%20&%20Four%20Stages%20of%20Insight%20in%20Mahamudra.mp3#t=237", "tags": ["בחיי היומיום", "כשיש כאב או פחד"], "tid": "28544", "sec": 237, "who": "tilmann"}]}, {"name": "השקפות, ריקות והטבע שאינו ניתן לאחיזה", "intro": "השקפה היא תפריט; צריך לטעום את הארוחה.", "p": [{"n": 14, "title": "הרעננות שמאחורי הארעיות", "he": "ארעיות היא רק מילה שנועדה לרפא את ההתמכרות שלנו לקביעוּת – תרופה להשקפה מוטעית. אז אנחנו מתחילים לחוש ברעננותה של החוויה ובייחודיותה. מסך הבורות הוא למעשה מסך המכסה על ייחודיות החוויה. הבורות חושבת: ״את זה אני כבר מכיר; הלכתי בדרך הזאת לעבודה כבר אלף פעמים״.", "en": "Impermanence is only a word treating our addiction to permanence, a cure for an erroneous view. Then we begin to feel the freshness and uniqueness of experience. The veil of ignorance is actually a veil that covers the uniqueness of experience. Ignorance thinks, \"I know this already; I have taken this path to work a thousand times.\"", "date": "22.05.2025", "rec": 3, "ts": "59:41", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%203%20-%20Tilmann%20-%2022.05.25%20-%20day%202%20-%20recording%203%20-%20Morning%20-%20Meditation%20Guidance.mp3#t=3581", "tags": ["בחיי היומיום", "רגע של השראה"], "tid": "28524", "sec": 3581, "who": "tilmann"}, {"n": 15, "title": "צריך לטעום את הארוחה", "he": "בסופו של דבר עלינו להניח לכל ההשקפות, כי מה שמבקשים להצביע עליו הוא החוויה עצמה. יכול להיות לכם מושג מהי ארוחה טובה, אבל אז צריך לאכול אותה – וחוויית האכילה עצמה היא העניין. חוויית ההתעוררות היא מעבר לדיון. במסורת הבודהיסטית, כבר מראשיתה, כל השקפה פתוחה לבחינה ולספק, משום שהשקפות יוצקות מלט לתוך המציאות. המציאות דינמית, ואילו המילים המתארות אותה יציבות מדי.", "en": "Ultimately, we need to abandon all views because it is the experience itself that is meant. You can have a view of what a nice meal is, but then you have to eat it; the experience of eating is what matters. The experience of awakening is beyond discussion. From the very beginning, all views have been open to question in the Buddhist tradition because they put cement into reality. A dynamic reality is described with words, and these words are too stable.", "date": "24.05.2025", "rec": 14, "ts": "25:42", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2014%20-%20Tilmann%20-%2024.05.25%20-%20day%204%20-%20recording%2014%20-%20Morning%20part2%20-%20Guided%20Meditation%20+%20Guidance.mp3#t=1542", "tags": ["כשהתרגול נהיה מאמץ", "רגע של השראה"], "tid": "28535", "sec": 1542, "who": "tilmann"}, {"n": 16, "title": "המחשבות ריקות, התודעה מלאה", "he": "אל תחשבו שהתודעה ריקה ממחשבות. המחשבות ריקות, אבל התודעה מלאה במחשבות. כיצד אחרת יוכל הבודהה להבין מה שואלים אותו ולהשיב בשפה המתאימה, בדימויים ובמילים המתאימים? גם זו פעילות של התודעה.", "en": "Don't think that the mind is empty of thoughts. The thoughts are empty, but the mind is full of thoughts. How else would the Buddha understand what someone is asking and reply in the appropriate language, with the appropriate images and words? That is mental activity.", "date": "27.05.2025", "rec": 23, "ts": "03:57", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2023%20-%20Tilmann%20-%2027.05.25%20-%20day%207%20-%20recording%2023%20-%20Morning%20-%20Dharma%20Talk%20+%20Guidance%20+%20Meditation%20-%20Vajrasatva%20&%20Four%20Stages%20of%20Insight%20in%20Mahamudra.mp3#t=237", "tags": ["כשהתודעה לא נרגעת", "כשהתרגול נהיה מאמץ"], "tid": "28544", "sec": 237, "who": "tilmann"}, {"n": 17, "title": "ממשי אינו בהכרח מוצק", "he": "באחד הפתקים נשאלתי: ״נדמה שאתמול אמרת שהרגשות שלנו אינם ממשיים; ומה בדבר הסבל בעזה – האם הוא אינו ממשי?״ כמובן שהוא ממשי, והוא משתנה. לומר שמשהו משתנה, ושיש מרכיב ניכר של פרשנות מנטלית ועיבוד רגשי באופן שבו אנחנו חווים את המציאות, אין פירושו שהוא אינו ממשי. פירוש הדבר רק שאין לו ממשות מוצקה – וזה הבדל גדול.", "en": "I was asked in a note, \"It seems that yesterday you said our emotions are not real. What about the suffering in Gaza? Isn't that real?\" Of course it is real, and it is changing. To say that something is changing, and that there is a significant amount of mental interpretation and emotional processing in how we experience reality, doesn't mean it is not real. It just means it is not substantial – a big difference.", "date": "24.05.2025", "rec": 13, "ts": "36:35", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2013%20-%20Tilmann%20-%2024.05.25%20-%20day%204%20-%20recording%2013%20-%20Morning%20part1%20-%20Guided%20Chanting%20Meditation%20+%20Discussion%20-%20Three%20Aspects%20of%20Experience.mp3#t=2195", "tags": ["כשיש כאב או פחד", "כשרגש משתלט"], "tid": "28534", "sec": 2195, "who": "tilmann"}, {"n": 18, "title": "ידיעה ללא יודע", "he": "״אם יש ידיעה, מוכרח להיות מישהו שיודע״ – זו השערה, לא מסקנה לוגית. בדקו אם אכן יש שם מי שהולך, מי שרואה, מי שמחליט, מי שיודע. זו בדיוק הנקודה שעלינו לחקור כדי להבין את תהליך הידיעה הדינמי הזה, שאין בו עצמי. היעדר העצמי הוא למעשה תהליך דינמי מאוד של כוחות רבים בפעולה, שאין לאף אחד מהם מוצקות או מרכז.", "en": "\"If there is knowing, there must be a knower\" – that is a hypothesis, not a logical conclusion. See if there is a walker, a seer, a decider, a knower. This is exactly what we have to investigate to understand what this dynamic anatta that knows really is. Non-self is actually a very dynamic process of many forces in action, none of which has solidity or a center.", "date": "26.05.2025", "rec": 21, "ts": "01:22", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2021%20-%20Tilmann%20-%2026.05.25%20-%20day%206%20-%20recording%2021%20-%20Afternoon%20-%20Q&A.mp3#t=82", "tags": ["רגע של השראה"], "tid": "28542", "sec": 82, "who": "tilmann"}, {"n": 19, "title": "אי אפשר לתפוס קשת", "he": "כשאנחנו רואים שאי אפשר לאחוז במה שמתרחש, האחיזה פוסקת. כך היה כשגילינו בילדותנו שאי אפשר לתפוס קשת בענן, והפסקנו לרוץ אחריה. התובנה הזאת מאפשרת לנו לשוב ולהרגיש. אבל בבקשה, אל תנסו להיות גיבורי על ואל תעמיסו על עצמכם יותר מדי מידע, קלט וגירויים. בחרו בתבונה לאן אתם פונים והיכן אתם נפתחים.", "en": "When we see the ungraspable nature of what is happening, grasping ceases. It is like discovering as children that a rainbow cannot be grasped and stopping running after it. Insight into the ungraspable allows us to feel again. But please don't try to be superwoman or superman, and don't overburden yourself with information, input, and stimulation. Choose wisely where you go and where you open.", "date": "29.05.2025", "rec": 31, "ts": "42:38", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2031%20-%20Tilmann%20-%2029.05.25%20-%20day%209%20-%20recording%2031%20-%20Morning%20-%20Guided%20Meditation%20-%20Refuge%20&%20The%20Nine%20Breathings.mp3#t=2558", "tags": ["בחיי היומיום", "כשיש כאב או פחד"], "tid": "28552", "sec": 2558, "who": "tilmann"}]}, {"name": "רגשות – מלח שנמס במים", "intro": "גאווה, פחד, שעמום וכעס, ולמה כל כך קשה לנו להיפרד מהם.", "p": [{"n": 20, "title": "טעמה המיוחד של האנושיות", "he": "כשאנחנו נעזרים במדיטציה כדי לרכך את הנוקשות, את מעטה ההגנה שנוצר בלב ובתודעה, הדבר דומה לשטיפת גביש מלח. בשאיפות ובנשיפות עדינות מאוד אנחנו רוחצים את התבניות שהתקשו – את ההגנות ואת הפחדים – בצוף של מודעות אוהבת. שואפים ונושפים, ומעניקים לעצמנו מרחב, מרחב רב. מלח ההגנות שלנו מתמזג במים, בצוף, ומעניק למודעות שלנו את טעמה המיוחד של האנושיות.", "en": "When we use meditation to loosen the hardness, the protection that has formed in our heart-mind, it is a little like washing a salt crystal. With very gentle in-breaths and out-breaths, we wash the structures that have hardened – the protections, the fears – with the nectar of loving awareness. Breathing in, breathing out, giving ourselves space, a lot of space. The salt of our protection becomes one with the water, with the nectar, and gives our awareness the special taste of humanness.", "date": "26.05.2025", "rec": 19, "ts": "10:12", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2019%20-%20Tilmann%20-%2026.05.25%20-%20day%206%20-%20recording%2019%20-%20Morning%20-%20Guided%20Meditation%20+%20Discussion%20+%20Guidance%20-%20The%20Nature%20of%20the%20Mind.mp3#t=612", "tags": ["כשהלב נסגר", "כשיש כאב או פחד"], "tid": "28540", "sec": 612, "who": "tilmann"}, {"n": 21, "title": "מי אנחנו בלי הרגשות המייסרים", "he": "אנחנו מתקשים להרפות מן הקלשות – הרגשות המייסרים – מפני שאנחנו מוקסמים מהן כל כך. כשאני שואל אנשים ברחבי העולם אם הם רוצים להשתחרר מן הרגשות האלה, מי שמשיבים בכנות אומרים: ״אני לא בטוח כל כך, כי אינני יודע מי אני בלעדיהם״. הרגשות המייסרים הם מקור אדיר לזהות: מפני שיש לי בעיה מסוימת, או מפני שיש לנו בעיה מסוימת, אנחנו יודעים מי אנחנו.", "en": "We have difficulty letting go of the kleshas because we are so enchanted by them. When I ask people all over the world whether they want to be free of these afflictive emotions, those who are honest say, \"I'm not so sure, because I don't know who I am without them.\" These afflictive emotions are an incredible source of identity: because I have this problem, or because we have this problem, we know who we are.", "date": "22.05.2025", "rec": 3, "ts": "13:13", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%203%20-%20Tilmann%20-%2022.05.25%20-%20day%202%20-%20recording%203%20-%20Morning%20-%20Meditation%20Guidance.mp3#t=793", "tags": ["כשרגש משתלט"], "tid": "28524", "sec": 793, "who": "tilmann"}, {"n": 22, "title": "להפסיק ליצור את הרגש מחדש", "he": "לא המתרגל הוא שגורם לרגש להיעלם – זו הנקודה החשובה. אין כאן מתרגל שמצליח לגרש רגש או להמיס אותו. יש כאן מתרגל שמפסיק ליצור את הרגש. המודעות מעמיקה עד שמתרחשת הרפיה מכל הפעילות שבדרך כלל יוצרת את הרגש מחדש.", "en": "It is not the meditator who makes the emotion go away – that is the important point. It is not the meditator who succeeds in chasing an emotion away or making it dissolve. It is the meditator who stops creating the emotion. Awareness deepens until there is a letting go of all the activity that usually reproduces the emotion.", "date": "23.05.2025", "rec": 9, "ts": "1:20:49", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%209%20-%20Tilmann%20-%2023.05.25%20-%20day%203%20-%20recording%209%20-%20Afternoon%20-%20Dharma%20Talk%20+%20Guided%20Meditation.mp3#t=4849", "tags": ["כשרגש משתלט", "כשהתרגול נהיה מאמץ"], "tid": "28530", "sec": 4849, "who": "tilmann"}, {"n": 23, "title": "השעמום כתסמין גמילה", "he": "כשאנחנו יושבים כך ומפסיקים להזין את המחשבות, את הסבכים ואת העיסוקים שלנו, עולה לעיתים קרובות שעמום. השעמום הוא כעין תסמין גמילה – השעמום והלבד. אנחנו חשים אי־שקט, דחף לעשות משהו, להיות מעורבים במשהו. וכשאנחנו חשים בו, אנחנו מרפים: פשוט לשבת, פשוט לשבת. אבל אנחנו יושבים בצלילות, וזה הבדל גדול – איננו מכבים את עצמנו.", "en": "When we sit like this and no longer fuel our thoughts, our complexities, our preoccupations, we often feel boredom. Boredom is like a withdrawal symptom – boredom and solitude. We feel a restlessness that wants to do something, to engage. When we feel it, we relax: just sit, just sit. But we sit in clarity, and this is a big difference: we don't shut down.", "date": "29.05.2025", "rec": 32, "ts": "22:12", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2032%20-%20Tilmann%20-%2029.05.25%20-%20day%209%20-%20recording%2032%20-%20Afternoon%20-%20Meditation,%20Discussion%20and%20Q&A.mp3#t=1332", "tags": ["כשהתודעה לא נרגעת", "כשהתרגול נהיה מאמץ"], "tid": "28553", "sec": 1332, "who": "tilmann"}, {"n": 24, "title": "אמון בשולי הפחד", "he": "בהרפיה מתקדמים בהדרגה: מגיעים רק עד המקום שבו מבחינים שהפחד מתחיל. שם נשארים זמן מה ומתייצבים, כדי לטפח את האמון: ״גם עד כאן – זה בסדר״. כך מתקדמים, צעד אחר צעד. ניסיון להרפות יותר עלול לעורר תגובות פחד עזות שיפריעו לתהליך, מפני שההתקדמות מהירה מדי. צריך להתקדם בהדרגה רבה יותר.", "en": "With relaxation, you proceed gradually: you don't try to go further, but only to where you notice fear beginning. You stay there for a while and stabilize yourself to develop trust: \"Okay, this much is also okay.\" In this way, you proceed gradually. Trying to relax more can bring strong fear reactions that disturb the process because you are going too quickly. You need to go more gradually.", "date": "29.05.2025", "rec": 32, "ts": "2:09:20", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2032%20-%20Tilmann%20-%2029.05.25%20-%20day%209%20-%20recording%2032%20-%20Afternoon%20-%20Meditation,%20Discussion%20and%20Q&A.mp3#t=7760", "tags": ["כשיש כאב או פחד", "כשהתרגול נהיה מאמץ"], "tid": "28553", "sec": 7760, "who": "tilmann"}, {"n": 25, "title": "כשהאחיזה מצמצמת את הפתיחות", "he": "עשינו דבר טוב, ואז מתעוררת גאווה, מנכסת אותו לעצמה ומצמצמת מאוד את מצב התודעה המיטיב. הייתה לנו חוויית מדיטציה יפה ופתוחה מאוד, ואז עולה הרצון לשחזר אותה – כמה חבל. אנחנו כבר לא בפתיחות של החוויה; אנחנו כבר רוצים עוד ממנה בעתיד. זהו למעשה סופה של חוויית המדיטציה: היא אינה יכולה להימשך, מפני שהאחיזה נכנסת לתמונה.", "en": "We did something good, then pride arises, and the wholesome state of mind becomes very small because pride appropriates it. We have a beautiful, open meditation experience, and the desire to reproduce it arises – what a pity. We are no longer in the openness of the experience; we already want more of it in the future. That is actually the end of the meditation experience: it cannot continue because grasping comes in.", "date": "29.05.2025", "rec": 31, "ts": "1:32:00", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2031%20-%20Tilmann%20-%2029.05.25%20-%20day%209%20-%20recording%2031%20-%20Morning%20-%20Guided%20Meditation%20-%20Refuge%20&%20The%20Nine%20Breathings.mp3#t=5520", "tags": ["כשהתרגול נהיה מאמץ"], "tid": "28552", "sec": 5520, "who": "tilmann"}, {"n": 26, "title": "להתפכח מהחשיבות העצמית", "he": "אפשר לומר בחיוך קטן שהתרגול דומה להתפכחות משכרות: היינו שיכורים מחשיבות עצמית. ההתפכחות היא חזרה למצב שבו איננו מייחסים לעצמנו חשיבות כזאת. זה מה שמתרחש בפועל, ואת השפעתו אפשר לחוש בזרם ההוויה.", "en": "With a little smile, you can say it is like sobering up. We were drunk, intoxicated with self-importance. Sobering up means coming back to a sense of not being important. This is what is actually happening, and you feel its effects in the stream of being.", "date": "23.05.2025", "rec": 8, "ts": "1:30:10", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%208%20-%20Tilmann%20-%2023.05.25%20-%20day%203%20-%20recording%208%20-%20Morning%20-%20Meditation%20Guidance.mp3#t=5410", "tags": ["רגע של השראה"], "tid": "28529", "sec": 5410, "who": "tilmann"}, {"n": 27, "title": "גם האחר לכוד ברגשותיו", "he": "אנחנו מבחינים שאנחנו כועסים, מבחינים שהתעוררה בנו גאווה – זו העצירה, הצעד הראשון. היא מעניקה לנו מרחב לשאול: ״מה יעזור עכשיו? למה אנחנו זקוקים?״ בהתמודדות עם כעס עזר לי מאוד להרהר בכך שהאדם האחר, שלכאורה מכעיס אותי – אף שלמעשה אני מכעיס את עצמי – לכוד ברגשותיו בדיוק כמוני, ואולי אף יותר.", "en": "I notice that I am getting angry; I notice that I am caught in pride – this is the pause, the first step. This pause offers me space to see: \"What would be helpful now? What do I need?\" What helped me a lot with anger was contemplating that the other person, who seemingly makes me so angry – though I make myself angry – is just as caught up in emotions as I am, or perhaps more.", "date": "26.05.2025", "rec": 21, "ts": "34:57", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2021%20-%20Tilmann%20-%2026.05.25%20-%20day%206%20-%20recording%2021%20-%20Afternoon%20-%20Q&A.mp3#t=2097", "tags": ["כשקשה עם מישהו", "כשרגש משתלט"], "tid": "28542", "sec": 2097, "who": "tilmann"}, {"n": 28, "title": "לנשום ברכות לפני שמתקשחים", "he": "בנשימה יש אהבה רבה. ברגע זה האהבה דואגת לאותה ישות שאנחנו מכנים ״אני״, הזקוקה לטיפול רך מאוד, במיוחד בבוקר, לפני שאנחנו מתכווצים. זה הזמן להישאר רכים: לשאוף בחום ובחמלה, לנשוף בעדינות ובאהבה. אנחנו בדרך אל המקור.", "en": "There is a lot of love in this breathing. Right now, this love takes care of the being I call \"me,\" who needs very gentle care, especially in the morning before we tighten up. Now is the time to remain soft: breathing in warmly and compassionately, breathing out gently and lovingly. I am on the way to the source.", "date": "28.05.2025", "rec": 26, "ts": "08:46", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2026%20-%20Tilmann%20-%2028.05.25%20-%20day%208%20-%20recording%2026%20-%20Early%20Morning%20-%20Guided%20Meditation%20-%20The%20Nature%20of%20the%20Mind.mp3#t=526", "tags": ["כשהלב נסגר", "בחיי היומיום"], "tid": "28547", "sec": 526, "who": "tilmann"}]}, {"name": "אהבה, חמלה ושירות", "intro": "לאהוב יותר ולא פחות, להשאיר פתח בלב, ולהיטיב גם כשאי אפשר להיות מושלמים.", "p": [{"n": 29, "title": "להשאיר פתח בלב", "he": "כבר עשינו את הנחוץ כרגע כדי להגן על עצמנו, אבל איננו צריכים לגרש איש מלבנו לצמיתות. אפשר לומר: ״כרגע איננו מסוגלים; איננו מוצאים דרך ואיננו יודעים איך זה יוכל אי פעם לקרות״. ובכל זאת אנחנו מתפללים לאפשרות שיום אחד זה יקרה. איננו יודעים מתי, ואנחנו משאירים את האפשרות פתוחה. הלוואי שזה יקרה, כי זה הדבר הטוב ביותר שיכול לקרות: שבמקום שבו הלב נסגר, הוא ייפתח שוב.", "en": "We have already done what is needed right now for protection, but we don't need to cast anyone permanently out of our heart. You can say, \"Right now I am not able; I cannot find a way; I don't know how that could ever happen.\" But I pray for the possibility that it will happen at some point. I don't know when; I leave it open. May it come, because that is the best thing that can happen: that where the heart was closed, it will open again.", "date": "25.05.2025", "rec": 17, "ts": "34:00", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2017%20-%20Tilmann%20-%2025.05.25%20-%20day%205%20-%20recording%2017%20-%20Morning%20-%20Meditation%20Guidance%20-%20The%20Four%20Boundless%20Qualities.mp3#t=2040", "tags": ["כשהלב נסגר", "כשקשה עם מישהו"], "tid": "28538", "sec": 2040, "who": "tilmann"}, {"n": 30, "title": "שתים עשרה שנים אל הפיוס", "he": "המשכתי לתרגל טונגלן ולכתוב מכתבים לבביים להוריי, ולבסוף, אחרי שתים עשרה שנה, התפייסנו. אבי החזיר אותי לרשימת יורשיו. בהמשך, עוד לפני שחלה מאוד, הוא רצה שרק אני אטפל בו; מבין ארבעת בניו, הייתי היחיד שהורשה לגלח ולרחוץ אותו כשהחל לשקוע בדמנציה. היחסים נרפאו לחלוטין. אבל כמה נזק הייתי עלול לגרום אילו הגבתי מתוך העצמי הרגיל שלי, מתוך הביטחון שההשקפה שלי טובה יותר?", "en": "I continued practicing Tonglen and writing warm letters to my parents, and in the end, after twelve years, we were reconciled. My father put me back in his will. Before he became really sick, he wanted only me to care for him; of his four sons, I was the only one allowed to shave and wash him as he developed dementia. There was a complete healing of the relationship. But how much damage could I have done if I had reacted from my usual self, convinced that my view was better?", "date": "24.05.2025", "rec": 14, "ts": "34:26", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2014%20-%20Tilmann%20-%2024.05.25%20-%20day%204%20-%20recording%2014%20-%20Morning%20part2%20-%20Guided%20Meditation%20+%20Guidance.mp3#t=2066", "tags": ["כשקשה עם מישהו", "כשהלב נסגר"], "tid": "28535", "sec": 2066, "who": "tilmann"}, {"n": 31, "title": "להרחיב את האהבה", "he": "אתם אוהבים את בני הזוג שלכם ואת ילדיכם – נפלא, אהבו עוד. אהבו את כל הילדים, אהבו את כולם. אל תצמצמו את האהבה; הרחיבו אותה. אז תראו שאי אפשר לאחוז באיזה ״אני רוצה״ אישי. לכו עם זה עד הסוף, במלוא התשוקה לחיים, ליצורים חיים ולמערכות יחסים.", "en": "You love your partner, you love your children – that is great; love more. Love all the children, love everyone. Don't make love smaller; extend it. Then you will see that you cannot grasp, cannot hold on to some personal \"me wanting.\" Go for it, with the fullest passion for life, for beings, for relationships.", "date": "27.05.2025", "rec": 24, "ts": "17:02", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2024%20-%20Tilmann%20-%2027.05.25%20-%20day%207%20-%20recording%2024%20-%20Afternoon%20-%20Dharma%20Talk%20+%20Guided%20Meditation%20-%20Self%20Liberated%20View,%20Meditation%20&%20Five%20Aspects%20of%20the%20Mind.mp3#t=1022", "tags": ["כשהלב נסגר", "רגע של השראה"], "tid": "28545", "sec": 1022, "who": "tilmann"}, {"n": 32, "title": "אהבה מעבר לגבולות", "he": "האהבה אינה שמורה לעם זה או אחר. יש קרעים רבים כל כך בחברה, ואנחנו שומרים את אהבתנו רק למי שרואים את הדברים כמונו. אבל טבעה של האהבה הוא שהיא יכולה לגדול רק כשאנחנו מסירים את המגבלות.", "en": "Love is not reserved for one people or another. There are so many rifts in society, and we reserve our love only for those who see things the same way we do. The nature of love is that it can only grow when we remove the limitations.", "date": "25.05.2025", "rec": 17, "ts": "14:49", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2017%20-%20Tilmann%20-%2025.05.25%20-%20day%205%20-%20recording%2017%20-%20Morning%20-%20Meditation%20Guidance%20-%20The%20Four%20Boundless%20Qualities.mp3#t=889", "tags": ["כשהלב נסגר", "כשקשה עם מישהו"], "tid": "28538", "sec": 889, "who": "tilmann"}, {"n": 33, "title": "האנושיות של ההתעוררות", "he": "מבחינה אנושית, ההתעוררות אינה הופכת אותנו למעין יצורים על־אנושיים שכבר אינם מרגישים. אנחנו מרגישים אפילו יותר מבעבר, הרבה יותר. כל סבלו של העולם נוכח כל הזמן, וכשהוא ניצב מולנו, הוא נוגע בנו. הוא נוגע בנו בתוך הפתיחות הגדולה הזאת, בלי שאנחנו מזדהים איתו.", "en": "The human side of awakening is not becoming some kind of transhuman who no longer feels. One feels even more than before, so much more. All the suffering of the world is constantly present, and when it is there in front of us, we are touched. We are touched in that great openness, without identifying with it.", "date": "25.05.2025", "rec": 17, "ts": "56:56", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2017%20-%20Tilmann%20-%2025.05.25%20-%20day%205%20-%20recording%2017%20-%20Morning%20-%20Meditation%20Guidance%20-%20The%20Four%20Boundless%20Qualities.mp3#t=3416", "tags": ["כשיש כאב או פחד", "כשהלב נסגר"], "tid": "28538", "sec": 3416, "who": "tilmann"}, {"n": 34, "title": "השמחה שאינה מגרשת דבר", "he": "אין צורך לגרש את הסבל כדי להיות מאושרים. האושר כבר נוכח, והשמחה טמונה בראיית כל מה שעולה. זוהי השמחה שבהרגשה, בלב פתוח ובתודעה פתוחה. זו השמחה שבהיותנו מודעים לגמרי. המודעות פתוחה רק כשאין צורך לסלק דבר, כשהכול יכול לעלות בה.", "en": "It is not necessary to chase suffering away in order to be happy. Happiness is there; joy is there in seeing all that arises. It is the joy of feeling, of an open heart and an open mind. It is the joy of being fully aware. Awareness is only open when nothing has to be driven away, when everything can arise within it.", "date": "25.05.2025", "rec": 17, "ts": "1:06:28", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2017%20-%20Tilmann%20-%2025.05.25%20-%20day%205%20-%20recording%2017%20-%20Morning%20-%20Meditation%20Guidance%20-%20The%20Four%20Boundless%20Qualities.mp3#t=3988", "tags": ["כשיש כאב או פחד", "כשהלב נסגר"], "tid": "28538", "sec": 3988, "who": "tilmann"}, {"n": 35, "title": "לקבל ולהיטיב ככל האפשר", "he": "גם מתוך הכוונות הטובות ביותר, עצם החיים על פני האדמה כרוכים בפגיעה כלשהי; גם בתזונה טבעונית, חרקים נהרגים בתהליכי הגידול והקציר. אין דרך להימנע מכך לחלוטין, ואין חיים טהורים שאינם גורמים שום נזק. מכאן באה קבלה עמוקה של חוסר האפשרות הזה – ובכל זאת אנחנו עושים כמיטב יכולתנו.", "en": "Even with the best intentions, living on this earth always causes some harm; whatever vegan diet you follow, insects are still killed in growing and harvesting food. There is no way to avoid it entirely. There is no such thing as a pure life that causes no harm. There is a deep acceptance that this is impossible, and still we do our best.", "date": "28.05.2025", "rec": 27, "ts": "1:08:29", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2027%20-%20Tilmann%20-%2028.05.25%20-%20day%208%20-%20recording%2027%20-%20Morning%20-%20Dharma%20Talk%20+%20Meditation%20-%20Preparing%20for%20Rfuge%20Ceremony%20+%20Nature%20of%20the%20Mind%20Meditation.mp3#t=4109", "tags": ["בחיי היומיום"], "tid": "28548", "sec": 4109, "who": "tilmann"}, {"n": 36, "title": "כבוד לחיים הוא הבסיס", "he": "הדהרמה מבוססת על כבוד לכל היצורים החיים, וזהו היסוד המוחלט של שילה – התנהגות מיטיבה. כשאנחנו מרגישים עליונים על יצורים אחרים ואיננו מכבדים אותם, אין זה תרגול דהרמה. אני רואה אנשים שמגינים על הנמלים ומניחים פיסות עץ קטנות כדי שנבחין בהן ולא נדרוך עליהן. כך מגינים גם על היצורים הקטנים ביותר ונמנעים מנטילת חייהם ומפגיעה בהם.", "en": "The Dharma is based on respect for all living beings. This is the absolute foundation of shila, of wholesome conduct. There is no Dharma practice when one feels superior to other beings and lacks respect for them. I see people here protecting ants, placing little pieces of wood so that we notice them and don't step on them – protecting even the smallest living creatures and refraining from taking their lives or harming them.", "date": "28.05.2025", "rec": 27, "ts": "31:08", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2027%20-%20Tilmann%20-%2028.05.25%20-%20day%208%20-%20recording%2027%20-%20Morning%20-%20Dharma%20Talk%20+%20Meditation%20-%20Preparing%20for%20Rfuge%20Ceremony%20+%20Nature%20of%20the%20Mind%20Meditation.mp3#t=1868", "tags": ["בחיי היומיום", "כשהלב נסגר"], "tid": "28548", "sec": 1868, "who": "tilmann"}, {"n": 37, "title": "הכתובת למשלוח התפילות", "he": "גנדון, שמו של המורה שלי, היה הכתובת למשלוח כל בקשותיי אל הבודהות. לכולם קראו גנדון. איני יודע מי ענה, אבל תמיד הגיעה תשובה מיד. בתוך שניות אחדות מן הבקשה משהו קורה, והדרך נמשכת. התפילה היא שמצילה אותי.", "en": "Gendun, my teacher's name, was the postal address for all my requests to the Buddhas. They all had the name Gendun. I don't know who answered, but the mail was always answered immediately. Within a few seconds of the request, something happens and the path continues. Prayer is what saves me.", "date": "27.05.2025", "rec": 25, "ts": "31:17", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2025%20-%20Tilmann%20-%2027.05.25%20-%20day%207%20-%20recording%2025%20-%20Afternoon%20-%20Q&A.mp3#t=1877", "tags": ["רגע של השראה", "כשיש כאב או פחד"], "tid": "28546", "sec": 1877, "who": "tilmann"}, {"n": 38, "title": "חברות שמעבר לחיבה אישית", "he": "החברות בסנגהה חורגת מהעדפות אישיות. אנחנו יחד בדרך ועוזרים זה לזה, גם אם לא היינו בוחרים לצאת יחד לחופשה.", "en": "Friendship in the Sangha goes beyond personal preferences. We are together on the path and help one another, even when we might not personally want to go on vacation together.", "date": "24.05.2025", "rec": 15, "ts": "16:41", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2015%20-%20Tilmann%20-%2024.05.25%20-%20day%204%20-%20recording%2015%20-%20Afternoon%20-%20Discussion%20+%20Meditation%20+%20Pranayama.mp3#t=1001", "tags": ["כשקשה עם מישהו", "בחיי היומיום"], "tid": "28536", "sec": 1001, "who": "tilmann"}]}, {"name": "לקחת את זה הביתה", "intro": "להביא את החיים אל הריטריט, ואת הריטריט אל החיים.", "p": [{"n": 39, "title": "להביא את החיים אל הריטריט", "he": "כשאנחנו מפרידים את תרגול המדיטציה מאתגרי היומיום, נוצרים שני עולמות שעדיין אינם נפגשים באמת. רובנו רוצים להביא את חוויית הריטריט אל חיי היומיום כדי שידמו לה מעט, אך קל הרבה יותר לעשות את הדרך ההפוכה: להביא את חיי היומיום אל הריטריט. העלו כמה מן האתגרים שאתם פוגשים בחייכם, והביאו אל המודעות בזמן המדיטציה את האנשים הקשורים בהם. עכשיו הזמן – עכשיו יש לכם מרחב לכך.", "en": "If I keep my meditation practice separate from the challenges of daily life, there are two worlds that don't yet really meet. Most people would like to bring their retreat experience into daily life so that daily life becomes a little more like the retreat. It is much easier the other way around: bring daily life into your retreat experience. Take up some of the challenges you face in daily life, and bring those people into your awareness as you meditate. Now is the time; now you have the space to do it.", "date": "25.05.2025", "rec": 17, "ts": "1:09:46", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2017%20-%20Tilmann%20-%2025.05.25%20-%20day%205%20-%20recording%2017%20-%20Morning%20-%20Meditation%20Guidance%20-%20The%20Four%20Boundless%20Qualities.mp3#t=4186", "tags": ["בחיי היומיום", "כשקשה עם מישהו"], "tid": "28538", "sec": 4186, "who": "tilmann"}, {"n": 40, "title": "ליישב את הלב לפני שיוצאים", "he": "אולי נמות בקרוב ואולי נחיה עוד שנים רבות – מי יודע? איש אינו יודע בוודאות. מה פירוש הדבר עבורי, להיות מודע לאפשרות שלא אחיה זמן רב כפי שחשבתי? ההתבוננות הזאת משנה את הגישה שלי: לעשות תחילה את הדברים החשובים, ולעולם לא לצאת מהבית בעיצומה של מריבה, אלא ליישב את הדברים לפני היציאה, כך שגם אם אמות, הדברים יהיו מיושבים.", "en": "We might die soon or live a long time – who knows? No one is sure. What does it mean for me to be aware that I might not live as long as I thought? For me, this contemplation leads to a change of attitude: doing first things first and never leaving home in a dispute, but clearing things up before leaving so that even if I die, things are settled.", "date": "26.05.2025", "rec": 20, "ts": "1:10:01", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2020%20-%20Tilmann%20-%2026.05.25%20-%20day%206%20-%20recording%2020%20-%20Afternoon%20-%20Chat%20+%20Guided%20Meditation%20-%20Dealing%20With%20Stress,%20Effort,%20Relaxation,%20Restlesness%20&%20Tiredness.mp3#t=4201", "tags": ["כשקשה עם מישהו", "בחיי היומיום"], "tid": "28541", "sec": 4201, "who": "tilmann"}, {"n": 41, "title": "גם האמת הפגיעה היא מתנה", "he": "״הייתי שמח להעניק לכם את נוכחותי המאירה, אבל כרגע אני מעט מודאג״ – גם זו מתנה, ויש בה השראה. אל תקטינו את עצמכם ואל תפחיתו מערככם. היו כנים והעניקו את האמת הזאת. יש בכם כל כך הרבה אהבה, כל כך הרבה רצון להיטיב. וגם אם אתם מרגישים שאינכם מסוגלים, עצם הביטוי של המשאלה הזאת הוא כבר מתנה נפלאה.", "en": "\"I would love to give you my luminous presence, but right now I feel a little worried\" – that is your offering; that is inspiring. Don't make yourself smaller or diminish yourself. Be true and give that truth. There is so much love in your being, so much wish to do well. Even if you feel incapable, simply expressing that wish is already a wonderful offering.", "date": "27.05.2025", "rec": 25, "ts": "26:21", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2025%20-%20Tilmann%20-%2027.05.25%20-%20day%207%20-%20recording%2025%20-%20Afternoon%20-%20Q&A.mp3#t=1581", "tags": ["כשיש כאב או פחד", "כשהלב נסגר"], "tid": "28546", "sec": 1581, "who": "tilmann"}, {"n": 42, "title": "לעבור בחיים בלי לראות", "he": "התודעה המפטפטת רועשת כל כך, עד שאיננו יכולים לשמוע את הציפורים. היא משתלטת עד כדי כך שאנחנו רואים רק את המינימום הדרוש כדי לא לסטות מן השביל ולא ליפול, אבל למעשה כלל לא חווינו את הגן. הגן הזה הוא חיינו – הוא המרחב שאנחנו עוברים בו. באותו מקום ועם אותם אנשים אנחנו יכולים לחוות את החיים בדרכים שונות מאוד, בהתאם למקום שאליו מופנית תשומת הלב שלנו.", "en": "The chattering mind is so loud that we cannot hear the birds. It is so strong that we see only the minimum needed to stay on the path and not fall, but we have never really experienced the park. The park is our life; it is what we are walking through. We can have very different experiences of life in the same place, with the same people, depending on where our attention is.", "date": "23.05.2025", "rec": 9, "ts": "54:22", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%209%20-%20Tilmann%20-%2023.05.25%20-%20day%203%20-%20recording%209%20-%20Afternoon%20-%20Dharma%20Talk%20+%20Guided%20Meditation.mp3#t=3262", "tags": ["כשהתודעה לא נרגעת", "בחיי היומיום"], "tid": "28530", "sec": 3262, "who": "tilmann"}, {"n": 43, "title": "הנכונות להישאר בקשר", "he": "אם אני אומר שאיני יכול לדבר עכשיו, עליי לומר מתי נוכל לדבר: ״מחר נוכל לדבר״, או ״תנו לי כמה שעות, ואחזור אליכם״. עצם הנכונות לתקשר היא כבר תחילתה של גמישות בתודעה – איננו נסגרים. הדבר החשוב ביותר הוא שהתקשורת תבוא ממקום של אמת, שנדבר באמת מן הלב. גם זה מעשה של חוסר אנוכיות, של נתינה. מערכת היחסים כולה היא מרחב של נדיבות: אנחנו מציעים את עצמנו, וגם האדם האחר מציע את עצמו; אנחנו מקבלים ונותנים.", "en": "If I say I cannot speak now, I should give a time: \"Tomorrow we can speak,\" or \"Give me a few hours; I will come back to you.\" The willingness to communicate is already the beginning of flexibility in our mind; we are not closing. The most important thing is that communication comes from a place of truth, that we really speak from our heart. This is also an act of selflessness, an offering, a dana. The whole relationship is one of generosity: we offer ourselves, and the other person also offers; we receive and give.", "date": "27.05.2025", "rec": 25, "ts": "20:02", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2025%20-%20Tilmann%20-%2027.05.25%20-%20day%207%20-%20recording%2025%20-%20Afternoon%20-%20Q&A.mp3#t=1202", "tags": ["כשקשה עם מישהו", "כשהלב נסגר"], "tid": "28546", "sec": 1202, "who": "tilmann"}, {"n": 44, "title": "מרחב בלב לקראת המפגש", "he": "אפשר לדמיין את הרגע שבו נפתח את הטלפון והודעות רבות ייכנסו: לנשום בתוך כל זה ולחוש כיצד אנחנו נשארים מחוברים גם כשזה קורה. אולי האתגר הוא לדבר ובה בעת להישאר מחוברים לתחושת השקט והמרחב העמוקה שבתוכנו, להשתוות הנפש הזאת. אנחנו מתכווננים לאופן שבו נדבר ונקרא את ההודעות – לתחושה הפנימית ולגישה שבה נפגוש את האנשים בדרכנו, ולא לתוכן הדברים שנאמר. כך אנחנו מכינים את הדרך לגישה נינוחה יותר, למעט יותר מרחב בלב, להקשבה עמוקה יותר ולראייה עמוקה יותר.", "en": "Imagine the moment when we open our phone and so many messages come in: breathe through it and imagine how we remain connected as it happens. Perhaps the challenge is speaking while remaining connected to our deep sense of calm and spaciousness, to this equanimity. We tune into the feeling of how we will talk and read those messages – not what we will say, but the inner feeling, the attitude with which we will meet the people on our way. We are preparing the way for a more relaxed attitude, a little more space in the heart, deeper listening, deeper seeing.", "date": "30.05.2025", "rec": 33, "ts": "29:20", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%2033%20-%20Tilmann%20-%2030.05.25%20-%20day%2010%20-%20recording%2033%20-%20Early%20Morning%20-%20Guided%20Meditation%20-%20Preparing%20for%20the%20Day.mp3#t=1760", "tags": ["בחיי היומיום", "כשהתודעה לא נרגעת"], "tid": "28520", "sec": 1760, "who": "tilmann"}]}], "hero": {"n": 1, "title": "הבית שאינו עוזב אותנו", "he": "דרך המהאמודרה היא התרגול של שכחת עצמנו, ופרי המהאמודרה הוא להיות באמת בבית. הפרי השלם הוא שלכל מקום שנלך, הבית לעולם אינו עוזב אותנו.", "en": "The Mahamudra path is the practice of forgetting oneself. The Mahamudra fruit is to really be home. The complete fruit is that wherever we go, home never leaves us.", "date": "21.05.2025", "rec": 1, "ts": "45:44", "url": "https://tovana.org.il/sites/default/files/podcasts/2025/Recording%201%20-%20Tilmann%20-%2021.05.25%20-%20day%201%20-%20recording%201%20-%20Evening%20-%20Chanting%20+%20Introduction%20Dharma%20Talk.mp3#t=2744", "tags": ["רגע של השראה"], "tid": "28522", "sec": 2744, "who": "tilmann", "id": "y2025-1"}, "days": 10, "talks": 27, "hours": 30}];
 const FULL=false;
 const SHARE_BASE='https://dorcohen1one-rgb.github.io/tilmann-pearls/';
 const TAGS=["כשהתודעה לא נרגעת","כשהתרגול נהיה מאמץ","כשיש כאב או פחד","כשרגש משתלט","כשקשה עם מישהו","כשהלב נסגר","בחיי היומיום","רגע של השראה"];
-const FLAGS=['--flag-blue','--flag-red','--flag-green','--flag-yellow','--flag-white','--flag-blue'];
+const CH={'2024':{k:'הריטריט הראשון',season:'קיץ',tag:'קיץ. מפגש ראשון, בזמן מלחמה.'},'2025':{k:'הריטריט השני',season:'אביב',tag:'אביב. חזרה, והעמקה.'}};
+const ch=y=>CH[y]||{k:'ריטריט',season:'',tag:''};const yn=Y=>Y.themes.reduce((a,t)=>a+t.p.length,0);const pad2=n=>String(n).padStart(2,'0');
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const icon=n=>`<svg class="i"><use href="#i-${n}"/></svg>`;
 const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 const ALL=[];
-D.forEach(Y=>Y.themes.forEach((t,ti)=>t.p.forEach(p=>{Object.assign(p,{year:Y.year,label:Y.label,flag:FLAGS[ti],theme:t.name,id:`y${Y.year}-${p.n}`});ALL.push(p)})));
+D.forEach(Y=>Y.themes.forEach((t,ti)=>t.p.forEach(p=>{Object.assign(p,{year:Y.year,label:Y.label,tn:ti+1,theme:t.name,id:`y${Y.year}-${p.n}`});ALL.push(p)})));
 const byId=id=>ALL.find(p=>p.id===id);
 let year=D[0].year, showEn=store.get('pearls-en',false), kept=new Set(store.get('pearls-kept',[])), mode={kind:'themes'};
 const isPhone=()=>matchMedia('(max-width:720px)').matches;
@@ -610,22 +534,13 @@ $('pClose').onclick=()=>{audio.pause();$('player').hidden=true;playing=null;docu
 listen.tok=0;
 if('ResizeObserver' in window)new ResizeObserver(()=>document.documentElement.style.setProperty('--player-h',$('player').offsetHeight+'px')).observe($('player'));
 
-/* ---------- sky + prayer flags ---------- */
-function sizeSky(){const tv=!$('vTalks').hidden;const el=tv?document.querySelector('header'):($('hero').hidden?document.querySelector('header'):$('hero'));
-  let t=el.offsetHeight,e=el;while(e&&e!==document.body){t+=e.offsetTop;e=e.offsetParent}/* layout offsets: ignore the hero's rise transform and scroll locks */
-  $('sky').style.height=Math.round(t+(el.id==='hero'?0:24))+'px'}
-(function(){const C=['#5fa3e0','#f4f2ea','#d9533f','#4fa36b','#e9b83a'],W=390,n=11,sag=20;
-  let h=`<svg viewBox="0 0 ${W} 62"><path d="M-12 8 Q ${W/2} ${8+2*sag} ${W+12} 8" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="1"/>`;
-  for(let i=0;i<n;i++){const t=(i+.5)/n,x=-12+(W+24)*t,y=8+4*sag*t*(1-t),a=Math.atan(4*sag*(1-2*t)/(W+24))*57.3;
-    h+=`<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)})"><path class="fl" style="--r:${a.toFixed(1)}deg;animation-delay:${i*80}ms" d="M-12 0H12L10.5 27H-10.5Z" fill="${C[i%5]}"/></g>`}
-  document.querySelector('.flags').innerHTML=h+'</svg>'})();
-addEventListener('resize',sizeSky);addEventListener('load',sizeSky);if(window.ResizeObserver){const ro=new ResizeObserver(()=>sizeSky());['header','#vPearls>.yearbar','#hero'].forEach(q=>{const e=document.querySelector(q);e&&ro.observe(e)})}if(document.fonts&&document.fonts.ready)document.fonts.ready.then(sizeSky);
 /* ---------- rendering ---------- */
 function pearlHTML(p,withYear){
-  const k=kept.has(p.id);
-  return `<article class="pearl" id="${p.id}" style="--theme:var(${p.flag})">
-    <h3>${esc(p.title)}</h3>
-    ${p.who==='lila'?'<div class="who">לילה קמחי</div>':''}<div class="meta">${withYear?esc(p.label)+' · ':''}${esc(p.date)} · הקלטה ${p.rec}${FULL?` · <a href="#talk-${p.tid}-${p.sec}">בשיחה המלאה</a>`:''}</div>
+  const k=kept.has(p.id),H=withYear?'h3':'h4';
+  return `<article class="pearl y${p.year}" id="${p.id}">
+    <div class="meta"><span>${withYear?esc(p.label)+' · ':''}${esc(p.date)} · הקלטה ${p.rec}</span>${FULL?`<a href="#talk-${p.tid}-${p.sec}">בשיחה המלאה</a>`:''}</div>
+    <${H} class="p-title">${esc(p.title)}</${H}>
+    ${p.who==='lila'?'<div class="who">לילה קמחי</div>':''}
     <blockquote data-stay="${p.id}">${esc(p.he)}</blockquote>
     <div class="en" ${showEn?'':'hidden'}><span class="lbl">במקור, באנגלית</span><q lang="en">${esc(p.en)}</q></div>
     <div class="acts">
@@ -636,14 +551,15 @@ function pearlHTML(p,withYear){
 }
 function renderHeader(){
   const Y=D.find(x=>x.year===year);
-  $('years').innerHTML=D.map(x=>`<a href="#y${x.year}" aria-current="${x.year===Y.year}">${esc(x.label)}</a>`).join('');
   const h=Y.hero;
-  $('hero').innerHTML=`<blockquote>״${esc(h.he)}״</blockquote>
+  $('hero').innerHTML=`<div class="doors-h lbl">שני ריטריטים · שני פרקים</div>
+    <div class="doors">${D.map(Y=>{const [m,y]=Y.label.split(' ');return `<button class="door y${Y.year}" data-chap="${Y.year}" aria-label="ריטריט ${esc(Y.label)}, ${yn(Y)} פנינים">
+      <span class="d-sky"><span class="disc"></span><span class="d-m">${esc(m)}</span><span class="d-y">${esc(y||'')}</span></span>
+      <span class="d-earth"><b>${ch(Y.year).k}</b>${ch(Y.year).season} · ${yn(Y)} פנינים</span></button>`}).join('')}</div>
+    <blockquote>״${esc(h.he)}״</blockquote>
     <div class="att">${who(h)} · ${esc(h.date)}</div>
-    <div class="hero-actions"><button class="pri" data-read>${icon('book')}להתחיל לקרוא</button><button class="sec" data-listen="${h.id}">${icon('play')}האזנה</button></div>`;
-  const n=Y.themes.reduce((a,t)=>a+t.p.length,0);
-  if($('facts'))$('facts').innerHTML=`<div><b>2</b>ריטריטים</div><div><b>${D.reduce((a,y)=>a+y.days,0)}</b>ימי ריטריט</div><div><b>${D.reduce((a,y)=>a+y.talks,0)}</b>הקלטות</div><div><b>${ALL.length}</b>פנינים</div>`;
-  $('toc').innerHTML=D.flatMap(Y=>Y.themes.map((t,i)=>`<li><a href="#y${Y.year}-${t.p[0].n}" style="--theme:var(${FLAGS[i]})"><span class="dot"></span>${esc(t.name)}</a></li>`)).join('');
+    <div class="hero-actions"><button class="pri" data-read>${icon('book')}להתחיל לקרוא</button><button class="sec" data-listen="${h.id}">${icon('play')}האזנה</button></div>
+`;
   $('chipsDesk').innerHTML=chipsHTML();
 }
 const chipsHTML=()=>TAGS.map(t=>`<button data-tag="${esc(t)}" aria-pressed="${mode.kind==='tag'&&mode.tag===t}">${esc(t)}</button>`).join('');
@@ -660,16 +576,22 @@ function renderMain(){
   $('tabBrowse').setAttribute('aria-current',mode.kind==='tag');
   if(mode.kind==='themes'){
     $('banner').innerHTML='';
-    $('main').innerHTML=D.map(Y=>`<div class="yr-h"><span>ריטריט ${esc(Y.label)}</span></div>`+Y.themes.map((t,i)=>`<section class="theme" data-theme="${esc(t.name)}" data-yl="${esc(Y.label)}" style="--theme:var(${FLAGS[i]})">
-      <div class="theme-head"><span class="flag"></span><h2 class="tn">${esc(t.name)}</h2><span class="count">${t.p.length} פנינים</span></div>
-      <p class="theme-intro">${esc(t.intro)}</p>${t.p.map(p=>pearlHTML(p,false)).join('')}</section>`).join('')).join('');
+    $('main').innerHTML=D.map(Y=>{const [m,y]=Y.label.split(' '),c=ch(Y.year);return `<section class="chapter y${Y.year}" id="ch${Y.year}" data-year="${Y.year}" data-yl="${esc(Y.label)}" aria-labelledby="cht${Y.year}">
+      <div class="ch-cover"><div class="ch-sky"><span class="disc"></span><div class="ch-k">${c.k}</div>
+        <h2 class="ch-t" id="cht${Y.year}" aria-label="ריטריט ${esc(Y.label)}"><span class="ch-m">${esc(m)}</span><span class="ch-y">${esc(y||'')}</span></h2></div>
+        <div class="ch-earth"><p class="ch-tag">${c.tag}</p><p class="ch-intro">${esc(Y.intro||'')}</p>
+          <ul class="ch-facts"><li><b>${Y.days}</b>ימי ריטריט</li><li><b>${Y.talks}</b>הקלטות</li><li><b>${yn(Y)}</b>פנינים</li></ul>
+          <nav class="ch-toc desk" aria-label="הנושאים של ${esc(Y.label)}">${Y.themes.map((t,i)=>`<button data-goto="${Y.year}-${t.p[0].n}"><span class="num">${pad2(i+1)}</span>${esc(t.name)}<span class="count">${t.p.length}</span></button>`).join('')}</nav>
+        </div></div>`+Y.themes.map((t,i)=>`<section class="theme" data-theme="${esc(t.name)}" data-yl="${esc(Y.label)}" data-year="${Y.year}">
+      <div class="theme-head"><span class="t-num" aria-hidden="true">${pad2(i+1)}</span><h3 class="tn">${esc(t.name)}</h3></div>
+      <p class="theme-intro">${esc(t.intro)}</p>${t.p.map(p=>pearlHTML(p,false)).join('')}</section>`).join('')+`</section>`}).join('');
   } else {
     const L=currentList();
-    $('banner').innerHTML=`<div class="banner"><span>${mode.kind==='mine'?'<b>השמורות שלי</b>':'<b>'+esc(mode.tag)+'</b>'} · ${L.length}</span><button data-clear>${icon('x')}חזרה לכל הפנינים</button></div>`;
+    $('banner').innerHTML=`<div class="banner"><span>${mode.kind==='mine'?'<b>השמורות שלי</b>':'<b>'+esc(mode.tag)+'</b>'}${L.length} פנינים</span><button data-clear>${icon('x')}חזרה לכל הפנינים</button></div>`;
     $('main').innerHTML=L.length?`<div class="list">${L.map(p=>pearlHTML(p,true)).join('')}</div>`:
       `<p class="empty">${mode.kind==='mine'?'עוד לא שמרתם פנינים. לחצו ״שמירה״ ליד פנינה שנגעה בכם, והיא תחכה לכם כאן.':'אין פנינים ברגע הזה.'}</p>`;
   }
-  $('chipsDesk').innerHTML=chipsHTML();sizeSky();
+  $('chipsDesk').innerHTML=chipsHTML();
   document.querySelectorAll('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',(b.dataset.lang==='both')===showEn));
 }
 function setMode(m){mode=m;renderMain();closeSheet();const el=$('banner').firstChild||$('main');window.scrollTo({top:el.getBoundingClientRect().top+scrollY-20})}
@@ -677,9 +599,11 @@ function setMode(m){mode=m;renderMain();closeSheet();const el=$('banner').firstC
 /* ---------- topbar (current theme) ---------- */
 function onScroll(){
   const show=isPhone()&&!$('vPearls').hidden&&mode.kind==='themes'&&$('main').getBoundingClientRect().top<40;
-  if(show){let cur=null;document.querySelectorAll('section.theme').forEach(s=>{if(s.getBoundingClientRect().top<90)cur=s});
-    if(cur&&cur!==onScroll.cur){onScroll.cur=cur;$('tbName').textContent=cur.dataset.theme;$('tbYear').textContent=cur.dataset.yl;$('tbDot').style.background=getComputedStyle(cur).getPropertyValue('--theme')}}
-  $('topbar').classList.toggle('on',show);
+  if(show){let cur=null;document.querySelectorAll('section.chapter,section.theme').forEach(s=>{if(s.getBoundingClientRect().top<90)cur=s});
+    if(cur&&cur!==onScroll.cur){onScroll.cur=cur;$('tbName').textContent=cur.dataset.theme||'';$('tbYear').textContent=cur.dataset.yl;$('topbar').classList.toggle('y2024',cur.dataset.year==='2024');$('topbar').classList.toggle('y2025',cur.dataset.year==='2025')}
+    $('topbar').classList.toggle('on',!!cur&&!!cur.dataset.theme);return onScrollPos()}
+  $('topbar').classList.remove('on');onScrollPos()}
+function onScrollPos(){
   // remember reading position
   if(!$('vPearls').hidden){const a=[...document.querySelectorAll('.pearl')].find(p=>p.getBoundingClientRect().bottom>120);if(a)store.set('pearls-pos',a.id)}
 }
@@ -689,11 +613,11 @@ addEventListener('scroll',()=>{cancelAnimationFrame(onScroll.r);onScroll.r=reque
 function openSheet(){
   const Y=D.find(x=>x.year===year);
   $('sheetBody').innerHTML=`
-    ${D.map(Y=>`<h4>ריטריט ${esc(Y.label)}</h4><div class="tlist">${Y.themes.map((t,i)=>`<button data-goto="${Y.year}-${t.p[0].n}" style="--theme:var(${FLAGS[i]})"><span class="dot"></span>${esc(t.name)}<span class="count">${t.p.length}</span></button>`).join('')}</div>`).join('')}
+    ${D.map(Y=>`<h4 class="sh-ch y${Y.year}"><span class="mini" aria-hidden="true"><span class="disc"></span></span><span>ריטריט ${esc(Y.label)}<small>${ch(Y.year).season} · ${yn(Y)} פנינים</small></span></h4><div class="tlist y${Y.year}">${Y.themes.map((t,i)=>`<button data-goto="${Y.year}-${t.p[0].n}"><span class="num" aria-hidden="true">${pad2(i+1)}</span>${esc(t.name)}<span class="count">${t.p.length}</span></button>`).join('')}</div>`).join('')}
     <h4>מה פוגש אותך היום?</h4><div class="tlist moods">${TAGS.map(t=>`<button data-tag="${esc(t)}" aria-pressed="${mode.kind==='tag'&&mode.tag===t}">${esc(t)}</button>`).join('')}</div>
     <h4>תצוגה</h4><div class="row"><div class="seg" role="group" aria-label="שפה"><button data-lang="he" aria-pressed="${!showEn}">עברית</button><button data-lang="both" aria-pressed="${showEn}">+ המקור באנגלית</button></div></div>
     <div class="row" style="margin-top:12px"><button data-random>פנינה אקראית</button>${FULL?'<button data-talks>כל השיחות המלאות</button>':''}</div>
-    <button class="close" id="sheetClose">סגירה</button>`;
+`;
   $('sheetBody').style.paddingBottom='4px';
   if($('sheet').hidden){openSheet.from=document.activeElement;$('scrim').hidden=false;$('sheet').hidden=false;lock()}
   $('sheet').scrollTop=0;$('sheetX').focus({preventScroll:true});
@@ -715,10 +639,11 @@ function openReader(id,list){
 function showReader(){
   const p=vList[vIdx];if(!p)return;
   $('vScope').textContent=scopeLabel();$('vCtr').textContent=`${vIdx+1} מתוך ${vList.length}`;
-  $('vInner').style.setProperty('--theme',`var(${p.flag})`);
-  $('vInner').innerHTML=`<div class="vtheme"><span class="dot"></span>${esc(p.theme)}</div>
+  $('veil').classList.toggle('y2024',p.year==='2024');$('veil').classList.toggle('y2025',p.year==='2025');
+  $('vProg').style.setProperty('--p',((vIdx+1)/vList.length*100).toFixed(1)+'%');
+  $('vInner').innerHTML=`<div class="vtheme"><span class="dot"></span>${esc(p.label)} · ${esc(p.theme)}</div>
     <div class="vtitle">${esc(p.title)}</div><p class="vtext">${esc(p.he)}</p>${showEn?`<p class="ven" lang="en">${esc(p.en)}</p>`:''}
-    <div class="vsrc">${who(p)} · ${esc(p.label)} · ${esc(p.date)}</div>
+    <div class="vsrc">${who(p)} · ${esc(p.date)}</div>
     <div class="breath" aria-hidden="true"></div><div class="vhint">שלוש נשימות עם המילים האלה</div>`;
   $('vBody').scrollTop=0;
   const on=kept.has(p.id);$('vKeep').classList.toggle('kept',on);$('vKeep').lastChild.textContent=on?'נשמרה':'שמירה';
@@ -757,7 +682,8 @@ document.addEventListener('click',e=>{
   if(d.lang){showEn=d.lang==='both';store.set('pearls-en',showEn);document.querySelectorAll('.en').forEach(x=>x.hidden=!showEn);
     document.querySelectorAll('[data-lang]').forEach(x=>x.setAttribute('aria-pressed',(x.dataset.lang==='both')===showEn));return}
   if(d.year){closeSheet();mode={kind:'themes'};if(location.hash!==`#y${d.year}`){location.hash=`y${d.year}`}else{year=d.year;renderHeader();renderMain()}window.scrollTo(0,0);return}
-  if(d.goto){closeSheet();if(mode.kind!=='themes'){mode={kind:'themes'};renderMain()}const el=$('y'+d.goto);if(el){const s=el.closest('section');window.scrollTo({top:s.getBoundingClientRect().top+scrollY-56})}return}
+  if(d.chap){const el=$('ch'+d.chap);if(el)window.scrollTo({top:el.getBoundingClientRect().top+scrollY});return}
+  if(d.goto){closeSheet();if(mode.kind!=='themes'){mode={kind:'themes'};renderMain()}const el=$('y'+d.goto);if(el){const s=el.closest('section');window.scrollTo({top:s.getBoundingClientRect().top+scrollY-30})}return}
   if('talks' in d){closeSheet();location.hash='talks';return}
   if(b.id==='sheetClose'){closeSheet();return}
   if('sheet' in d){openSheet();return}
@@ -774,7 +700,7 @@ async function showLibrary(y){
   if(y)libYear=y;$('vTalks').innerHTML='<p class="loading">טוען את רשימת השיחות…</p>';
   try{await loadIdx()}catch(e){return failView()}
   const L=IDX.filter(t=>t.year===libYear);const days=[...new Set(L.map(t=>t.date))];
-  $('vTalks').innerHTML=`<div class="lib"><div class="lib-head"><span class="lbl">התמלול המלא</span><h2>כל 72 השיחות, בכתב, מילה במילה</h2>
+  $('vTalks').innerHTML=`<div class="lib y${libYear}"><div class="lib-head"><span class="lbl">התמלול המלא</span><h2>כל 72 השיחות, בכתב, מילה במילה</h2>
     <p class="lib-intro">הכתוב המלא של כל ההקלטות, ולא רק קטעים נבחרים. כל שיחה תומללה במלואה ותורגמה לעברית, ובראשה תקציר. אפשר לקרוא בעברית, באנגלית או בשתיהן.</p></div>
     <div class="yearbar"><nav class="years">${['2024','2025'].map(x=>`<a href="#talks-${x}" aria-current="${x===libYear}">${RET[x]}</a>`).join('')}</nav></div>
     ${days.map(d=>{const T=L.filter(t=>t.date===d);return `<section class="lib-day"><h2>יום ${T[0].day}<small>${fmtDate(d)} · ${T.length} הקלטות</small></h2>
@@ -790,7 +716,7 @@ async function showTalk(id,sec){
   $('vTalks').innerHTML='<p class="loading">טוען את השיחה…</p>';let t;
   try{await loadIdx();t=await loadTalk(id)}catch(e){return failView()}curTalk=t;
   const L=IDX.filter(x=>x.year===t.year);const i=L.findIndex(x=>x.id===id);const prev=L[i-1],next=L[i+1];
-  $('vTalks').innerHTML=`<article class="reader"><div class="crumbs"><a href="#talks-${t.year}">→ כל השיחות של ${RET[t.year]}</a><button data-tlisten="0">${icon('play')}להאזנה</button></div>
+  $('vTalks').innerHTML=`<article class="reader y${t.year}"><div class="crumbs"><a href="#talks-${t.year}">→ כל השיחות של ${RET[t.year]}</a><button data-tlisten="0">${icon('play')}להאזנה</button></div>
     <h2>${esc(t.title)}</h2>${t.joint?'<div class="tm"><b>בהקלטה הזו מלמדים לאמה טילמן ולילה קמחי</b></div>':''}<div class="tm">${RET[t.year]} · יום ${t.day} · ${fmtDate(t.date)} · הקלטה ${t.num} · ${t.len}</div>
     <div class="summary"><span class="lbl">על מה השיחה · ${esc(t.type)}</span>${esc(t.about)}${t.topics.length?`<ul>${t.topics.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}</div>
     <span class="fullh">התמלול המלא של השיחה</span><p class="fullp">כל מה שנאמר בהקלטה, מילה במילה. התמלול נעשה אוטומטית מהשמע, ולכן ייתכנו בו טעויות קטנות.</p>
@@ -805,7 +731,7 @@ async function showTalk(id,sec){
   $('vTalks').querySelectorAll('[data-tlisten]').forEach(b=>b.onclick=()=>listen({title:t.title,url:t.url,sec:+b.dataset.tlisten,ts:b.textContent.trim()}));
   if(sec!=null){const ps=[...document.querySelectorAll('.para')];let best=ps[0];for(const p of ps){if(+p.dataset.s<=sec)best=p}if(best){best.scrollIntoView({block:'start'});best.classList.add('flash')}}else window.scrollTo(0,0);
 }
-function setView(v){const tv=v==='talks';$('vTalks').hidden=!tv;$('vPearls').hidden=tv;$('navPearls').setAttribute('aria-current',!tv);$('navTalks').setAttribute('aria-current',tv);$('topbar').classList.remove('on');sizeSky()}
+function setView(v){const tv=v==='talks';$('vTalks').hidden=!tv;$('vPearls').hidden=tv;$('navPearls').setAttribute('aria-current',!tv);$('navTalks').setAttribute('aria-current',tv);$('topbar').classList.remove('on');document.body.classList.toggle('in-talks',tv)}
 
 /* ---------- router ---------- */
 let first=true;
@@ -824,6 +750,7 @@ function go(){
   if(m&&m[2]){const p=byId(`y${year}-${m[2]}`);if(p){
       if(first&&isPhone()){openReader(p.id,ALL.filter(x=>x.year===year))}
       else{const el=$(p.id);if(el){el.scrollIntoView({block:'center'});el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash')}}}}
+  else if(m&&$('ch'+m[1])&&(!first||m[1]!==D[0].year)){const el=$('ch'+m[1]);window.scrollTo({top:el.getBoundingClientRect().top+scrollY})}
   else if(changed&&!first)window.scrollTo(0,0);
   first=false;
 }
