@@ -1,6 +1,7 @@
 <!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="only light">
+<meta name="display-build" content="c2a13b87e5">
 <meta name="theme-color" content="#f3f3ef">
 <meta name="description" content="92 פנינים מתורותיו של לאמה טילמן לונדרופ בריטריטי המהאמודרה של תובנה בישראל, 2024–2025, בתרגום לעברית ומקושרות להקלטות המקוריות.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%23e8b247%27/%3E%3Cpath d=%27M16 0h9a7 7 0 0 1 7 7v18a7 7 0 0 1-7 7h-9z%27 fill=%27%231f5a49%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%277%27 fill=%27%23fff9e6%27/%3E%3C/svg%3E">
@@ -896,5 +897,44 @@ document.body.classList.add('has-tabbar');
   addEventListener('scroll',show,{passive:true});
   $('coachX').onclick=hide;$('tabbar').addEventListener('click',hide);})();
 updateBadge();go();
+// Opt-in, local-only diagnostics for host-browser darkening. Normal visits are unaffected.
+(function(){
+  if(new URLSearchParams(location.search).get('display-check')!=='1')return;
+  const focusBefore=document.activeElement;
+  const panel=document.createElement('section');
+  panel.id='displayCheck';panel.setAttribute('role','region');panel.setAttribute('aria-label','בדיקת תצוגה');
+  panel.style.cssText='position:fixed;z-index:999;inset:8px 8px auto;max-height:62vh;max-height:62dvh;overflow:auto;overscroll-behavior:contain;padding:14px;border:3px solid #855608;border-radius:12px;background:#fff;color:#1a1d1b;font:14px/1.45 system-ui,sans-serif;direction:rtl;color-scheme:only light';
+  const heading=document.createElement('h2');heading.textContent='בדיקת תצוגה';heading.style.cssText='font:700 18px/1.4 system-ui;margin:0 0 8px';
+  const note=document.createElement('p');note.textContent='צלמו את המסך ושלחו בשיחה. המידע מוצג כאן בלבד ואינו נשלח אוטומטית.';note.style.margin='0 0 10px';
+  const swatches=document.createElement('div');swatches.style.cssText='display:flex;gap:6px;margin:10px 0';
+  for(const [label,color] of [['לבן','#ffffff'],['נייר','#f3f3ef'],['קיץ','#e8b247'],['אביב','#d9e7cf'],['שחור','#000000']]){
+    const sample=document.createElement('span');sample.textContent=label;sample.style.cssText=`flex:1;text-align:center;padding:9px 2px;border:1px solid #777;background:${color};color:${color==='#000000'?'#fff':'#1a1d1b'}`;swatches.appendChild(sample);
+  }
+  const values=document.createElement('pre');values.style.cssText='font:12px/1.4 monospace;white-space:pre-wrap;overflow-wrap:anywhere;direction:ltr;text-align:left;margin:10px 0';
+  const computed=e=>e?getComputedStyle(e):null;
+  const query=q=>typeof matchMedia==='function'&&matchMedia(q).matches;
+  function snapshot(){
+    const reader=$('veil');
+    return {
+      build:document.querySelector('meta[name="display-build"]')?.content||'standalone',
+      userAgent:navigator.userAgent,
+      viewport:[innerWidth,innerHeight].join(' × '),
+      prefersDark:query('(prefers-color-scheme: dark)'),
+      forcedColors:query('(forced-colors: active)'),
+      colorScheme:computed(document.documentElement).colorScheme,
+      htmlBackground:computed(document.documentElement).backgroundColor,
+      bodyBackground:computed(document.body).backgroundColor,
+      summerSky:computed(document.querySelector('.door.y2024 .d-sky'))?.backgroundColor||null,
+      springSky:computed(document.querySelector('.door.y2025 .d-sky'))?.backgroundColor||null,
+      readerOpen:!!reader&&!reader.hidden,
+      fragment:location.hash||'(home)'
+    };
+  }
+  const refresh=()=>{values.textContent=JSON.stringify(snapshot(),null,1)};
+  const controls=document.createElement('div');controls.style.cssText='display:flex;gap:8px;flex-wrap:wrap';
+  const again=document.createElement('button');again.type='button';again.textContent='רענון הבדיקה';again.onclick=refresh;
+  const close=document.createElement('button');close.type='button';close.textContent='סגירת הבדיקה';close.onclick=()=>{panel.remove();if(focusBefore?.isConnected)focusBefore.focus({preventScroll:true})};
+  controls.append(again,close);panel.append(heading,note,swatches,values,controls);document.body.appendChild(panel);refresh();
+})();
 </script>
 </body></html>
