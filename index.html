@@ -1,7 +1,7 @@
 <!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="only light">
-<meta name="display-build" content="4409dd0533">
+<meta name="display-build" content="e3c347e5b6">
 <meta name="theme-color" content="#f3f3ef">
 <meta name="description" content="92 פנינים מתורותיו של לאמה טילמן לונדרופ בריטריטי המהאמודרה של תובנה בישראל, 2024–2025, בתרגום לעברית ומקושרות להקלטות המקוריות.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%23e8b247%27/%3E%3Cpath d=%27M16 0h9a7 7 0 0 1 7 7v18a7 7 0 0 1-7 7h-9z%27 fill=%27%231f5a49%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%277%27 fill=%27%23fff9e6%27/%3E%3C/svg%3E">
@@ -164,15 +164,6 @@ h1 .h1-b::before,h1 .h1-b::after{content:"";width:22px;height:1px;background:cur
 }
 
 /* ---------- ways in: what meets you today (moods, random, all themes) ---------- */
-.moments{margin-top:64px;text-align:center}
-.moments h2{font:700 26px/34px var(--display);margin:0 0 4px}
-.moments p{margin:0 0 16px;font:400 15.5px/23px var(--ui);color:var(--muted)}
-.chips{display:flex;flex-wrap:nowrap;gap:8px;justify-content:flex-start;overflow-x:auto;margin:0 calc(-1*var(--gut));padding:4px var(--gut) 12px;
-  scroll-snap-type:x proximity;scroll-padding-inline:var(--gut);scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.chips::-webkit-scrollbar{display:none}
-.chips button{flex:none;scroll-snap-align:start;min-height:48px;padding:0 18px;font:500 17px/1 var(--body);background:var(--sheet);border-color:var(--hair)}
-.ways-row{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:8px}
-.ways-row button{background:transparent;border-color:var(--hair)}
 .tools{justify-content:center;gap:10px;flex-wrap:wrap;margin-top:22px}
 .seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--sheet);gap:2px}
 .seg button{border:0;min-height:44px}
@@ -493,7 +484,6 @@ body.reading.playing .vnav{padding-bottom:12px}
   .hero-q{margin-top:88px}
   .hero blockquote{font-size:28px;line-height:46px}
   .doors-h{margin-top:88px}
-  .chips{flex-wrap:wrap;justify-content:center;overflow:visible;margin:0;padding:0}
   .intro{display:grid;grid-template-columns:minmax(0,1fr) 180px;column-gap:40px;align-items:center}
   .intro .lotus{grid-column:2;grid-row:1/span 3;width:180px;max-width:none;margin:0}
   .intro h2,.intro p{grid-column:1}
@@ -550,10 +540,9 @@ body.reading.playing .vnav{padding-bottom:12px}
   .d-earth{padding-top:20px;padding-bottom:22px;font-size:15px}
   .d-earth b{font-size:20px;line-height:28px}
   .d-go{width:22px;height:22px}
-  .intro,.moments,.tools.desk{max-width:880px;margin-inline:auto}
+  .intro,.tools.desk{max-width:880px;margin-inline:auto}
   .intro{grid-template-columns:minmax(0,1fr) 220px;column-gap:56px;margin-top:96px;padding-top:44px}
   .intro .lotus{width:220px}
-  .moments{margin-top:96px}
   /* chapter opening: the facts become a column of large numerals beside the introduction and contents */
   .ch-sky{height:400px}
   .ch-y{font-size:250px;bottom:-30px}
@@ -625,13 +614,6 @@ html.ts-xl .chapter p,html.ts-xl .intro p{font-size:21.5px;line-height:36px}
   <div id="vTalks" hidden></div>
   <main id="vPearls">
     <div class="hero" id="hero"></div>
-
-    <section class="moments" aria-labelledby="waysH">
-      <h2 id="waysH">מה פוגש אותך היום?</h2>
-      <p>בחרו רגע, ותקבלו פנינים משני הריטריטים שמדברות אליו.</p>
-      <div class="chips" id="chipsDesk"></div>
-      <div class="ways-row"><button data-random>פנינה אקראית</button><button data-sheet>כל הנושאים והחיפוש</button></div>
-    </section>
 
     <section class="intro" aria-label="על המורה ועל האתר">
       <svg class="lotus" viewBox="0 0 240 150" aria-hidden="true" focusable="false">
@@ -817,9 +799,7 @@ function renderHeader(){
       <span class="d-sky"><span class="disc"></span><span class="d-m">${esc(m)}</span><span class="d-y">${esc(y||'')}</span></span>
       <span class="d-earth"><span><b>${ch(Y.year).k}</b>${ch(Y.year).season} · ${yn(Y)} פנינים</span><svg class="i d-go" aria-hidden="true" focusable="false"><use href="#i-chev-l"/></svg></span></button>`}).join('')}</div>
 `;
-  $('chipsDesk').innerHTML=chipsHTML();
 }
-const chipsHTML=()=>TAGS.map(t=>`<button data-tag="${esc(t)}" aria-pressed="${mode.kind==='tag'&&mode.tag===t}">${esc(t)}</button>`).join('');
 const searchText=s=>String(s).normalize('NFKD').replace(/[\u0591-\u05bd\u05bf-\u05c7]/g,'').toLocaleLowerCase().trim();
 function searchPearls(query){const words=searchText(query).split(/\s+/).filter(Boolean);return ALL.filter(p=>{const text=searchText([p.title,p.he,p.en,p.theme,who(p),...(p.tags||[])].join(' '));return words.every(w=>text.includes(w))})}
 function currentList(){
@@ -853,7 +833,6 @@ function renderMain(){
     $('main').innerHTML=savedTools+(L.length?`<div class="list">${L.map(p=>pearlHTML(p,true)).join('')}</div>`:
       `<p class="empty">${mode.kind==='mine'?'עוד לא שמרתם פנינים. לחצו ״שמירה״ ליד פנינה שנגעה בכם, והיא תחכה לכם כאן.':mode.kind==='search'?'לא נמצאו פנינים. נסו מילה אחרת או חיפוש קצר יותר.':'אין פנינים ברגע הזה.'}</p>`);
   }
-  $('chipsDesk').innerHTML=chipsHTML();
   document.querySelectorAll('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',(b.dataset.lang==='both')===showEn));
   reveal();
 }
