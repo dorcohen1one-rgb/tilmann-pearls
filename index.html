@@ -1,12 +1,13 @@
 <!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f3f3ef" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0d1220" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="only light">
+<meta name="theme-color" content="#f3f3ef">
 <meta name="description" content="92 פנינים מתורותיו של לאמה טילמן לונדרופ בריטריטי המהאמודרה של תובנה בישראל, 2024–2025, בתרגום לעברית ומקושרות להקלטות המקוריות.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%23e8b247%27/%3E%3Cpath d=%27M16 0h9a7 7 0 0 1 7 7v18a7 7 0 0 1-7 7h-9z%27 fill=%27%231f5a49%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%277%27 fill=%27%23fff9e6%27/%3E%3C/svg%3E">
 <meta property="og:type" content="website"><meta property="og:title" content="פנינים מלאמה טילמן לונדרופ">
 <meta property="og:description" content="92 פנינים מריטריטי המהאמודרה בישראל, 2024–2025 – בעברית, עם המקור באנגלית ואפשרות להאזין לרגע בהקלטה.">
 <meta property="og:image" content="https://dorcohen1one-rgb.github.io/tilmann-pearls/og.png"><meta property="og:url" content="https://dorcohen1one-rgb.github.io/tilmann-pearls/"><meta name="twitter:card" content="summary_large_image">
-<style>:root{color-scheme:light;padding-top:0;padding-bottom:0}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>:root{color-scheme:light;color-scheme:only light;padding-top:0;padding-bottom:0}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>פנינים מטילמן לונדרופ</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,6 +28,8 @@
    the intro panel. See tests/benchmark.md.
    ============================================================ */
 :root{
+  /* Keep the approved light palette in dark host apps and opt out of UA auto-darkening. */
+  color-scheme:light;color-scheme:only light;
   --ground:#f3f3ef; --sheet:#ffffff; --ink:#1a1d1b; --muted:#5d625e; --line:#dfe0da; --card-line:rgba(26,29,27,.08);
   --glass:rgba(243,243,239,.92); --scrim:rgba(18,22,20,.48); --hair:rgba(26,29,27,.14);
   --orb:#e9e9e2; --orb-hi:#ffffff; --orb-warm:rgba(230,170,60,.42); --orb-cool:rgba(36,110,88,.3); --orb-shadow:rgba(30,40,35,.38);
@@ -47,28 +50,6 @@
   --bar-h:66px; --toast-b:calc(var(--bar-h) + 16px);
   --gut:max(20px,env(safe-area-inset-left,0px),env(safe-area-inset-right,0px),calc((100vw - 680px)/2));
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --ground:#0d1220; --sheet:#161d2e; --ink:#eef1f7; --muted:#aab3c7; --line:#263049; --card-line:rgba(255,255,255,.07);
-  --glass:rgba(13,18,32,.94); --scrim:rgba(0,0,0,.6); --hair:rgba(255,255,255,.12);
-  --orb:#c9ccd6; --orb-hi:#f7f8fc; --orb-warm:rgba(255,194,77,.5); --orb-cool:rgba(80,190,160,.45); --orb-shadow:rgba(0,0,0,.6);
-  --su-sky:#1d2552; --su-sky-ink:#ffd27a; --su-disc:#ffc24d; --su-halo:rgba(150,160,240,.20);
-  --su-earth:#141a3a; --su-earth-ink:#ffe3a8; --su-earth-soft:#d9cfa8; --su-earth-line:rgba(255,227,168,.18);
-  --su-acc:#ffc85c; --su-tint:#0f1428;
-  --sp-sky:#0f3b3c; --sp-sky-ink:#c9f0dc; --sp-disc:#f6dc7e; --sp-halo:rgba(150,230,200,.16);
-  --sp-earth:#0a2b2e; --sp-earth-ink:#dcf3e7; --sp-earth-soft:#a9d3c2; --sp-earth-line:rgba(220,243,231,.18);
-  --sp-acc:#8fe0bc; --sp-tint:#0c1724;
-  --lo-back:#2f7f6a; --lo-mid:#5cb896; --lo-mid2:#b5e6cf; --lo-front:#ffc85c; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --ground:#0d1220; --sheet:#161d2e; --ink:#eef1f7; --muted:#aab3c7; --line:#263049; --card-line:rgba(255,255,255,.07);
-  --glass:rgba(13,18,32,.94); --scrim:rgba(0,0,0,.6); --hair:rgba(255,255,255,.12);
-  --orb:#c9ccd6; --orb-hi:#f7f8fc; --orb-warm:rgba(255,194,77,.5); --orb-cool:rgba(80,190,160,.45); --orb-shadow:rgba(0,0,0,.6);
-  --su-sky:#1d2552; --su-sky-ink:#ffd27a; --su-disc:#ffc24d; --su-halo:rgba(150,160,240,.20);
-  --su-earth:#141a3a; --su-earth-ink:#ffe3a8; --su-earth-soft:#d9cfa8; --su-earth-line:rgba(255,227,168,.18);
-  --su-acc:#ffc85c; --su-tint:#0f1428;
-  --sp-sky:#0f3b3c; --sp-sky-ink:#c9f0dc; --sp-disc:#f6dc7e; --sp-halo:rgba(150,230,200,.16);
-  --sp-earth:#0a2b2e; --sp-earth-ink:#dcf3e7; --sp-earth-soft:#a9d3c2; --sp-earth-line:rgba(220,243,231,.18);
-  --sp-acc:#8fe0bc; --sp-tint:#0c1724;
-  --lo-back:#2f7f6a; --lo-mid:#5cb896; --lo-mid2:#b5e6cf; --lo-front:#ffc85c; color-scheme:dark}
 .y2024{--acc:var(--su-acc);--tint:var(--su-tint);--sky:var(--su-sky);--sky-ink:var(--su-sky-ink);--disc:var(--su-disc);--halo:var(--su-halo);
   --earth:var(--su-earth);--earth-ink:var(--su-earth-ink);--earth-soft:var(--su-earth-soft);--earth-line:var(--su-earth-line);
   --night:var(--su-night);--night-ink:var(--su-night-ink);--night-soft:var(--su-night-soft);--glow:var(--su-glow)}
@@ -78,7 +59,7 @@
 
 /* ---------- base ---------- */
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;background:var(--ground)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.75;direction:rtl;-webkit-tap-highlight-color:transparent;position:relative;overflow-x:clip}
 .wrap{padding:0 var(--gut) 60px}
@@ -566,11 +547,10 @@ const ALL=[];
 D.forEach(Y=>Y.themes.forEach((t,ti)=>t.p.forEach(p=>{Object.assign(p,{year:Y.year,label:Y.label,tn:ti+1,theme:t.name,id:`y${Y.year}-${p.n}`});ALL.push(p)})));
 const byId=id=>ALL.find(p=>p.id===id);
 let year=D[0].year, showEn=store.get('pearls-en',false), kept=new Set(store.get('pearls-kept',[])), mode={kind:'themes'};
-let look=store.get('look','auto');let tsize=store.get('tsize','m');
+// Retire any dark/automatic appearance saved by an older version.
+store.set('look','light');
+let tsize=store.get('tsize','m');
 const applyTs=()=>{const r=document.documentElement;r.classList.toggle('ts-l',tsize==='l');r.classList.toggle('ts-xl',tsize==='xl')};applyTs();
-function applyLook(){const r=document.documentElement;if(look==='auto')r.removeAttribute('data-theme');else r.dataset.theme=look;
-  const m=document.querySelectorAll('meta[name="theme-color"]');const c=getComputedStyle(document.body).backgroundColor;m.forEach(x=>x.setAttribute('content',look==='auto'?((x.getAttribute('media')||'').includes('dark')?'#0d1220':'#f3f3ef'):c))}
-applyLook();
 const isPhone=()=>matchMedia('(max-width:720px)').matches;
 
 /* ---------- scroll lock (iOS-safe) ---------- */
@@ -711,9 +691,8 @@ addEventListener('scroll',()=>{cancelAnimationFrame(onScroll.r);onScroll.r=reque
 function openSheet(){
   $('sheetBody').innerHTML=`
     <form class="pearl-search" id="pearlSearch" role="search"><label for="pearlQuery">איזו פנינה מחפשים?</label><div class="search-row"><input id="pearlQuery" name="query" type="search" maxlength="100" placeholder="למשל: פחד, חמלה, מנוחה" value="${esc(mode.kind==='search'?mode.query:'')}"><button type="submit">חיפוש</button></div></form>
-    <details class="read-options"><summary>גודל טקסט, מראה ושפה</summary>
+    <details class="read-options"><summary>גודל טקסט ושפה</summary>
     <div class="opt"><span>גודל טקסט</span><div class="seg" role="group" aria-label="גודל טקסט"><button data-ts="m" aria-label="גודל טקסט רגיל" aria-pressed="${tsize==='m'}">רגיל</button><button data-ts="l" aria-label="גודל טקסט גדול" aria-pressed="${tsize==='l'}">גדול</button><button data-ts="xl" aria-label="גודל טקסט גדול מאוד" aria-pressed="${tsize==='xl'}">גדול מאוד</button></div></div>
-    <div class="opt"><span>מראה</span><div class="seg" role="group" aria-label="מראה"><button data-look="auto" aria-pressed="${look==='auto'}">אוטומטי</button><button data-look="light" aria-pressed="${look==='light'}">בהיר</button><button data-look="dark" aria-pressed="${look==='dark'}">כהה</button></div></div>
     <div class="opt"><span>שפה</span><div class="seg" role="group" aria-label="שפה"><button data-lang="he" aria-pressed="${!showEn}">עברית</button><button data-lang="both" aria-pressed="${showEn}">+ אנגלית</button></div></div>
     </details>
     <h4>מה פוגש אותך היום?</h4><div class="tlist moods">${TAGS.map(t=>`<button data-tag="${esc(t)}" aria-pressed="${mode.kind==='tag'&&mode.tag===t}">${esc(t)}</button>`).join('')}</div>
@@ -833,7 +812,6 @@ document.addEventListener('click',e=>{
   if('read' in d){let L=currentList();if(!L.length)L=ALL;const pos=store.get('pearls-pos',null);openReader(L.some(p=>p.id===pos)?pos:L[0].id,L);return}
   if('random' in d){const L=currentList().length?currentList():ALL;openReader(L[Math.floor(Math.random()*L.length)].id,L);return}
   if(d.ts){tsize=d.ts;store.set('tsize',tsize);applyTs();document.querySelectorAll('[data-ts]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.ts===tsize));return}
-  if(d.look){look=d.look;store.set('look',look);applyLook();document.querySelectorAll('[data-look]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.look===look));if(typeof sizeSky==='function')sizeSky();return}
   if(d.lang){showEn=d.lang==='both';store.set('pearls-en',showEn);document.querySelectorAll('.en').forEach(x=>x.hidden=!showEn);
     document.querySelectorAll('[data-lang]').forEach(x=>x.setAttribute('aria-pressed',(x.dataset.lang==='both')===showEn));return}
   if(d.year){closeSheet();mode={kind:'themes'};if(location.hash!==`#y${d.year}`){location.hash=`y${d.year}`}else{year=d.year;renderHeader();renderMain()}window.scrollTo(0,0);return}
