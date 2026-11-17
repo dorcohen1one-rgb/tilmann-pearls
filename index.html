@@ -1,7 +1,7 @@
 <!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="only light">
-<meta name="display-build" content="e3c347e5b6">
+<meta name="display-build" content="b7611adaf6">
 <meta name="theme-color" content="#f3f3ef">
 <meta name="description" content="92 פנינים מתורותיו של לאמה טילמן לונדרופ בריטריטי המהאמודרה של תובנה בישראל, 2024–2025, בתרגום לעברית ומקושרות להקלטות המקוריות.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%23e8b247%27/%3E%3Cpath d=%27M16 0h9a7 7 0 0 1 7 7v18a7 7 0 0 1-7 7h-9z%27 fill=%27%231f5a49%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%277%27 fill=%27%23fff9e6%27/%3E%3C/svg%3E">
@@ -68,7 +68,10 @@
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%;background:var(--ground)}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .rv{opacity:1!important;transform:none!important}
+}
 body{color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.75;direction:rtl;-webkit-tap-highlight-color:transparent;position:relative;overflow-x:clip;
   /* pearl daylight: the two seasons' light meeting around the cover pearl; scrolls with the page (no fixed layer) */
   background:radial-gradient(420px 300px at 50% 70px,#fffefa 0,rgba(255,254,250,0) 72%) no-repeat,
@@ -960,6 +963,17 @@ async function shareImage(p){
 }
 $('vListen').onclick=()=>{const p=veilP();if(playing&&playing.id===p.id&&!$('player').hidden){audio.paused?audio.play().catch(()=>{}):audio.pause()}else listen(p)};
 document.addEventListener('keydown',e=>{
+  if(e.key==='Tab'){
+    const dialog=!$('imgView').hidden?$('imgView'):!$('sheet').hidden?$('sheet'):!$('veil').hidden?$('veil'):null;
+    if(dialog){
+      const roots=[dialog];if(dialog===$('veil')&&!$('player').hidden)roots.push($('player'));
+      const items=[...document.querySelectorAll('button:not(:disabled),a[href],input:not(:disabled),select:not(:disabled),textarea:not(:disabled),summary,[tabindex]:not([tabindex="-1"])')]
+        .filter(el=>roots.some(root=>root.contains(el))&&!el.closest('[inert]')&&el.getClientRects().length);
+      const first=items[0],last=items[items.length-1],active=document.activeElement;
+      if(first&&(!items.includes(active)||(e.shiftKey?active===first:active===last))){e.preventDefault();(e.shiftKey?last:first).focus({preventScroll:true})}
+    }
+    return;
+  }
   if(e.key==='Escape'){e.preventDefault();if(!$('imgView').hidden)closeImage();else if(!$('veil').hidden)closeReader();else closeSheet();return}
   if(!$('imgView').hidden)return;
   if(!$('veil').hidden){if(e.key==='ArrowLeft')$('vNext').click();if(e.key==='ArrowRight')$('vPrev').click()}});
