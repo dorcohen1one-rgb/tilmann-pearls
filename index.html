@@ -1,7 +1,7 @@
 <!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="only light">
-<meta name="display-build" content="612cc50e51">
+<meta name="display-build" content="e4945e7c0b">
 <meta name="theme-color" content="#f3f3ef">
 <meta name="description" content="92 פנינים מתורותיו של לאמה טילמן לונדרופ בריטריטי המהאמודרה של תובנה בישראל, 2024–2025, בתרגום לעברית ומקושרות להקלטות המקוריות.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%23e8b247%27/%3E%3Cpath d=%27M16 0h9a7 7 0 0 1 7 7v18a7 7 0 0 1-7 7h-9z%27 fill=%27%231f5a49%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%277%27 fill=%27%23fff9e6%27/%3E%3C/svg%3E">
@@ -283,6 +283,48 @@ section.theme{padding-top:76px;scroll-margin-top:52px}
 .pearl.flash{animation:flash 2.4s ease-out}
 @keyframes flash{0%{background:var(--sheet);box-shadow:0 0 0 14px var(--sheet)}100%{background:transparent;box-shadow:0 0 0 14px transparent}}
 
+/* ---------- water interludes: one water in two seasons ----------
+   Two decorative bands, one per retreat, opening the theme whose title is an image of water, above its source pearl
+   (WATER in the script): y2024-7, a circle on water that cannot close; y2025-20, a salt crystal merging with water.
+   Flat fields and one disc, no new colours; sky and shore are the chapter ground, so it is no new chapter opening.
+   The base state is the finished picture; motion runs once, only when welcome (reveal()). */
+.interlude{position:relative;display:block;height:clamp(188px,52vw,240px);margin:0 calc(-1*var(--gut)) 34px;overflow:hidden;pointer-events:none;background:var(--tint)}
+.y2024 .interlude{--w1:#efd391;--w2:#ddab4e}
+.y2025 .interlude{--w1:var(--sp-ridge);--w2:var(--sp-ridge2)}
+.interlude>span{position:absolute;display:block}
+.il-water{left:0;right:0;top:36%;bottom:0;background:linear-gradient(to bottom,var(--w1),var(--w2))}
+.il-shore{left:-25%;width:150%;height:30%;bottom:-21%;border-radius:50%;background:var(--tint)}
+.il-sun{border-radius:50%}
+.water-ring .il-sun{width:26px;height:26px;left:12%;top:12%;background:var(--su-sky);box-shadow:0 0 0 7px rgba(232,178,71,.16),0 0 0 16px rgba(232,178,71,.08)}
+.water-salt .il-sun{width:64px;height:64px;left:8%;top:calc(36% - 32px);background:var(--sp-disc);box-shadow:0 0 0 12px var(--sp-halo)}
+/* the sun's broken light on the water, under the disc */
+.il-glint{top:calc(36% + 9px);height:7px;border-radius:50%;opacity:.6}
+.water-ring .il-glint{left:calc(12% - 6px);width:38px;background:#fff9e6;box-shadow:6px 12px 0 -2px #fff9e6}
+.water-salt .il-glint{left:calc(8% - 4px);width:72px;background:#fbf3d0;box-shadow:10px 13px 0 -2px #fbf3d0}
+.il-mark{position:absolute;left:50%;top:66%;width:62vw;height:auto;translate:-50% -50%;overflow:visible}
+/* the circle: one open arc; a fixed angular fade makes the line behind the moving finger dissolve */
+/* stroke in viewBox units (non-scaling-stroke would break the pathLength dash once the mark scales): about 2px everywhere */
+.il-ring{fill:none;stroke:var(--su-earth);stroke-width:2.1;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0}
+.water-ring .il-mark{-webkit-mask-image:conic-gradient(from 263deg at 50% 50%,transparent 0deg,rgba(0,0,0,.12) 50deg,#000 210deg);mask-image:conic-gradient(from 263deg at 50% 50%,transparent 0deg,rgba(0,0,0,.12) 50deg,#000 210deg)}
+/* the salt: a small crystal already sinking, its salt spreading in rings */
+.il-rings ellipse{fill:none;stroke:var(--sp-earth);stroke-width:1.25;vector-effect:non-scaling-stroke;transform-box:fill-box;transform-origin:50% 50%}
+.il-cube{opacity:.58;transform:translateY(3px);transform-box:fill-box;transform-origin:50% 100%}
+.il-cube path{stroke:var(--sp-earth);stroke-width:.9;stroke-opacity:.7;stroke-linejoin:round}
+@keyframes il-draw{from{stroke-dashoffset:1}}
+@keyframes il-spread{from{opacity:0;transform:scale(.5)}}
+@keyframes il-melt{from{opacity:1;transform:none}}
+@media (prefers-reduced-motion:no-preference){
+  .il-wait:not(.il-go) .il-ring{stroke-dashoffset:1}
+  .il-wait:not(.il-go) .il-rings ellipse{opacity:0}
+  .il-wait:not(.il-go) .il-cube{opacity:1;transform:none}
+  .il-go .il-ring{animation:il-draw 3.4s cubic-bezier(.45,.05,.35,1) .3s backwards}
+  .il-go .il-cube{animation:il-melt 5s var(--ease) .3s backwards}
+  .il-go .il-rings ellipse{animation:il-spread 4.2s var(--ease) backwards}
+  .il-go .il-rings ellipse:nth-child(1){animation-delay:.6s}
+  .il-go .il-rings ellipse:nth-child(2){animation-delay:1.1s}
+  .il-go .il-rings ellipse:nth-child(3){animation-delay:1.6s}
+}
+
 /* ---------- footer: a colophon ---------- */
 footer{margin-top:56px;text-align:center;font:400 14px/23px var(--ui);color:var(--muted)}
 footer .orb{width:34px;height:34px;margin:0 auto 14px;box-shadow:0 10px 16px -10px var(--orb-shadow),inset 0 -4px 8px -5px rgba(40,50,45,.3)}
@@ -557,6 +599,12 @@ body.reading.playing .vnav{padding-bottom:12px}
   :root:not(.ts-l):not(.ts-xl) .t-pearls>.pearl.lead.len-short blockquote{font-size:26px;line-height:42px}
   .t-pearls>.pearl.lead .p-title{font-size:27px;line-height:34px}
   .tn{font-size:31px;line-height:38px}.t-num{font-size:76px}
+  .interlude{height:280px;margin-bottom:42px}
+  .water-ring .il-sun{width:40px;height:40px;left:calc(var(--gut) + 20px);box-shadow:0 0 0 10px rgba(232,178,71,.16),0 0 0 24px rgba(232,178,71,.08)}
+  .water-ring .il-glint{left:calc(var(--gut) + 12px);width:56px;height:9px}
+  .water-salt .il-sun{width:110px;height:110px;left:var(--gut);top:calc(36% - 55px);box-shadow:0 0 0 18px var(--sp-halo)}
+  .water-salt .il-glint{left:calc(var(--gut) + 10px);width:96px;height:9px}
+  .il-mark{width:400px}.il-ring{stroke-width:1.3}
   /* away from the thumb the topics open as a centred, quiet panel instead of a sheet glued to the bottom edge */
   .sheet{top:50%;bottom:auto;left:50%;right:auto;width:min(560px,calc(100% - 48px));max-height:min(84vh,780px);max-height:min(84dvh,780px);
     translate:-50% -50%;border-radius:24px;padding-bottom:22px;box-shadow:0 30px 80px -30px rgba(18,22,20,.55);animation:pop .22s var(--ease)}
@@ -613,6 +661,13 @@ body.reading.playing .vnav{padding-bottom:12px}
   .theme-intro{margin-top:14px;font-size:16.5px;line-height:27px}
   .t-pearls{max-width:720px}
   .t-pearls>.pearl:first-child{margin-top:0;padding-top:12px}
+  /* the band spans the whole spread; its circle sits over the reading column (centre = 50% - (260px + 72px)/2) */
+  .interlude{grid-column:1/-1;height:320px;margin-bottom:56px}
+  .water-ring .il-sun{width:56px;height:56px;left:calc(var(--gut) + 40px);top:11%;box-shadow:0 0 0 12px rgba(232,178,71,.16),0 0 0 28px rgba(232,178,71,.08)}
+  .water-ring .il-glint{left:calc(var(--gut) + 28px);width:80px}
+  .water-salt .il-sun{width:150px;height:150px;top:calc(36% - 75px);box-shadow:0 0 0 24px var(--sp-halo)}
+  .water-salt .il-glint{width:130px}
+  .il-mark{left:calc(50% - 166px);width:520px}.il-ring{stroke-width:1}
   .topbar{display:none}
   /* filtered and saved lists keep one centred measure */
   #banner,.saved-tools,.list,.empty{max-width:760px;margin-inline:auto}
@@ -855,6 +910,14 @@ function pearlHTML(p,withYear,lead){
       <button class="act" data-share="${p.id}">${icon('share')}<span>שיתוף</span></button>
     </div></article>`;
 }
+// water interludes (decorative, see CSS): keyed by the pearl each stands above; a missing key renders nothing
+const WATER={'y2024-7':'ring','y2025-20':'salt'};
+const IL_MARK={
+  // an open arc of the ellipse (cx 120, cy 30, rx 112, ry 22) from 150° to 480°: the circle never closes
+  ring:'<path class="il-ring" pathLength="1" d="M23 41A112 22 0 1 1 64 49.05"/>',
+  salt:'<g class="il-rings"><ellipse cx="120" cy="33" rx="34" ry="7" opacity=".34"/><ellipse cx="120" cy="33" rx="62" ry="12.5" opacity=".2"/><ellipse cx="120" cy="33" rx="94" ry="19" opacity=".11"/></g>'+
+    '<g class="il-cube"><path d="M120 15 129 19.5 120 24 111 19.5Z" fill="#fffefa"/><path d="M111 19.5 120 24 120 34 111 29.5Z" fill="#eef5ee"/><path d="M120 24 129 19.5 129 29.5 120 34Z" fill="#d9e9dd"/></g>'};
+const interludeHTML=k=>`<div class="interlude water-${k}" aria-hidden="true"><span class="il-sun"></span><span class="il-water"></span><span class="il-glint"></span><svg class="il-mark" viewBox="0 0 240 60" focusable="false">${IL_MARK[k]}</svg><span class="il-shore"></span></div>`;
 function renderHeader(){
   const Y=D.find(x=>x.year===year);
   const h=Y.hero;
@@ -893,7 +956,7 @@ function renderMain(){
         <div class="ch-about"><p class="ch-intro">${esc(Y.intro||'')}</p>
           <ul class="ch-facts"><li><b>${Y.days}</b>ימי ריטריט</li><li><b>${Y.talks}</b>הקלטות</li><li><b>${yn(Y)}</b>פנינים</li></ul>
           <nav class="ch-toc desk" aria-label="הנושאים של ${esc(Y.label)}">${Y.themes.map((t,i)=>`<button data-goto="${Y.year}-${t.p[0].n}"><span class="num">${pad2(i+1)}</span>${esc(t.name)}<span class="count">${t.p.length}</span></button>`).join('')}</nav>
-        </div></div>`+Y.themes.map((t,i)=>`<section class="theme" data-theme="${esc(t.name)}" data-yl="${esc(Y.label)}" data-year="${Y.year}">
+        </div></div>`+Y.themes.map((t,i)=>`<section class="theme" data-theme="${esc(t.name)}" data-yl="${esc(Y.label)}" data-year="${Y.year}">${WATER[t.p[0].id]?interludeHTML(WATER[t.p[0].id]):''}
       <div class="t-side"><div class="theme-head"><span class="t-num" aria-hidden="true">${pad2(i+1)}</span><h3 class="tn">${esc(t.name)}</h3></div>
       <p class="theme-intro">${esc(t.intro)}</p><span class="t-count">${countP(t.p.length)}</span></div><div class="t-pearls">${t.p.map((p,i)=>pearlHTML(p,false,i===0)).join('')}</div></section>`).join('')+`</section>`}).join('');
   } else {
@@ -913,6 +976,10 @@ function reveal(){
   if(!reveal.io)reveal.io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');reveal.io.unobserve(e.target)}}),{rootMargin:'0px 0px -6% 0px'});
   document.querySelectorAll('.hero-q,.theme-head').forEach(el=>{if(el.classList.contains('rv'))return;
     if(el.getBoundingClientRect().top>innerHeight){el.classList.add('rv');reveal.io.observe(el)}});
+  // water interludes: drawn once, when most of the band is in view (the band itself never fades)
+  if(!reveal.iw)reveal.iw=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('il-go');reveal.iw.unobserve(e.target)}}),{threshold:.55});
+  document.querySelectorAll('.interlude').forEach(el=>{if(el.classList.contains('il-wait'))return;
+    if(el.getBoundingClientRect().top>innerHeight){el.classList.add('il-wait');reveal.iw.observe(el)}});
 }
 function setMode(m){mode=m;renderMain();closeSheet();const el=$('banner').firstChild||$('main');window.scrollTo({top:el.getBoundingClientRect().top+scrollY-20})}
 
@@ -945,9 +1012,10 @@ function openSheet(){
   if($('sheet').hidden){openSheet.from=document.activeElement;$('scrim').hidden=false;$('sheet').hidden=false;lock();pushModal('sheet')}
   $('sheet').scrollTop=0;$('sheetX').focus({preventScroll:true});
 }
-let ignorePop=0;const pushModal=k=>{try{history.pushState({modal:k},'',location.href)}catch(e){}};const isModal=k=>{try{return history.state&&history.state.modal===k}catch(e){return false}};
+let ignorePop=0,pendingGoto=null;const pushModal=k=>{try{history.pushState({modal:k},'',location.href)}catch(e){}};const isModal=k=>{try{return history.state&&history.state.modal===k}catch(e){return false}};
 function _closeSheet(){if($('sheet').hidden)return;$('scrim').hidden=true;$('sheet').hidden=true;unlock();const f=openSheet.from;if(f&&f.isConnected&&$('veil').hidden)f.focus({preventScroll:true})}
 function closeSheet(){if($('sheet').hidden)return;_closeSheet();if(isModal('sheet')){ignorePop++;history.back()}}
+function scrollGoto(id){const el=$(id),s=el&&el.closest('section');if(s)window.scrollTo({top:s.getBoundingClientRect().top+scrollY-30})}
 $('scrim').onclick=closeSheet;$('tabBrowse').onclick=openSheet;$('sheetX').onclick=closeSheet;
 document.addEventListener('submit',e=>{if(e.target.id!=='pearlSearch')return;e.preventDefault();const query=$('pearlQuery').value.trim().slice(0,100);if(query)setMode({kind:'search',query});else $('pearlQuery').focus()});
 
@@ -988,7 +1056,7 @@ function showReader(){
 function _closeReader(){if($('veil').hidden)return;_closeImage();$('veil').hidden=true;document.body.classList.remove('reading');unlock();
   if(lastFocus&&lastFocus.isConnected)lastFocus.focus({preventScroll:true})}
 function closeReader(){if($('veil').hidden)return;_closeReader();if(isModal('reader')){ignorePop++;history.back()}}
-addEventListener('popstate',()=>{if(ignorePop>0){ignorePop--;return}if(!$('imgView').hidden){_closeImage();return}if(!$('veil').hidden){_closeReader();return}if(!$('sheet').hidden){_closeSheet()}});
+addEventListener('popstate',()=>{if(ignorePop>0){ignorePop--;if(pendingGoto){const id=pendingGoto;pendingGoto=null;requestAnimationFrame(()=>requestAnimationFrame(()=>scrollGoto(id)))}return}if(!$('imgView').hidden){_closeImage();return}if(!$('veil').hidden){_closeReader();return}if(!$('sheet').hidden){_closeSheet()}});
 $('vClose').onclick=closeReader;
 $('vNext').onclick=()=>{if(vIdx<vList.length-1){vIdx++;showReader()}};
 $('vPrev').onclick=()=>{if(vIdx>0){vIdx--;showReader()}};
@@ -1079,7 +1147,7 @@ document.addEventListener('click',e=>{
   if(d.lang){showEn=d.lang==='both';store.set('pearls-en',showEn);document.querySelectorAll('.en').forEach(x=>x.hidden=!showEn);
     document.querySelectorAll('[data-lang]').forEach(x=>x.setAttribute('aria-pressed',(x.dataset.lang==='both')===showEn));return}
   if(d.chap){const el=$('ch'+d.chap);if(el)window.scrollTo({top:el.getBoundingClientRect().top+scrollY,behavior:calm()?'auto':'smooth'});return}
-  if(d.goto){closeSheet();if(mode.kind!=='themes'){mode={kind:'themes'};renderMain()}const el=$('y'+d.goto);if(el){const s=el.closest('section');window.scrollTo({top:s.getBoundingClientRect().top+scrollY-30})}return}
+  if(d.goto){if(mode.kind!=='themes'){mode={kind:'themes'};renderMain()}const id='y'+d.goto,waitForHistory=!$('sheet').hidden&&isModal('sheet');if(waitForHistory)pendingGoto=id;closeSheet();if(!waitForHistory)scrollGoto(id);return}
   if('talks' in d){closeSheet();location.hash='talks';return}
   if(b.id==='sheetClose'){closeSheet();return}
   if('sheet' in d){openSheet();return}
